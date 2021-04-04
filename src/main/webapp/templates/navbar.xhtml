@@ -1,0 +1,25 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xml:lang="en"
+      lang="en"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<ui:composition>
+    <h:form>
+        <p:growl id="messages"/>
+        <p:menubar>
+            <p:menuitem value="[HOME ikona]"/>
+            <p:menuitem value="Kurti skelbimą"/>
+            <p:menuitem value="DUK"/>
+            <p:menuitem value="Mano profilis"/>
+            <f:facet name="options">
+                <p:inputText style="margin-right:10px"
+                             placeholder="Ieškoti skelbimų"/>
+                <p:commandButton type="button"
+                                 value="Atsijungti"/>
+            </f:facet>
+        </p:menubar>
+    </h:form>
+</ui:composition>
+</html>
