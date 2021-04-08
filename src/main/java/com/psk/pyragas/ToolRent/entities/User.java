@@ -1,11 +1,15 @@
 package com.psk.pyragas.ToolRent.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import lombok.Getter;
+import lombok.Setter;
+
+import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-public class ProfileData {
+@Getter
+@Setter
+public class User implements Serializable {
     @Id
     @GeneratedValue
     private Long id;
@@ -17,4 +21,7 @@ public class ProfileData {
     public Long getId() {
         return id;
     }
+
+    @OneToOne
+    private Profile profile;
 }

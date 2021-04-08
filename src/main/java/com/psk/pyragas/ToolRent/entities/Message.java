@@ -1,11 +1,17 @@
 package com.psk.pyragas.ToolRent.entities;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.io.Serializable;
 
 @Entity
-public class Message {
+@Getter
+@Setter
+public class Message implements Serializable {
     @Id
     @GeneratedValue
     private Long id;
@@ -17,4 +23,6 @@ public class Message {
     public Long getId() {
         return id;
     }
+
+    //TODO:implement properties
 }
