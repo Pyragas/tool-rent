@@ -3,10 +3,9 @@ package com.psk.pyragas.ToolRent.entities;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Getter
@@ -16,13 +15,18 @@ public class Item implements Serializable {
     @GeneratedValue
     private Long id;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    private String location;
 
-    public Long getId() {
-        return id;
-    }
+    //TODO: think of data type for fuel, if there isi fuel property anyways
+    private String fuelLevel;
+
+    //TODO: think over naming, make enum for status
+    private String status;
 
     //TODO:implement properties
+    @ManyToOne
+    private Advertisement advertisement;
+
+    @ManyToMany(mappedBy = "order")
+    private List<Order> orders;
 }

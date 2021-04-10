@@ -3,10 +3,7 @@ package com.psk.pyragas.ToolRent.entities;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +27,6 @@ public class Chat implements Serializable {
     @ManyToMany
     private List<User> users = new ArrayList<>();
 
-    //TODO:implement properties
-
+    @OneToMany(mappedBy = "message")
+    private List<Message> messages = new ArrayList<>();
 }

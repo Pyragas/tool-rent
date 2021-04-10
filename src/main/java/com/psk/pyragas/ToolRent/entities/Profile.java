@@ -26,17 +26,26 @@ public class Profile implements Serializable {
 
     private String name;
     private String surname;
+
+    //TODO: make it safe
+    private String personalCode;
+
+    private String companyCode;
+
     private String phoneNo;
     private String email;
 
     //TODO: implement secure password
-    String password;
+    private String password;
 
-    Float rating;
+    private Float rating;
 
     @ManyToMany(mappedBy = "chat")
     private List<Chat> chats = new ArrayList<>();
 
     @OneToMany(mappedBy = "order")
     private List<Order> orders = new ArrayList<>();
+
+    @ManyToMany(mappedBy = "advertisement")
+    private List<Advertisement> advertisements = new ArrayList<>();
 }

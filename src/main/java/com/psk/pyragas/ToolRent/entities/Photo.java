@@ -7,15 +7,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
 @Entity
 @Getter
 @Setter
-public class Message implements Serializable {
+public class Photo {
     @Id
     @GeneratedValue
     private Long id;
@@ -28,13 +24,8 @@ public class Message implements Serializable {
         return id;
     }
 
-    private String text;
-
-    //TODO: decide, if it is the correct way to store image
-    private String photoUrl;
-
-    private Date timeSent;
+    private String url;
 
     @ManyToOne
-    private Chat chat;
+    private Advertisement ad;
 }
