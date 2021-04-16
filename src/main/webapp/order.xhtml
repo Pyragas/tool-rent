@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+>
+<h:head>
+    <title>ToolRent</title>
+</h:head>
+<h:body>
+    <ui:insert name="navbar">
+        <ui:include src="templates/navbar.xhtml"/>
+    </ui:insert>
+    <!--https://primefaces.github.io/primefaces/10_0_0/#/components/datepicker-->
+    <h:form id="orderForm">
+        <div>
+            <p>
+                <label for="orderDate">Pasirinkite datą: </label>
+                <p:datePicker id="orderDate"/>
+            </p>
+            <p>
+                <label for="orderTime">Pasirinkite laiką: </label>
+                <p:datePicker id="orderTime" timeOnly="true" pattern="HH:mm" mindate="09:00" maxdate="22:00"/>
+            </p>
+        </div>
+    </h:form>
+</h:body>
+</html>
