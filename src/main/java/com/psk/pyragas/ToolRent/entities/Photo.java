@@ -27,5 +27,5 @@ public class Photo {
     private String url;
 
     @ManyToOne
-    private Advertisement ad;
+    private Advertisement advertisement;
 }

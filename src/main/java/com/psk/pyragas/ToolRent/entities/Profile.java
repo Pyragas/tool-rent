@@ -40,12 +40,12 @@ public class Profile implements Serializable {
 
     private Float rating;
 
-    @OneToMany(mappedBy = "order")
+    @OneToMany(mappedBy = "profile")
     private List<Order> orders = new ArrayList<>();
 
-    @ManyToMany(mappedBy = "chat")
+    @ManyToMany(mappedBy = "profiles")
     private List<Chat> chats = new ArrayList<>();
 
-    @OneToMany(mappedBy = "advertisement")
+    @OneToMany(mappedBy = "profile")
     private List<Advertisement> ads = new ArrayList<>();
 }

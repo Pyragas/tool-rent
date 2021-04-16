@@ -27,6 +27,6 @@ public class Item implements Serializable {
     @ManyToOne
     private Advertisement advertisement;
 
-    @ManyToMany(mappedBy = "order")
+    @ManyToMany(mappedBy = "items")
     private List<Order> orders;
 }

@@ -24,7 +24,7 @@ public class Advertisement implements Serializable {
         return id;
     }
 
-    private String adText;
+    private String text;
 
     //TODO: make statuses enum
     private String status;
@@ -47,9 +47,9 @@ public class Advertisement implements Serializable {
     private Profile profile;
 
     //TODO: think over, if this is the right way to store photos
-    @OneToMany(mappedBy = "photo")
+    @OneToMany(mappedBy = "advertisement")
     private List<Photo> photos;
 
-    @OneToMany(mappedBy = "item")
+    @OneToMany(mappedBy = "advertisement")
     private List<Item> items;
 }

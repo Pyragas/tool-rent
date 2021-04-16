@@ -30,7 +30,7 @@ public class Message implements Serializable {
 
     private Date timeSent;
 
-    private String msgText;
+    private String text;
 
     //TODO: decide, if it is the correct way to store image
     private String photoUrl;

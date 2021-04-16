@@ -25,8 +25,11 @@ public class Chat implements Serializable {
     }
 
     @ManyToMany
+    private List<Profile> profiles = new ArrayList<>();
+
+    @ManyToMany
     private List<User> users = new ArrayList<>();
 
-    @OneToMany(mappedBy = "message")
+    @OneToMany(mappedBy = "chat")
     private List<Message> messages = new ArrayList<>();
 }
