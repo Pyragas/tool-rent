@@ -11,12 +11,16 @@
     <ui:insert name="navbar">
         <ui:include src="templates/navbar.xhtml"/>
     </ui:insert>
+
     <!--https://primefaces.github.io/primefaces/10_0_0/#/components/datepicker-->
+    <!--https://www.primefaces.org/showcase/ui/input/datepicker/datePicker.xhtml-->
+    <!--https://stackoverflow.com/questions/9981076/primefaces-how-to-change-the-default-icon-on-the-button-of-the-calendar-field-->
+
     <h:form id="orderForm">
         <div>
             <p>
                 <label for="orderDate">Pasirinkite datą: </label>
-                <p:datePicker id="orderDate"/>
+                <p:datePicker id="orderDate" showIcon="true"/>
             </p>
             <p>
                 <label for="orderTime">Pasirinkite laiką: </label>
