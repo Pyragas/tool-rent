@@ -32,7 +32,11 @@ public class Order implements Serializable {
 
     private String deliveryLocation;
 
-    private Date deliveryTime;
+    private Date rentTimeStart;
+
+    private Date rentTimeEnd;
+
+    private Boolean operator;
 
     @ManyToOne
     private Profile profile;
