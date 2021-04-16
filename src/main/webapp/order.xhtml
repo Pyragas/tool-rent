@@ -4,6 +4,7 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui"
 >
+
 <h:head>
     <title>ToolRent</title>
 </h:head>
@@ -12,19 +13,50 @@
         <ui:include src="templates/navbar.xhtml"/>
     </ui:insert>
 
-    <!--https://primefaces.github.io/primefaces/10_0_0/#/components/datepicker-->
-    <!--https://www.primefaces.org/showcase/ui/input/datepicker/datePicker.xhtml-->
-    <!--https://stackoverflow.com/questions/9981076/primefaces-how-to-change-the-default-icon-on-the-button-of-the-calendar-field-->
+    <script type="text/javascript">
+        PrimeFaces.locales['lt'] = {
+            closeText: 'Uždaryti',
+            prevText: 'Praeitas',
+            nextText: 'Sekantis',
+            monthNames: ['Sausis', 'Vasaris', 'Kovas', 'Balandis', 'Gegužė', 'Birželis', 'Liepa', 'Rugpjūtis', 'Rugsėjis', 'Spalis', 'Lapkritis', 'Gruodis'],
+            monthNamesShort: ['Sau', 'Vas', 'Kov', 'Bal', 'Geg', 'Bir', 'Lie', 'Rugp', 'Rugs', 'Spa', 'Lap', 'Gruo'],
+            dayNames: ['Pirmadienis', 'Antradienis', 'Trečiadienis', 'Ketvirtadienis', 'Penktadienis', 'Šeštadienis', 'Sekmadienis'],
+            dayNamesShort: ['Pir', 'Ant', 'Tre', 'Ket', 'Pen', 'Šeš', 'Sek'],
+            dayNamesMin: ['P', 'A', 'T', 'K', 'P', 'Š', 'S'],
+            weekHeader: 'Savaitė',
+            firstDay: 1,
+            isRTL: false,
+            showMonthAfterYear: true,
+            yearSuffix: '',
+            timeOnlyTitle: 'Valandos',
+            timeText: 'Laikas',
+            hourText: 'Valanda',
+            minuteText: 'Minutė',
+            secondText: 'Sekundė',
+            currentText: 'Dabartinė data',
+            ampm: false,
+            month: 'Mėnesis',
+            week: 'Savaitė',
+            day: 'Diena',
+            allDayText: 'Visą dieną',
+            today: 'Šiandien',
+            clear: 'Išvalyti'
+        };
+    </script>
+
+    <!--https://primefaces.github.io/primefaces/10_0_0/#/components/datepicker
+        https://www.primefaces.org/showcase/ui/input/datepicker/datePicker.xhtml
+        https://stackoverflow.com/questions/9981076/primefaces-how-to-change-the-default-icon-on-the-button-of-the-calendar-field-->
 
     <h:form id="orderForm">
         <div>
             <p>
                 <label for="orderDate">Pasirinkite datą: </label>
-                <p:datePicker id="orderDate" showIcon="true"/>
+                <p:datePicker id="orderDate" showIcon="true" locale="lt"/>
             </p>
             <p>
                 <label for="orderTime">Pasirinkite laiką: </label>
-                <p:datePicker id="orderTime" timeOnly="true" pattern="HH:mm" mindate="09:00" maxdate="22:00"/>
+                <p:datePicker id="orderTime" timeOnly="true" pattern="HH:mm" mindate="09:00" maxdate="22:00" locale="lt"/>
             </p>
         </div>
     </h:form>
