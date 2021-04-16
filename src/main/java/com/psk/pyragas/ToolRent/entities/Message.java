@@ -3,10 +3,7 @@ package com.psk.pyragas.ToolRent.entities;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
@@ -15,6 +12,9 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
+@NamedQueries({
+        @NamedQuery(name = "Message.findAll", query = "select m from Message as m")
+})
 public class Message implements Serializable {
     @Id
     @GeneratedValue

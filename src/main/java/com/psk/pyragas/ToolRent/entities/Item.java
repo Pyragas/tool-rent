@@ -10,6 +10,9 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
+@NamedQueries({
+        @NamedQuery(name = "Item.findAll", query = "select i from Item as i")
+})
 public class Item implements Serializable {
     @Id
     @GeneratedValue
