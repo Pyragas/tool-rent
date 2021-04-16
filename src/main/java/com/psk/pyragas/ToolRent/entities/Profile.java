@@ -24,13 +24,13 @@ public class Profile implements Serializable {
         return id;
     }
 
-    private String name;
-    private String surname;
-
     //TODO: make it safe
     private String personalCode;
 
     private String companyCode;
+
+    private String name;
+    private String surname;
 
     private String phoneNo;
     private String email;
@@ -40,12 +40,12 @@ public class Profile implements Serializable {
 
     private Float rating;
 
-    @ManyToMany(mappedBy = "chat")
-    private List<Chat> chats = new ArrayList<>();
-
     @OneToMany(mappedBy = "order")
     private List<Order> orders = new ArrayList<>();
 
-    @ManyToMany(mappedBy = "advertisement")
-    private List<Advertisement> advertisements = new ArrayList<>();
+    @ManyToMany(mappedBy = "chat")
+    private List<Chat> chats = new ArrayList<>();
+
+    @OneToMany(mappedBy = "advertisement")
+    private List<Advertisement> ads = new ArrayList<>();
 }

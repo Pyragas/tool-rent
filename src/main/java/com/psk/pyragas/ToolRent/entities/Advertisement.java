@@ -43,6 +43,9 @@ public class Advertisement implements Serializable {
     private BigDecimal rentPrice;
     private BigDecimal operatorPrice;
 
+    @ManyToOne
+    private Profile profile;
+
     //TODO: think over, if this is the right way to store photos
     @OneToMany(mappedBy = "photo")
     private List<Photo> photos;

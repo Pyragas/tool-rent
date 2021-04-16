@@ -28,12 +28,12 @@ public class Message implements Serializable {
         return id;
     }
 
-    private String text;
+    private Date timeSent;
+
+    private String msgText;
 
     //TODO: decide, if it is the correct way to store image
     private String photoUrl;
-
-    private Date timeSent;
 
     @ManyToOne
     private Chat chat;
