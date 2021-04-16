@@ -13,7 +13,7 @@ import java.util.List;
 @Getter
 @Setter
 @NamedQueries({
-        @NamedQuery(name = "Message.findAll", query = "select m from Message as m")
+        @NamedQuery(name = "Order.findAll", query = "select o from Order as o")
 })
 public class Message implements Serializable {
     @Id
