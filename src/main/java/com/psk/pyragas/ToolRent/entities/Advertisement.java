@@ -11,6 +11,9 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
+@NamedQueries({
+        @NamedQuery(name = "Advertisement.findAll", query = "select a from Advertisement as a")
+})
 public class Advertisement implements Serializable {
     @Id
     @GeneratedValue

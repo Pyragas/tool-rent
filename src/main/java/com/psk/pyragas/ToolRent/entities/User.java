@@ -9,6 +9,9 @@ import java.io.Serializable;
 @Entity
 @Getter
 @Setter
+@NamedQueries({
+        @NamedQuery(name = "User.findAll", query = "select u from User as u")
+})
 public class User implements Serializable {
     @Id
     @GeneratedValue

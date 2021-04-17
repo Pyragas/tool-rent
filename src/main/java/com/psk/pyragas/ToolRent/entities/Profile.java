@@ -11,6 +11,9 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
+@NamedQueries({
+        @NamedQuery(name = "Profile.findAll", query = "select p from Profile as p")
+})
 public class Profile implements Serializable {
     @Id
     @GeneratedValue

@@ -11,6 +11,9 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
+@NamedQueries({
+        @NamedQuery(name = "Chat.findAll", query = "select c from Chat as c")
+})
 public class Chat implements Serializable {
     @Id
     @GeneratedValue
