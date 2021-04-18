@@ -16,6 +16,8 @@ public class ProfilesDAO {
         this.em.persist(profile);
     }
 
+    public void commit() { this.commit(); }
+
     public Profile findOne(Long id) {
         return this.em.find(Profile.class, id);
     }

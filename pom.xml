@@ -38,7 +38,18 @@
             <artifactId>h2</artifactId>
             <version>1.4.196</version>
         </dependency>
-<!--        <dependency>-->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>RELEASE</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>5.4.30.Final</version>
+        </dependency>
+        <!--<dependency>-->
 <!--            <groupId>jakarta.faces</groupId>-->
 <!--            <artifactId>jakarta.faces-api</artifactId>-->
 <!--            <version>3.0.0</version>-->
@@ -47,6 +58,7 @@
     </dependencies>
 
     <build>
+        <sourceDirectory>src/main/java</sourceDirectory>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
