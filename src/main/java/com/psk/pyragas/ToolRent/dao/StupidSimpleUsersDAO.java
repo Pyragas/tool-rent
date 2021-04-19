@@ -8,7 +8,7 @@ import javax.persistence.EntityManager;
 import java.util.List;
 
 @ApplicationScoped
-public class UsersDAO {
+public class StupidSimpleUsersDAO {
     @Inject
     private EntityManager em;
 
@@ -26,5 +26,9 @@ public class UsersDAO {
 
     public List<User> loadAll() {
         return this.em.createNamedQuery("User.findAll", User.class).getResultList();
+    }
+
+    public void setEm(EntityManager em) {
+        this.em = em;
     }
 }
