@@ -20,7 +20,7 @@ public class Resources {
     @Default
     @RequestScoped
     private EntityManager createJTAEntityManager() {
-        return emf.createEntityManager(SynchronizationType.SYNCHRONIZED);
+        return emf.createEntityManager();
     }
 
     private void closeDefaultEntityManager(@Disposes @Default EntityManager em) {

@@ -14,8 +14,6 @@ public class UsersDAO {
 
     public void persist(User user) { this.em.persist(user); }
 
-    public void commit() { this.commit(); }
-
     public User findOne(Long id) {
         return this.em.find(User.class, id);
     }

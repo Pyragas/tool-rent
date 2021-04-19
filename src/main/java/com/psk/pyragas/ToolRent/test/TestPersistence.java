@@ -19,28 +19,30 @@ public class TestPersistence {
         testLog.info("----Persistence test started----");
 
         StupidSimpleUsersDAO userDAO = new StupidSimpleUsersDAO();
-        //StupidSimpleProfilesDAO profileDAO = new StupidSimpleProfilesDAO();
+        StupidSimpleProfilesDAO profileDAO = new StupidSimpleProfilesDAO();
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("ToolRentPU");
         EntityManager em = emf.createEntityManager();
-
-        em.getTransaction().begin();
-        userDAO.setEm(em);
-        //profileDAO.setEm(em);
         try {
+            em.getTransaction().begin();
+            userDAO.setEm(em);
+            profileDAO.setEm(em);
             User johnUser = new User();
-            //Profile johnProfile = new Profile();
+            Profile johnProfile = new Profile();
             johnUser.setId(1L);
-            //johnProfile.setId(12L);
-            //johnProfile.setName("John");
-            //johnProfile.setSurname("Hamburg");
+            johnProfile.setId(1L);
+            johnProfile.setName("John");
+            johnProfile.setSurname("Hamburg");
             userDAO.persist(johnUser);
-            //profileDAO.persist(johnProfile);
-            userDAO.commit();
-            em.close();
-            //profileDAO.commit();
+            profileDAO.persist(johnProfile);
+            em.getTransaction().commit();
         }
         catch (Exception e){
             System.out.println("User Entity Persistence error: " + e.getMessage());
+            e.printStackTrace();
+        }
+        finally {
+            em.close();
+            emf.close();
         }
     }
 }
