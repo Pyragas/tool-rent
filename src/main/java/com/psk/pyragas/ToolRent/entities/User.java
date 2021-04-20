@@ -25,6 +25,6 @@ public class User implements Serializable {
         return id;
     }
 
-    //@OneToOne
-    //private Profile profile;
+    @OneToOne
+    private Profile profile;
 }
