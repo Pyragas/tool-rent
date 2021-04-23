@@ -13,8 +13,10 @@
     <label>Password : </label>
     <input type="password" name="password"/>
     <h:form>
-        <h:commandButton type="submit" value="Login" action="#{testPersistence.entityPersistence}">Login</h:commandButton>
+        <h:commandButton type="submit" value="Login" action="#{login.setUserLoggedInToTrue}"/>
+        <h:commandButton type="submit" value="Logout" action="#{login.setUserLoggedInToFalse}"/>
     </h:form>
+    <h2>User logged in state: #{login.userLoggedIn}</h2>
 </div>
 
 </h:body>
