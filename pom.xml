@@ -13,7 +13,6 @@
     <properties>
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>1.8</maven.compiler.source>
-        <junit.version>5.7.0</junit.version>
     </properties>
 
     <dependencies>
@@ -39,28 +38,10 @@
             <version>1.4.199</version>
         </dependency>
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>RELEASE</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>LATEST</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
             <version>5.4.30.Final</version>
         </dependency>
-        <!--<dependency>-->
-<!--            <groupId>jakarta.faces</groupId>-->
-<!--            <artifactId>jakarta.faces-api</artifactId>-->
-<!--            <version>3.0.0</version>-->
-<!--            <scope>provided</scope>-->
-<!--        </dependency>-->
     </dependencies>
 
     <build>

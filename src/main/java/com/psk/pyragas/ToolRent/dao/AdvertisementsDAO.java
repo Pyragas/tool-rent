@@ -12,18 +12,18 @@ public class AdvertisementsDAO {
     private EntityManager em;
 
     public void persist(Advertisement ad) {
-        this.em.persist(ad);
+        em.persist(ad);
     }
 
     public Advertisement findOne(Long id) {
-        return this.em.find(Advertisement.class, id);
+        return em.find(Advertisement.class, id);
     }
 
     public Advertisement update(Advertisement ad) {
-        return this.em.merge(ad);
+        return em.merge(ad);
     }
 
     public List<Advertisement> loadAll() {
-        return this.em.createNamedQuery("Advertisement.findAll", Advertisement.class).getResultList();
+        return em.createNamedQuery("Advertisement.findAll", Advertisement.class).getResultList();
     }
 }

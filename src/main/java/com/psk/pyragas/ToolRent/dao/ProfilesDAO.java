@@ -12,14 +12,14 @@ public class ProfilesDAO {
     @Inject
     private EntityManager em;
 
-    public void persist(Profile profile) { this.em.persist(profile); }
+    public void persist(Profile profile) { em.persist(profile); }
 
     public Profile findOne(Long id) {
-        return this.em.find(Profile.class, id);
+        return em.find(Profile.class, id);
     }
 
     public Profile update(Profile profile) {
-        return this.em.merge(profile);
+        return em.merge(profile);
     }
 
     public List<Profile> loadAll() {

@@ -13,18 +13,18 @@ public class ChatsDAO {
     private EntityManager em;
 
     public void persist(Chat chat) {
-        this.em.persist(chat);
+        em.persist(chat);
     }
 
     public Chat findOne(Long id) {
-        return this.em.find(Chat.class, id);
+        return em.find(Chat.class, id);
     }
 
     public Chat update(Chat chat) {
-        return this.em.merge(chat);
+        return em.merge(chat);
     }
 
     public List<Chat> loadAll() {
-        return this.em.createNamedQuery("Chat.findAll", Chat.class).getResultList();
+        return em.createNamedQuery("Chat.findAll", Chat.class).getResultList();
     }
 }
