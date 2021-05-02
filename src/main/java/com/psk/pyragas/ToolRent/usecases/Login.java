@@ -1,10 +1,12 @@
 package com.psk.pyragas.ToolRent.usecases;
 import lombok.Getter;
 
-import javax.enterprise.inject.Model;
+import javax.enterprise.context.SessionScoped;
+import javax.inject.Named;
 import java.io.Serializable;
 
-@Model
+@Named
+@SessionScoped
 public class Login implements Serializable {
 
     @Getter
