@@ -1,0 +1,1 @@
+branch naming: feature/[epic]-[jira_id]-[person_initials]
