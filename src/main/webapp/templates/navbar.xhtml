@@ -16,8 +16,13 @@
             <f:facet name="options">
                 <p:inputText style="margin-right:10px"
                              placeholder="Ieškoti skelbimų"/>
-                <p:commandButton type="button"
-                                 value="Atsijungti"/>
+                <p:commandButton value="Prisijungti"
+                                 ajax="False"/>
+                <p:commandButton value="Registruotis"
+                                 ajax="False"
+                                 action="registration-form?faces-redirect=true"/>
+                <!--                <p:commandButton type="button"-->
+                <!--                                 value="Atsijungti"/>-->
             </f:facet>
         </p:menubar>
     </h:form>
