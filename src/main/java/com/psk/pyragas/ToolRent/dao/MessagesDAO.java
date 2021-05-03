@@ -13,18 +13,18 @@ public class MessagesDAO {
     private EntityManager em;
 
     public void persist(Message message) {
-        this.em.persist(message);
+        em.persist(message);
     }
 
     public Message findOne(Long id) {
-        return this.em.find(Message.class, id);
+        return em.find(Message.class, id);
     }
 
     public Message update(Message message) {
-        return this.em.merge(message);
+        return em.merge(message);
     }
 
     public List<Message> loadAll() {
-        return this.em.createNamedQuery("Message.findAll", Message.class).getResultList();
+        return em.createNamedQuery("Message.findAll", Message.class).getResultList();
     }
 }

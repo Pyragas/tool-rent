@@ -13,18 +13,18 @@ public class OrdersDAO {
     private EntityManager em;
 
     public void persist(Order order) {
-        this.em.persist(order);
+        em.persist(order);
     }
 
     public Order findOne(Long id) {
-        return this.em.find(Order.class, id);
+        return em.find(Order.class, id);
     }
 
     public Order update(Order order) {
-        return this.em.merge(order);
+        return em.merge(order);
     }
 
     public List<Order> loadAll() {
-        return this.em.createNamedQuery("Order.findAll", Order.class).getResultList();
+        return em.createNamedQuery("Order.findAll", Order.class).getResultList();
     }
 }

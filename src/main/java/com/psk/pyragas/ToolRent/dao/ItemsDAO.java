@@ -13,18 +13,18 @@ public class ItemsDAO {
     private EntityManager em;
 
     public void persist(Item item) {
-        this.em.persist(item);
+        em.persist(item);
     }
 
     public Item findOne(Long id) {
-        return this.em.find(Item.class, id);
+        return em.find(Item.class, id);
     }
 
     public Item update(Item item) {
-        return this.em.merge(item);
+        return em.merge(item);
     }
 
     public List<Item> loadAll() {
-        return this.em.createNamedQuery("Item.findAll", Item.class).getResultList();
+        return em.createNamedQuery("Item.findAll", Item.class).getResultList();
     }
 }

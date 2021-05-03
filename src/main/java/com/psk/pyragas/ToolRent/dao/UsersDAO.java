@@ -12,19 +12,17 @@ public class UsersDAO {
     @Inject
     private EntityManager em;
 
-    public void persist(User user) {
-        this.em.persist(user);
-    }
+    public void persist(User user) { em.persist(user); }
 
     public User findOne(Long id) {
-        return this.em.find(User.class, id);
+        return em.find(User.class, id);
     }
 
     public User update(User user) {
-        return this.em.merge(user);
+        return em.merge(user);
     }
 
     public List<User> loadAll() {
-        return this.em.createNamedQuery("User.findAll", User.class).getResultList();
+        return em.createNamedQuery("User.findAll", User.class).getResultList();
     }
 }
