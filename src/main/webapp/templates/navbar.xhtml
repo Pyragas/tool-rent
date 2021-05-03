@@ -18,11 +18,16 @@
                              placeholder="Ieškoti skelbimų"/>
                 <p:commandButton value="Prisijungti"
                                  ajax="False"/>
+                <p:growl id="growl"
+                         sticky="true"
+                         showDetail="true"/>
                 <p:commandButton value="Registruotis"
-                                 ajax="False"
-                                 action="registration-form?faces-redirect=true"/>
-                <!--                <p:commandButton type="button"-->
-                <!--                                 value="Atsijungti"/>-->
+                                 action="#{modalDialog.openModal('registration-form')}">
+                    <p:ajax event="dialogReturn"
+                            listener="#{modalDialog.onReturnFromLevel1}"
+                            />
+                </p:commandButton>
+
             </f:facet>
         </p:menubar>
     </h:form>
