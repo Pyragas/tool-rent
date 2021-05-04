@@ -35,14 +35,15 @@ public class NewAdvertisement {
     public String submitAdvertisement() {
 
         //TODO: remove mocked user and use real user
-        System.out.println("Submitting advertisement");
-        Profile profile = new Profile();
-        profile.setName("mock");
-        this.profilesDAO.persist(profile);
-        this.advertisementToCreate.setProfile(profile);
-        this.advertisementsDAO.persist(this.advertisementToCreate);
-
-        return "addNewItem.xhtml?faces-redirect=true&advertisementId=" + this.advertisementToCreate.getId();
+//        System.out.println("Submitting advertisement");
+//        Profile profile = new Profile();
+////        profile.setName("mock");
+//        this.profilesDAO.persist(profile);
+//        this.advertisementToCreate.setProfile(profile);
+//        this.advertisementsDAO.persist(this.advertisementToCreate);
+//
+//        return "addNewItem.xhtml?faces-redirect=true&advertisementId=" + this.advertisementToCreate.getId();
+        return "addNewItem";
     }
 
 
