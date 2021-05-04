@@ -17,6 +17,11 @@ public class ModalDialog {
     public void openModal(String contentView) {
         Map<String, Object> options = new HashMap<>();
         options.put("modal", true);
+        options.put("draggable", false);
+        options.put("resizable", false);
+        options.put("fitViewport", true);
+        options.put("contentHeight", "auto");
+        options.put("dynamic", true);
         PrimeFaces.current().dialog().openDynamic(contentView, options, null);
     }
 

@@ -22,12 +22,13 @@
                         <p:outputLabel for="@next"
                                        value="Asmuo"/>
                         <p:selectOneRadio id="console"
-                                          value="#{registration.isLegalPerson}">
+                                          value="#{registration.isLegalPerson}"
+                        >
                             <f:selectItem itemLabel="Fizinis"
                                           itemValue="#{false}"/>
                             <f:selectItem itemLabel="Juridinis"
                                           itemValue="#{true}"/>
-                            <f:ajax render="results"/>
+                            <f:ajax render="results" />
                         </p:selectOneRadio>
                     </div>
                 </div>
@@ -42,25 +43,25 @@
                             </div>
                             <p:outputLabel for="company-code-field"
                                            value="Įmonės kodas"/>
-                            <p:inputText id="company-code-field"/>
+                            <p:inputText id="company-code-field" value="#{registration.profileToCreate.companyCode}"/>
                         </div>
                     </h:panelGroup>
                     <h:panelGroup rendered="#{registration.isLegalPerson == false}">
                         <div class="p-field">
                             <p:outputLabel for="name-field"
                                            value="Vardas"/>
-                            <p:inputText id="name-field"/>
+                            <p:inputText id="name-field" value="#{registration.profileToCreate.name}"/>
                         </div>
                         <div class="p-field">
                             <p:outputLabel for="surname-field"
                                            value="Pavardė"/>
-                            <p:inputText id="surname-field"/>
+                            <p:inputText id="surname-field" value="#{registration.profileToCreate.surname}"/>
                         </div>
 
                         <div class="p-field">
                             <p:outputLabel for="personal-code-field"
                                            value="Asmens kodas"/>
-                            <p:inputText id="personal-code-field"/>
+                            <p:inputText id="personal-code-field" value="#{registration.profileToCreate.personalCode}"/>
                         </div>
                     </h:panelGroup>
                     <h:panelGroup rendered="#{registration.isLegalPerson != null}">
