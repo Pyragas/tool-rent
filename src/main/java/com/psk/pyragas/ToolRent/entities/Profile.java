@@ -14,6 +14,9 @@ import java.util.List;
 @NamedQueries({
         @NamedQuery(name = "Profile.findAll", query = "select p from Profile as p")
 })
+@Inheritance( strategy = InheritanceType.SINGLE_TABLE )
+@DiscriminatorColumn(name="customer_type",
+        discriminatorType = DiscriminatorType.INTEGER)
 public class Profile implements Serializable {
     @Id
     @GeneratedValue
@@ -26,14 +29,6 @@ public class Profile implements Serializable {
     public Long getId() {
         return id;
     }
-
-    //TODO: make it safe
-    private String personalCode;
-
-    private String companyCode;
-
-    private String name;
-    private String surname;
 
     private String phoneNo;
     private String email;
