@@ -1,33 +1,23 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
+<?xml version='1.0' encoding='UTF-8' ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui">
+
 <h:head>
     <title>Užpildykite formą registracijai</title>
-    <!--    <h:outputStylesheet library="css"-->
-    <!--                        name="style.css"/>-->
+    <!--    <h:outputStylesheet library="css" name="style.css"/>-->
 </h:head>
+
 <h:body>
-
     <h:form>
-
         <div class="card">
-
             <div class="ui-fluid">
 
                 <div class="ui-fluid p-formgrid p-grid">
-                    <div class="p-field p-col-12 p-md-4">
-                        <p:outputLabel for="@next"
-                                       value="Asmuo"/>
-                        <p:selectOneRadio id="console"
-                                          value="#{registration.isLegalPerson}"
-                        >
-                            <f:selectItem itemLabel="Fizinis"
-                                          itemValue="#{false}"/>
-                            <f:selectItem itemLabel="Juridinis"
-                                          itemValue="#{true}"/>
+                    <div class="p-field p-col-12 p-md-4"><p:outputLabel for="@next" value="Asmuo" />
+                        <p:selectOneRadio id="console" value="#{registration.isLegalPerson}">
+                            <f:selectItem itemLabel="Fizinis" itemValue="#{false}" />
+                            <f:selectItem itemLabel="Juridinis" itemValue="#{true}" />
                             <f:ajax render="results" />
                         </p:selectOneRadio>
                     </div>
@@ -36,115 +26,70 @@
                 <h:panelGroup id="results">
                     <h:panelGroup rendered="#{registration.isLegalPerson == true}">
                         <div class="p-field">
-                            <div class="p-field">
-                                <p:outputLabel for="name-field"
-                                               value="Pavadinimas"/>
-                                <p:inputText id="company-name-field"/>
+                            <div class="p-field"><p:outputLabel for="name-field" value="Pavadinimas" />
+                                <p:inputText id="company-name-field" value="#{registration.legalPersonToCreate.name}"
+                                             required="true" />
                             </div>
-                            <p:outputLabel for="company-code-field"
-                                           value="Įmonės kodas"/>
-                            <p:inputText id="company-code-field" value="#{registration.profileToCreate.companyCode}"/>
+                            <p:outputLabel for="company-code-field" value="Įmonės kodas" />
+                            <p:inputText id="company-code-field" value="#{registration.legalPersonToCreate.companyCode}"
+                                         required="ture" />
                         </div>
-                    </h:panelGroup>
-                    <h:panelGroup rendered="#{registration.isLegalPerson == false}">
-                        <div class="p-field">
-                            <p:outputLabel for="name-field"
-                                           value="Vardas"/>
-                            <p:inputText id="name-field" value="#{registration.profileToCreate.name}"/>
-                        </div>
-                        <div class="p-field">
-                            <p:outputLabel for="surname-field"
-                                           value="Pavardė"/>
-                            <p:inputText id="surname-field" value="#{registration.profileToCreate.surname}"/>
-                        </div>
+                    </h:panelGroup> <h:panelGroup rendered="#{registration.isLegalPerson == false}">
 
-                        <div class="p-field">
-                            <p:outputLabel for="personal-code-field"
-                                           value="Asmens kodas"/>
-                            <p:inputText id="personal-code-field" value="#{registration.profileToCreate.personalCode}"/>
-                        </div>
-                    </h:panelGroup>
-                    <h:panelGroup rendered="#{registration.isLegalPerson != null}">
-                        <div class="p-field">
-                            <p:outputLabel for="phone-no-field"
-                                           value="Telefono numeris"/>
-                            <p:inputText id="phone-no-field"/>
-                        </div>
-                        <div class="p-field">
-                            <p:outputLabel for="email-field"
-                                           value="Elektroninis paštas"/>
-                            <p:inputText id="email-field"/>
-                        </div>
-                        <div class="p-field p-grid">
-                            <p:outputLabel for="pwd1"
-                                           styleClass="p-col-fixed"
-                                           style="width:100px"
-                                           value="Slaptažodis"/>
-                            <div class="p-col">
-                                <p:password id="pwd1"
-                                            match="pwd2"
-                                            required="true"/>
-                            </div>
-                        </div>
-                        <div class="p-field p-grid">
-                            <p:outputLabel for="pwd2"
-                                           styleClass="p-col-fixed"
-                                           style="width:100px"
-                                           value="Pakartokite slaptažodį"/>
-                            <div class="p-col">
-                                <p:password id="pwd2"
-                                            required="true"/>
-                            </div>
-                        </div>
-                        <p:commandButton update="@form"
-                                         value="Save"/>
-                    </h:panelGroup>
+                    <div class="p-field"><p:outputLabel for="name-field" value="Vardas" />
+                        <p:inputText id="name-field" value="#{registration.naturalPersonToCreate.name}"
+                                     required="true" />
+                    </div>
+
+                    <div class="p-field"><p:outputLabel for="surname-field" value="Pavardė" />
+                        <p:inputText id="surname-field" value="#{registration.naturalPersonToCreate.surname}"
+                                     required="true" />
+                    </div>
+
+                    <div class="p-field"><p:outputLabel for="personal-code-field" value="Asmens kodas" />
+                        <p:inputText id="personal-code-field" value="#{registration.naturalPersonToCreate.personalCode}"
+                                     required="true" />
+                    </div>
+
                 </h:panelGroup>
 
+                    <h:panelGroup rendered="#{registration.isLegalPerson != null}">
 
-                <p:messages id="messages"
-                            showDetail="true"
-                            autoUpdate="true">
-                    <!--                            <p:autoUpdate/>-->
-                </p:messages>
+                        <div class="p-field"><p:outputLabel for="phone-no-field" value="Telefono numeris" />
+                            <p:inputText id="phone-no-field" value="#{registration.profileToCreate.phoneNo}"
+                                         required="true" />
+                        </div>
 
+                        <div class="p-field"><p:outputLabel for="email-field" value="Elektroninis paštas" />
+                            <p:inputText id="email-field" value="#{registration.profileToCreate.email}"
+                                         required="true" />
+                        </div>
+
+                        <div class="p-field p-grid">
+                            <p:outputLabel for="pwd1" styleClass="p-col-fixed" style="width:100px"
+                                           value="Slaptažodis" />
+                            <div class="p-col">
+                                <p:password id="pwd1" match="pwd2" required="true"
+                                            value="#{registration.profileToCreate.password}" />
+                            </div>
+                        </div>
+
+                        <div class="p-field p-grid">
+                            <p:outputLabel for="pwd2" styleClass="p-col-fixed" style="width:100px"
+                                           value="Pakartokite slaptažodį" />
+                            <div class="p-col">
+                                <p:password id="pwd2" required="true"
+                                            value="#{registration.profileToCreate.password}" />
+                            </div>
+                        </div>
+
+                        <p:commandButton update="@form" value="Save" action="#{registration.createProfile}" />
+
+                    </h:panelGroup>
+
+                </h:panelGroup> <p:messages id="messages" showDetail="true" autoUpdate="true"> </p:messages>
             </div>
-
-
-            <!--        <h:form>-->
-            <!--            <p:tab id="personal"-->
-            <!--                   title="Personal">-->
-            <!--                <p:panel header="Personal Details">-->
-            <!--                    <p:messages/>-->
-            <!--                    <h:panelGrid columns="2"-->
-            <!--                                 columnClasses="label, value">-->
-
-            <!--                        <p:outputLabel value="Telefono numeris"/>-->
-
-            <!--                        <h:outputText value="Firstname: *"/>-->
-            <!--                        <p:inputText value="#{userWizard.user.firstname}"-->
-            <!--                                     required="true"-->
-            <!--                                     label="Firstname"/>-->
-
-            <!--                        <h:outputText value="Lastname: *"/>-->
-            <!--                        <p:inputText value="#{userWizard.user.lastname}"-->
-            <!--                                     required="true"-->
-            <!--                                     label="Lastname"/>-->
-
-            <!--                        <h:outputText value="Age: "/>-->
-            <!--                        <p:inputText value="#{userWizard.user.age}"/>-->
-
-            <!--                        <h:outputText value="Skip to last: "/>-->
-            <!--                        <h:selectBooleanCheckbox value="#{userWizard.skip}"/>-->
-            <!--                    </h:panelGrid>-->
-            <!--                </p:panel>-->
-            <!--            </p:tab>-->
-
-            <p:commandButton value="Submit"
-                             action="#{userWizard.save}"
-                             process="@this"/>
         </div>
-
     </h:form>
 </h:body>
 </html>

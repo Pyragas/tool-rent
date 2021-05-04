@@ -15,9 +15,10 @@ import java.util.List;
 @NamedQueries({
         @NamedQuery(name = "Message.findAll", query = "select m from Message as m")
 })
+@Table(name = "order_table")
 public class Order implements Serializable {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     public void setId(Long id) {

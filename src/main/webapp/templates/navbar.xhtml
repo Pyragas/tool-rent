@@ -7,22 +7,16 @@
       xmlns:ui="http://java.sun.com/jsf/facelets">
 <ui:composition>
     <h:form>
-        <p:growl id="messages"/>
+        <p:growl id="messages" />
         <p:menubar>
-            <p:menuitem value="[HOME ikona]"/>
-            <p:menuitem value="Kurti skelbimą"/>
-            <p:menuitem value="DUK"/>
-            <p:menuitem value="Mano profilis"/>
+            <p:menuitem value="[HOME ikona]" />
+            <p:menuitem value="Kurti skelbimą" />
+            <p:menuitem value="DUK" />
+            <p:menuitem value="Mano profilis" />
             <f:facet name="options">
-                <p:inputText style="margin-right:10px"
-                             placeholder="Ieškoti skelbimų"/>
-                <p:commandButton value="Prisijungti"
-                                 ajax="False"/>
-                <p:growl id="growl"
-                         sticky="true"
-                         showDetail="true"/>
-                <p:commandButton value="Registruotis"
-                                 action="registration-form.xhtml?faces-redirect=true">
+                <p:inputText style="margin-right:10px" placeholder="Ieškoti skelbimų" />
+                <p:commandButton value="Registruotis" action="registration-form.xhtml?faces-redirect=true">
+                    <p:growl id="growl" sticky="true" showDetail="true" />
                 </p:commandButton>
 
             </f:facet>
