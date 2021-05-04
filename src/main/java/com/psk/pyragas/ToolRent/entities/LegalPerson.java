@@ -12,6 +12,7 @@ import java.io.Serializable;
 @DiscriminatorValue("1")
 public class LegalPerson extends Profile implements Serializable {
 
+    @Column(unique = true)
     private String companyCode;
 
     private String name;

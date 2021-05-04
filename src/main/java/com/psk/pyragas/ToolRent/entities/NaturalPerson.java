@@ -11,15 +11,8 @@ import java.io.Serializable;
 @Setter
 @DiscriminatorValue("0")
 public class NaturalPerson extends Profile implements Serializable {
-//    public void setId(Long id) {
-//        this.id = id;
-//    }
-//
-//    public Long getId() {
-//        return id;
-//    }
-
     //TODO: make it safe
+    @Column(unique = true)
     private String personalCode;
 
     private String name;
