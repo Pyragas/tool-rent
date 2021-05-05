@@ -9,30 +9,30 @@
 </h:head>
 <h:body>
 
-<div class="container">
+    <div class="container">
 
-    <h:form>
-        <label>Vieta: </label>
-        <h:inputText value="#{newItemForAdvertisement.itemToCreate.location}"/>
+        <h:form>
+            <label>Vieta: </label>
+            <h:inputText value="#{newItemForAdvertisement.itemToCreate.location}" />
 
-        <br/>
-        <label>Kuro kiekis: </label>
-        <h:inputText value="#{newItemForAdvertisement.itemToCreate.fuelLevel}"/>
+            <br />
+            <label>Kuro kiekis: </label>
+            <h:inputText value="#{newItemForAdvertisement.itemToCreate.fuelLevel}" />
 
-        <br/>
-        <label>Statusas: </label>
-        <h:inputText value="#{newItemForAdvertisement.itemToCreate.status}"/>
+            <br />
+            <label>Statusas: </label>
+            <h:inputText value="#{newItemForAdvertisement.itemToCreate.status}" />
 
-        <br/>
-        <h:commandButton action="#{newItemForAdvertisement.createItem}" value="Prideti vieneta" >
-            <f:param name="advertisementId" value="#{newItemForAdvertisement.advertisement.id}" />
-        </h:commandButton>
+            <br />
+            <h:commandButton action="#{newItemForAdvertisement.createItem}" value="Prideti vieneta">
+                <f:param name="advertisementId" value="#{newItemForAdvertisement.advertisement.id}" />
+            </h:commandButton>
 
-        <h:link outcome="index.xhtml" value="Finish"/>
+            <h:link outcome="index.xhtml" value="Finish" />
 
-    </h:form>
-</div>
+        </h:form>
+    </div>
 
-<h:panelGroup id="myPanel"></h:panelGroup>
+    <h:panelGroup id="myPanel" />
 </h:body>
 </html>

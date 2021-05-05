@@ -17,9 +17,9 @@ import java.util.List;
 @Inheritance( strategy = InheritanceType.SINGLE_TABLE )
 @DiscriminatorColumn(name="customer_type",
         discriminatorType = DiscriminatorType.INTEGER)
-public class Profile implements Serializable {
+public abstract class Profile implements Serializable {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     public void setId(Long id) {

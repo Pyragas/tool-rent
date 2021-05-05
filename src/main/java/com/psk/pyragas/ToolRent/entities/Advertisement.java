@@ -16,7 +16,7 @@ import java.util.List;
 })
 public class Advertisement implements Serializable {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     public void setId(Long id) {

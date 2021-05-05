@@ -15,7 +15,7 @@ import java.util.List;
 })
 public class Item implements Serializable {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String location;
