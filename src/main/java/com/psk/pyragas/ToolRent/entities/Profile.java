@@ -36,6 +36,8 @@ public class Profile implements Serializable {
     //TODO: implement secure password
     private String password;
 
+    private String username;
+
     private Float rating;
 
     @OneToMany(mappedBy = "profile")
@@ -46,4 +48,8 @@ public class Profile implements Serializable {
 
     @OneToMany(mappedBy = "profile")
     private List<Advertisement> ads = new ArrayList<>();
+
+    public void setName(String username) {
+        this.username = username;
+    }
 }

@@ -25,4 +25,8 @@ public class ProfilesDAO {
     public List<Profile> loadAll() {
         return this.em.createNamedQuery("Profile.findAll", Profile.class).getResultList();
     }
+
+    public static boolean validate(String username, String password) {
+        return true;
+    }
 }
