@@ -16,7 +16,7 @@ import java.util.List;
 })
 public class Chat implements Serializable {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     public void setId(Long id) {

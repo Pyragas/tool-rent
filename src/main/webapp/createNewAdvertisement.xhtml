@@ -3,50 +3,94 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
 >
 <h:head>
     <title>Create new advertisment</title>
+    <h:outputStylesheet name="css/form-style.css" />
+    <h:outputStylesheet name="primeflex/primeflex.css" />
+    <h:outputStylesheet name="css/theme.css" />
 </h:head>
-<h:body>
 
-<div class="container">
-    <h:form>
+<h:body styleClass="background">
+    <ui:insert name="navbar">
+        <ui:include src="templates/navbar.xhtml" />
+    </ui:insert>
 
-        <label>Pavadinimas: </label>
-        <h:inputText value="#{newAdvertisement.advertisementToCreate.name}"/>
-        <br/>
-        <label>Statusas:</label>
-        <h:inputText value="#{newAdvertisement.advertisementToCreate.status}"/>
-        <br/>
-        <label>Tipas: </label>
-        <h:inputText value="#{newAdvertisement.advertisementToCreate.type}"/>
-        <br/>
-        <label>Ismatavimai: </label>
-        <h:inputText value="#{newAdvertisement.advertisementToCreate.measurements}"/>
-        <br/>
-        <label>Kuro tipas: </label>
-        <h:inputText value="#{newAdvertisement.advertisementToCreate.fuelType}"/>
-        <br/>
-        <label>Svoris: </label>
-        <h:inputText value="#{newAdvertisement.advertisementToCreate.weight}"/>
-        <br/>
-        <label>Nuomos kaina: </label>
-        <h:inputText value="#{newAdvertisement.advertisementToCreate.rentPrice}"/>
-        <br/>
-        <label>Operatoriaus kaina: </label>
-        <h:inputText value="#{newAdvertisement.advertisementToCreate.operatorPrice}"/>
-        <br/>
-        <label>Aprasymas: </label>
-        <h:inputText value="#{newAdvertisement.advertisementToCreate.text}"/>
-        <br/>
-        <h:commandButton action="#{newAdvertisement.submitAdvertisement}" value="Patvirtinti skelbima" />
-        <br/><br/>
+    <h:panelGroup styleClass="centered-panel">
+        <h:form styleClass="center-form">
+            <div class="card">
+                <h5>Įrašykite nuomojamos technikos duomenis</h5>
+                <div class="ui-fluid">
+
+                    <div class="p-field">
+                        <p:outputLabel for="name-field" value="Pavadinimas" />
+                        <p:inputNumber id="name-field" value="#{newAdvertisement.advertisementToCreate.name}"
+                                       required="true" />
+                    </div>
+
+                    <div class="p-field">
+                        <p:outputLabel for="type-field" value="Tipas" />
+                        <p:inputNumber id="type-field" value="#{newAdvertisement.advertisementToCreate.type}"
+                                       required="true" />
+                    </div>
+
+                    <div class="p-field">
+                        <p:outputLabel for="measurements-field" value="Matmenys" />
+                        <p:inputNumber id="measurements-field"
+                                       value="#{newAdvertisement.advertisementToCreate.measurements}"
+                                       required="true" />
+                    </div>
+
+                    <div class="ui-fluid p-formgrid p-grid">
+                        <div class="p-field p-col-12">
+                            <p:outputLabel for="@next" value="Kuro tipas" />
+                            <p:selectOneMenu id="console"
+                                             value="#{newAdvertisement.advertisementToCreate.fuelType}">
+                                <f:selectItem itemLabel="Dyzelinas" itemValue="#{0}" />
+                                <f:selectItem itemLabel="Elektra" itemValue="#{1}" />
+                                <f:selectItem itemLabel="Kita" itemValue="#{2}" />
+                                <f:ajax render="results" />
+                            </p:selectOneMenu>
+                        </div>
+                    </div>
+
+                    <div class="p-field">
+                        <p:outputLabel for="weight-field" value="Svoris" />
+                        <p:inputNumber id="weight-field" value="#{newAdvertisement.advertisementToCreate.weight}"
+                                       required="true" />
+                    </div>
+
+                    <div class="p-field">
+                        <p:outputLabel for="price-field" value="Nuomos kaina" />
+                        <p:inputNumber id="price-field" value="#{newAdvertisement.advertisementToCreate.rentPrice}"
+                                       required="true" />
+                    </div>
+
+                    <div class="p-field">
+                        <p:outputLabel for="op-price-field" value="Operatoriaus kaina" />
+                        <p:inputNumber id="op-price-field"
+                                       value="#{newAdvertisement.advertisementToCreate.operatorPrice}"
+                                       required="true" />
+                    </div>
+
+                    <div class="p-field">
+                        <p:outputLabel for="op-price-field" value="Aprašymas" />
+                        <p:inputTextarea id="description-field"
+                                         value="#{newAdvertisement.advertisementToCreate.text}"
+                                         required="true" />
+                    </div>
 
 
-    </h:form>
-</div>
+                    <p:commandButton update="@form" value="Sukurti skelbimą"
+                                     action="#{newAdvertisement.submitAdvertisement}" />
 
-<h:panelGroup id="myPanel"></h:panelGroup>
+                    <p:messages id="messages" showDetail="true" autoUpdate="true"> </p:messages>
+                </div>
+            </div>
+        </h:form>
+    </h:panelGroup>
+
 </h:body>
 </html>
