@@ -1,0 +1,17 @@
+.centered-panel {
+    display: block;
+    text-align: center;
+    width: fit-content;
+    margin: auto;
+}
+
+form.center-form {
+    text-align: left;
+    margin: 2em;
+    background-color: white;
+    padding: 4em;
+}
+
+body.background {
+    background-color: var(--surface-b);
+}
