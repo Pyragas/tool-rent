@@ -1,3 +1,6 @@
+<!--TODO: fix all pages to match style-->
+<!--TODO: add login and register button from there: line 28  -->
+
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:p="http://primefaces.org/ui"
       xmlns:h="http://java.sun.com/jsf/html"
@@ -9,7 +12,6 @@
     <h:form>
         <p:growl id="messages" />
         <p:menubar>
-<!--            TODO: fix all pages to match style-->
             <p:menuitem value="[HOME ikona]" />
             <p:menuitem value="Kurti skelbimą" action="create_advertisement.xhtml?faces-redirect=true" />
             <p:menuitem value="DUK" />
@@ -21,14 +23,11 @@
                             <i class="pi pi-fw pi-search" />
                             <p:inputText placeholder="Ieškoti skelbimų" />
                         </div>
-                        <p:commandButton value="Ieškoti" styleClass="ui-button-secondary"
-                                         action="search_results.xhtml?faces-redirect=true" />
+                        <p:commandButton value="Ieškoti" styleClass="ui-button-secondary" action="search_results.xhtml?faces-redirect=true" />
                     </div>
-
                     <div>
-                        <!--            TODO: add login and register button from there  -->
-                        <p:commandButton value="Prisijungti"
-                                         action="register.xhtml?faces-redirect=true">
+
+                        <p:commandButton value="Prisijungti" action="register.xhtml?faces-redirect=true">
                             <p:growl id="growl" sticky="true" showDetail="true" />
                         </p:commandButton>
                     </div>
