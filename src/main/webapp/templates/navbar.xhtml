@@ -10,12 +10,13 @@
         <p:growl id="messages" />
         <p:menubar>
             <p:menuitem value="[HOME ikona]" />
-            <p:menuitem value="Kurti skelbimą" />
+            <p:menuitem value="Kurti skelbimą" action="create_advertisement.xhtml?faces-redirect=true"/>
             <p:menuitem value="DUK" />
             <p:menuitem value="Mano profilis" />
             <f:facet name="options">
                 <p:inputText style="margin-right:10px" placeholder="Ieškoti skelbimų" />
-                <p:commandButton value="Registruotis" action="registration-form.xhtml?faces-redirect=true">
+<!--            TODO: add login and register button from there  -->
+                <p:commandButton value="Prisijungti" action="register.xhtml?faces-redirect=true">
                     <p:growl id="growl" sticky="true" showDetail="true" />
                 </p:commandButton>
 

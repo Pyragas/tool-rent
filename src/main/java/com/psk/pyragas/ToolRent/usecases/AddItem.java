@@ -16,7 +16,7 @@ import java.io.Serializable;
 import java.util.Map;
 
 @Model
-public class NewItemForAdvertisement implements Serializable {
+public class AddItem implements Serializable {
 
     @Inject
     private ItemsDAO itemsDAO;
@@ -44,7 +44,7 @@ public class NewItemForAdvertisement implements Serializable {
         itemToCreate.setAdvertisement(this.advertisement);
         itemsDAO.persist(itemToCreate);
 
-        return "addNewItem.xhtml?faces-redirect=true&advertisementId=" + this.advertisement.getId();
+        return "add_item.xhtml?faces-redirect=true&advertisementId=" + this.advertisement.getId();
     }
 
 

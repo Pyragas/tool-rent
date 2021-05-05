@@ -15,7 +15,7 @@ import javax.inject.Inject;
 import javax.transaction.Transactional;
 
 @Model
-public class NewAdvertisement {
+public class CreateAdvertisement {
 
     @Inject
     private AdvertisementsDAO advertisementsDAO;
@@ -42,7 +42,7 @@ public class NewAdvertisement {
 //        this.advertisementToCreate.setProfile(profile);
 //        this.advertisementsDAO.persist(this.advertisementToCreate);
 //
-//        return "addNewItem.xhtml?faces-redirect=true&advertisementId=" + this.advertisementToCreate.getId();
+//        return "add_item.xhtml?faces-redirect=true&advertisementId=" + this.advertisementToCreate.getId();
         return "addNewItem";
     }
 
