@@ -9,17 +9,30 @@
     <h:form>
         <p:growl id="messages" />
         <p:menubar>
+<!--            TODO: fix all pages to match style-->
             <p:menuitem value="[HOME ikona]" />
-            <p:menuitem value="Kurti skelbimą" action="create_advertisement.xhtml?faces-redirect=true"/>
+            <p:menuitem value="Kurti skelbimą" action="create_advertisement.xhtml?faces-redirect=true" />
             <p:menuitem value="DUK" />
-            <p:menuitem value="Mano profilis" />
+            <p:menuitem value="Mano profilis" action="profile.xhtml?faces-redirect=true" />
             <f:facet name="options">
-                <p:inputText style="margin-right:10px" placeholder="Ieškoti skelbimų" />
-<!--            TODO: add login and register button from there  -->
-                <p:commandButton value="Prisijungti" action="register.xhtml?faces-redirect=true">
-                    <p:growl id="growl" sticky="true" showDetail="true" />
-                </p:commandButton>
+                <div class="p-d-flex" style="margin-top: 0.25rem">
+                    <div class="p-d-flex p-mr-6">
+                        <div class="ui-input-icon-left p-mr-2">
+                            <i class="pi pi-fw pi-search" />
+                            <p:inputText placeholder="Ieškoti skelbimų" />
+                        </div>
+                        <p:commandButton value="Ieškoti" styleClass="ui-button-secondary"
+                                         action="search_results.xhtml?faces-redirect=true" />
+                    </div>
 
+                    <div>
+                        <!--            TODO: add login and register button from there  -->
+                        <p:commandButton value="Prisijungti"
+                                         action="register.xhtml?faces-redirect=true">
+                            <p:growl id="growl" sticky="true" showDetail="true" />
+                        </p:commandButton>
+                    </div>
+                </div>
             </f:facet>
         </p:menubar>
     </h:form>
