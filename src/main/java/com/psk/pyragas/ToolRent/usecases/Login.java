@@ -22,19 +22,10 @@ import java.io.Serializable;
 @Getter @Setter
 public class Login extends HttpServlet implements Serializable {
 
-    @Getter
     private boolean isUserLoggedIn = false;
 
     private String username;
     private String password;
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 
     public String checkFields() {
         boolean valid = ProfilesDAO.validate(username, password);

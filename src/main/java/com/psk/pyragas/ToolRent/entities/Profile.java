@@ -22,14 +22,6 @@ public class Profile implements Serializable {
     @GeneratedValue
     private Long id;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
     private String phoneNo;
     private String email;
 
@@ -48,8 +40,4 @@ public class Profile implements Serializable {
 
     @OneToMany(mappedBy = "profile")
     private List<Advertisement> ads = new ArrayList<>();
-
-    public void setName(String username) {
-        this.username = username;
-    }
 }

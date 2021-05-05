@@ -37,7 +37,7 @@ public class NewAdvertisement {
         //TODO: remove mocked user and use real user
         System.out.println("Submitting advertisement");
         Profile profile = new Profile();
-        profile.setName("mock");
+        profile.setUsername("mock");
         this.profilesDAO.persist(profile);
         this.advertisementToCreate.setProfile(profile);
         this.advertisementsDAO.persist(this.advertisementToCreate);
