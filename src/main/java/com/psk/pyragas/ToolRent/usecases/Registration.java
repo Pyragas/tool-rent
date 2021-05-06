@@ -41,7 +41,7 @@ public class Registration implements Serializable {
     @Transactional
     public String createProfile() {
         profilesDAO.persist(profileToCreate);
-        return "index";
+        return "index.xhtml?faces-redirect=true";
     }
 
 }

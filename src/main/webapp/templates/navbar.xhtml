@@ -5,12 +5,12 @@
       xml:lang="en"
       lang="en"
       xmlns:ui="http://java.sun.com/jsf/facelets">
+<!--            TODO: fix all pages to match style-->
 <ui:composition>
     <h:form>
         <p:growl id="messages" />
         <p:menubar>
-<!--            TODO: fix all pages to match style-->
-            <p:menuitem value="[HOME ikona]" />
+            <p:menuitem value="[HOME ikona]" action="index.xhtml?faces-redirect=true" />
             <p:menuitem value="Kurti skelbimą" action="create_advertisement.xhtml?faces-redirect=true" />
             <p:menuitem value="DUK" />
             <p:menuitem value="Mano profilis" action="profile.xhtml?faces-redirect=true" />
@@ -28,7 +28,7 @@
                     <div>
                         <!--            TODO: add login and register button from there  -->
                         <p:commandButton value="Prisijungti"
-                                         action="register.xhtml?faces-redirect=true">
+                                         action="register_template.xhtml?faces-redirect=true">
                             <p:growl id="growl" sticky="true" showDetail="true" />
                         </p:commandButton>
                     </div>
