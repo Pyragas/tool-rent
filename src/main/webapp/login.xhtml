@@ -6,19 +6,16 @@
     <title>Title of document</title>
 </h:head>
 <h:body>
-
-<!--    TODO: add association between label and input-->
-    <div class="container">
+<div class="container">
+    <h:form method="POST" action="ServletLogin">
         <label>Username : </label>
-        <input type="text" name="username" />
+        <input type="text" name="username" value="#{login.username}"/>
         <label>Password : </label>
-        <input type="password" name="password" />
-        <h:form>
-            <h:commandButton type="submit" value="Login" action="#{login.setUserLoggedInToTrue}" />
-            <h:commandButton type="submit" value="Logout" action="#{login.setUserLoggedInToFalse}" />
-        </h:form>
-        <h2>Current user logged in state: #{login.userLoggedIn}</h2>
-    </div>
-
+        <input type="password" name="password" value="#{login.password}"/>
+        <h:commandButton type="submit" value="Login" action="#{login.checkFields}"/>
+        <h:commandButton type="submit" value="Logout" action="#{login.setUserLoggedInToFalse}"/>
+    </h:form>
+    <h2>Current user logged in state: #{login.userLoggedIn}</h2>
+</div>
 </h:body>
 </html>
