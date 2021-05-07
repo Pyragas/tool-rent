@@ -1,21 +1,46 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
-        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
 <h:head>
-    <title>Title of document</title>
+    <h:outputStylesheet name="primeflex/primeflex.css" />
+    <h:outputStylesheet name="css/theme.css" />
+    <h:outputStylesheet name="css/page-style.css" />
 </h:head>
+
 <h:body>
-<div class="container">
-    <h:form method="POST" action="ServletLogin">
-        <label>Username : </label>
-        <input type="text" name="username" value="#{login.username}"/>
-        <label>Password : </label>
-        <input type="password" name="password" value="#{login.password}"/>
-        <h:commandButton type="submit" value="Login" action="#{login.checkFields}"/>
-        <h:commandButton type="submit" value="Logout" action="#{login.setUserLoggedInToFalse}"/>
-    </h:form>
-    <h2>Current user logged in state: #{login.userLoggedIn}</h2>
-</div>
+    <h:panelGroup styleClass="centered-panel">
+        <h:form styleClass="modal-form">
+            <div class="card">
+                <h6>Esate naujas klientas? <h:commandLink
+                        immediate="true"
+                        action="#{modalDialog.closeModal('register.xhtml')}"
+                        value="Užsiregistruokite" />
+                </h6>
+                <div class="ui-fluid">
+                    <div class="p-field">
+                        <p:outputLabel for="email-field" value="El. paštas" />
+                        <p:inputText id="email-field" value="#{login.username}"
+                                     required="true" />
+                    </div>
+                    <div class="p-field">
+                        <p:outputLabel for="password-field" value="Slaptažodis" />
+                        <p:inputText id="password-field" value="#{login.password}"
+                                     required="true" />
+                    </div>
+
+                    <div>
+                        <p:commandButton update="@form" value="Prisijungti"
+                                         action="#{modalDialog.closeModal(login.checkFields())}" />
+                    </div>
+
+                    <h6>Current user logged in state: #{login.loggedIn}</h6>
+                </div>
+            </div>
+        </h:form>
+
+    </h:panelGroup>
 </h:body>
+
 </html>

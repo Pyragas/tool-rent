@@ -1,36 +1,30 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:p="http://primefaces.org/ui"
->
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://java.sun.com/jsf/html"
+                template="/templates/page_view.xhtml">
 
-<h:head>
-    <title>ToolRent</title>
-</h:head>
-<h:body>
-    <ui:insert name="navbar">
-        <ui:include src="templates/navbar.xhtml" />
-    </ui:insert>
+    <ui:define name="general_content">
+        <h:panelGroup>
+            <!--https://primefaces.github.io/primefaces/10_0_0/#/components/datepicker
+            https://www.primefaces.org/showcase/ui/input/datepicker/datePicker.xhtml
+            https://stackoverflow.com/questions/9981076/primefaces-how-to-change-the-default-icon-on-the-button-of-the-calendar-field-->
 
-    <!--https://primefaces.github.io/primefaces/10_0_0/#/components/datepicker
-        https://www.primefaces.org/showcase/ui/input/datepicker/datePicker.xhtml
-        https://stackoverflow.com/questions/9981076/primefaces-how-to-change-the-default-icon-on-the-button-of-the-calendar-field-->
+            <script type="text/javascript" src="web-resources/primeFacesLocales.js"></script>
 
-    <script type="text/javascript" src="web-resources/primeFacesLocales.js"></script>
-
-    <h:form id="orderForm">
-        <div>
-            <p>
-                <label for="orderDate">Pasirinkite datą: </label>
-                <p:datePicker id="orderDate" showIcon="true" locale="lt" />
-            </p>
-            <p>
-                <label for="orderTime">Pasirinkite laiką: </label>
-                <p:datePicker id="orderTime" timeOnly="true" pattern="HH:mm" mindate="09:00" maxdate="22:00"
-                              locale="lt" />
-            </p>
-        </div>
-    </h:form>
-</h:body>
-</html>
+            <h:form id="orderForm">
+                <div>
+                    <p>
+                        <label for="orderDate">Pasirinkite datą: </label>
+                        <p:datePicker id="orderDate" showIcon="true" locale="lt" />
+                    </p>
+                    <p>
+                        <label for="orderTime">Pasirinkite laiką: </label>
+                        <p:datePicker id="orderTime" timeOnly="true" pattern="HH:mm" mindate="09:00" maxdate="22:00"
+                                      locale="lt" />
+                    </p>
+                </div>
+            </h:form>
+        </h:panelGroup>
+    </ui:define>
+</ui:composition>

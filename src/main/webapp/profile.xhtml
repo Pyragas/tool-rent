@@ -1,22 +1,19 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
-        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title>Register</title>
-</head>
-<body>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                template="/templates/page_view.xhtml">
 
-<div class="container">
-    <img src="web-resources/default.jpg" alt="Traktoristas image" />
-    <br />
-    <label>Username : </label>
-    <label>Traktoristas</label>
-    <br />
-    <label>Email :</label>
-    <label>Jonas.Traktoristas@mif.vu.lt</label>
-    <br /><br />
-    <button onclick="document.location='editProfile.xhtml'" class="change button">Change settings</button>
-</div>
-
-</body>
-</html>
+    <ui:define name="general_content">
+        <h:panelGroup styleClass="container">
+            <img src="web-resources/default.jpg" alt="Traktoristas image" />
+            <br />
+            <label>Username : </label>
+            <label>Traktoristas</label>
+            <br />
+            <label>Email :</label>
+            <label>Jonas.Traktoristas@mif.vu.lt</label>
+            <br /><br />
+            <button onclick="document.location='edit_profile.xhtml'" class="change button">Change settings</button>
+        </h:panelGroup>
+    </ui:define>
+</ui:composition>

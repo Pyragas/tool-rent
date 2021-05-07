@@ -15,7 +15,7 @@ import javax.inject.Inject;
 import javax.transaction.Transactional;
 
 @Model
-public class NewAdvertisement {
+public class CreateAdvertisement {
 
     @Inject
     private AdvertisementsDAO advertisementsDAO;
@@ -34,16 +34,7 @@ public class NewAdvertisement {
     @Transactional
     public String submitAdvertisement() {
 
-//TODO: remove mocked user and use real user
-        System.out.println("Submitting advertisement");
-        Profile profile = new Profile();
-        profile.setUsername("mock");
-        this.profilesDAO.persist(profile);
-        this.advertisementToCreate.setProfile(profile);
-        this.advertisementsDAO.persist(this.advertisementToCreate);
-
-        return "addNewItem.xhtml?faces-redirect=true&advertisementId=" + this.advertisementToCreate.getId();
-      
+        //TODO: remove mocked user and use real user
 //        System.out.println("Submitting advertisement");
 //        Profile profile = new Profile();
 ////        profile.setName("mock");
@@ -51,8 +42,8 @@ public class NewAdvertisement {
 //        this.advertisementToCreate.setProfile(profile);
 //        this.advertisementsDAO.persist(this.advertisementToCreate);
 //
-//        return "addNewItem.xhtml?faces-redirect=true&advertisementId=" + this.advertisementToCreate.getId();
-//        return "addNewItem";
+//        return "add_item.xhtml?faces-redirect=true&advertisementId=" + this.advertisementToCreate.getId();
+        return null;
     }
 
 

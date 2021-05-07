@@ -1,64 +1,59 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:p="http://primefaces.org/ui"
->
-<h:head>
-    <title>ToolRent</title>
-</h:head>
-<h:body>
-    <ui:insert name="navbar">
-        <ui:include src="templates/navbar.xhtml" />
-    </ui:insert>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://java.sun.com/jsf/html"
+                template="/templates/page_view.xhtml">
 
-    <h:graphicImage
-            url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzMk9Ig1pwSQYZ-nOrIrz5tkN4O_dhPK8xcg&amp;usqp=CAU" />
+    <ui:define name="general_content">
+        <h:panelGroup>
 
-    <p:accordionPanel multiple="true">
-        <p:tab title="Informacija:">
-            <div class="container">
-                <h3>Informacija apie įrangą:</h3>
-                <br />
-                <label>Produkto kodas</label>
-                <label>1572121</label>
-                <br />
-                <label>Rodomas modelis</label>
-                <label>MANITOU</label>
-                <br /><br />
-                <br />
-                <label>Modelis</label>
-                <label>MT733 EASY</label>
-                <br /><br />
-                <br />
-                <label>Ilgis, mm</label>
-                <label>5940</label>
-                <br /><br />
-                <br />
-                <label>Plotis, mm</label>
-                <label>2340</label>
-                <br /><br />
-                <br />
-                <label>Galios šaltinis</label>
-                <label>Dyzelinas</label>
-                <br /><br />
-                <br />
-                <label>Kuro bako talpa, l</label>
-                <label>120</label>
-                <br /><br />
-                <br />
-                <label>Plotis, mm</label>
-                <label>2340</label>
-                <br /><br />
-            </div>
-        </p:tab>
-        <p:tab title="Dokumentai">
-            <h:outputText value="Ipsum" />
-        </p:tab>
-        <p:tab title="Saugumas">
-            <h:outputText value="Ipsum" />
-        </p:tab>
-    </p:accordionPanel>
+            <h:graphicImage
+                    url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzMk9Ig1pwSQYZ-nOrIrz5tkN4O_dhPK8xcg&amp;usqp=CAU" />
 
-</h:body>
-</html>
+            <p:accordionPanel multiple="true">
+                <p:tab title="Informacija:">
+                    <div class="container">
+                        <h3>Informacija apie įrangą:</h3>
+                        <br />
+                        <label>Produkto kodas</label>
+                        <label>1572121</label>
+                        <br />
+                        <label>Rodomas modelis</label>
+                        <label>MANITOU</label>
+                        <br /><br />
+                        <br />
+                        <label>Modelis</label>
+                        <label>MT733 EASY</label>
+                        <br /><br />
+                        <br />
+                        <label>Ilgis, mm</label>
+                        <label>5940</label>
+                        <br /><br />
+                        <br />
+                        <label>Plotis, mm</label>
+                        <label>2340</label>
+                        <br /><br />
+                        <br />
+                        <label>Galios šaltinis</label>
+                        <label>Dyzelinas</label>
+                        <br /><br />
+                        <br />
+                        <label>Kuro bako talpa, l</label>
+                        <label>120</label>
+                        <br /><br />
+                        <br />
+                        <label>Plotis, mm</label>
+                        <label>2340</label>
+                        <br /><br />
+                    </div>
+                </p:tab>
+                <p:tab title="Dokumentai">
+                    <h:outputText value="Ipsum" />
+                </p:tab>
+                <p:tab title="Saugumas">
+                    <h:outputText value="Ipsum" />
+                </p:tab>
+            </p:accordionPanel>
+        </h:panelGroup>
+    </ui:define>
+</ui:composition>
