@@ -35,12 +35,15 @@ public class ModalDialog {
         PrimeFaces.current().dialog().closeDynamic(object);
     }
 
+    @SuppressWarnings("rawtypes")
     public void handleReturn(SelectEvent event){
-        try {
-            FacesContext.getCurrentInstance().getExternalContext().redirect(event.getObject().toString());
-        } catch (IOException e) {
-            e.printStackTrace();
+        String url = event.getObject().toString();
+        if(url != null){
+            try {
+                FacesContext.getCurrentInstance().getExternalContext().redirect(url);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
-
 }

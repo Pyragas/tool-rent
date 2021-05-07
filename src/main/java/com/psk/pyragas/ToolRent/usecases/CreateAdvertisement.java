@@ -43,7 +43,7 @@ public class CreateAdvertisement {
 //        this.advertisementsDAO.persist(this.advertisementToCreate);
 //
 //        return "add_item.xhtml?faces-redirect=true&advertisementId=" + this.advertisementToCreate.getId();
-        return "addNewItem";
+        return null;
     }
 
 

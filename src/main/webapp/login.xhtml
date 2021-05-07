@@ -32,7 +32,7 @@
 
                     <div>
                         <p:commandButton update="@form" value="Prisijungti"
-                                         action="#{login.changeLoginState}" />
+                                         action="#{modalDialog.closeModal(login.checkFields())}" />
                     </div>
 
                     <h6>Current user logged in state: #{login.loggedIn}</h6>
