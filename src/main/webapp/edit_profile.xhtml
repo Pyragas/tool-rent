@@ -1,41 +1,34 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
-        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title>Register</title>
-</head>
-<body>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                template="/templates/page_view.xhtml">
 
-<div class="container">
-    <img src="web-resources/default.jpg" alt="Traktoristas image" />
-    <button class="change image">Change image</button>
-    <br />
-    <label>Username : </label>
-<!--    TODO: add association between label and input-->
-    <input type="text" name="username" value="Traktoristas" />
-    <br />
-    <label>Email :</label>
-    <input type="text" name="email" value="Jonas.Traktoristas@mif.vu.lt" />
-    <br />
-    <button class="change button">Save</button>
-    <br /><br />
-
-
-    <b>
-        <label>Change password</label>
-    </b>
-    <br />
-    <label>Enter new password</label>
-    <input type="password" name="changePassword" />
-    <br />
-    <label>Repeat new password</label>
-    <input type="password" name="repeatChangePassword" />
-    <br />
-    <button class="change new password">Save new password</button>
-    <br /><br />
-
-
-</div>
-
-</body>
-</html>
+    <ui:define name="general_content">
+        <h:panelGroup class="container">
+            <img src="web-resources/default.jpg" alt="Traktoristas image" />
+            <button class="change image">Change image</button>
+            <br />
+            <label>Username : </label>
+            <!--    TODO: add association between label and input-->
+            <input type="text" name="username" value="Traktoristas" />
+            <br />
+            <label>Email :</label>
+            <input type="text" name="email" value="Jonas.Traktoristas@mif.vu.lt" />
+            <br />
+            <button class="change button">Save</button>
+            <br /><br />
+            <b>
+                <label>Change password</label>
+            </b>
+            <br />
+            <label>Enter new password</label>
+            <input type="password" name="changePassword" />
+            <br />
+            <label>Repeat new password</label>
+            <input type="password" name="repeatChangePassword" />
+            <br />
+            <button class="change new password">Save new password</button>
+            <br /><br />
+        </h:panelGroup>
+    </ui:define>
+</ui:composition>

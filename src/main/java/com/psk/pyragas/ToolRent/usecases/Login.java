@@ -1,6 +1,7 @@
 package com.psk.pyragas.ToolRent.usecases;
 import lombok.Getter;
 
+import javax.el.MethodExpression;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 import java.io.Serializable;
@@ -10,14 +11,11 @@ import java.io.Serializable;
 public class Login implements Serializable {
 
     @Getter
-    private boolean isUserLoggedIn = false;
+    private boolean isLoggedIn;
 
-    public void setUserLoggedInToTrue() {
-        this.isUserLoggedIn = true;
+    public boolean changeLoginState() {
+        isLoggedIn = !isLoggedIn;
+        return isLoggedIn;
     }
-
-    public void setUserLoggedInToFalse() {
-        this.isUserLoggedIn = false;
-    }
-
 }
+

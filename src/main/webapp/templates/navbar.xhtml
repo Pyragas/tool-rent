@@ -1,12 +1,11 @@
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:p="http://primefaces.org/ui"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xml:lang="en"
-      lang="en"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
 <!--            TODO: fix all pages to match style-->
-<ui:composition>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xml:lang="en"
+                lang="en"
+                xmlns:ui="http://java.sun.com/jsf/facelets">
     <h:form>
         <p:growl id="messages" />
         <p:menubar>
@@ -27,9 +26,9 @@
 
                     <div>
                         <!--            TODO: add login and register button from there  -->
-                        <p:commandButton value="Prisijungti"
-                                         action="register_template.xhtml?faces-redirect=true">
+                        <p:commandButton value="Prisijungti" action="#{modalDialog.openModal('login.xhtml', modalDialog.loginOptions())}" >
                             <p:growl id="growl" sticky="true" showDetail="true" />
+                            <p:ajax event="dialogReturn" listener="#{modalDialog.handleReturn}" update="growl"/>
                         </p:commandButton>
                     </div>
                 </div>
@@ -37,4 +36,3 @@
         </p:menubar>
     </h:form>
 </ui:composition>
-</html>
