@@ -22,19 +22,13 @@ public abstract class Profile implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
     private String phoneNo;
     private String email;
 
     //TODO: implement secure password
     private String password;
+
+    private String username;
 
     private Float rating;
 
