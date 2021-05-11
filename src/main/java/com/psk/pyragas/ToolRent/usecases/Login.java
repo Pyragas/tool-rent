@@ -1,36 +1,41 @@
 package com.psk.pyragas.ToolRent.usecases;
 import com.psk.pyragas.ToolRent.dao.ProfilesDAO;
+import com.psk.pyragas.ToolRent.entities.Profile;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.SessionScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
+import java.util.List;
 
 @Getter
 @Setter
 @Named
-@SessionScoped
+@ApplicationScoped
 public class Login implements Serializable {
 
-    @Getter
-    private boolean isLoggedIn;
+    @Inject
+    private ProfilesDAO profilesDAO;
 
-    public boolean changeLoginState() {
-        isLoggedIn = !isLoggedIn;
-        return isLoggedIn;
-    }
+    private Long loginState = null;
 
-    private String username;
+    private String email;
     private String password;
 
     public String checkFields() {
-        boolean valid = ProfilesDAO.validate(username, password);
-        if(valid) {
-            isLoggedIn = true;
-            return "index.xhtml";
+        List<Profile> profileList = profilesDAO.findOneByUsername(this.email);
+        if(!profileList.isEmpty()) {
+            Profile profile = profileList.get(0);
+            if( profile.getEmail().equals(this.getEmail()) &&
+                    profile.getPassword().equals(this.getPassword())) {
+                this.setLoginState(profile.getId());
+                return "index.xhtml";
+            }
         }
-        return null;
+        return "index.xhtml";
     }
 }
 

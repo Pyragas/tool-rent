@@ -26,8 +26,9 @@ public class ProfilesDAO {
         return this.em.createNamedQuery("Profile.findAll", Profile.class).getResultList();
     }
 
-//    TODO: implement with database
-    public static boolean validate(String username, String password) {
-        return true;
+    public List<Profile> findOneByUsername(String email) {
+        return this.em.createNamedQuery("Profile.findOneByEmail", Profile.class)
+                .setParameter("curEmail", email)
+                .getResultList();
     }
 }
