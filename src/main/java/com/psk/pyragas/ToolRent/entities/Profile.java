@@ -12,7 +12,8 @@ import java.util.List;
 @Getter
 @Setter
 @NamedQueries({
-        @NamedQuery(name = "Profile.findAll", query = "select p from Profile as p")
+        @NamedQuery(name = "Profile.findAll", query = "select p from Profile as p"),
+        @NamedQuery(name="Profile.findOneByEmail", query = "select p from Profile as p where p.email = :curEmail")
 })
 @Inheritance( strategy = InheritanceType.SINGLE_TABLE )
 @DiscriminatorColumn(name="customer_type",
@@ -40,4 +41,5 @@ public abstract class Profile implements Serializable {
 
     @OneToMany(mappedBy = "profile")
     private List<Advertisement> ads = new ArrayList<>();
+
 }

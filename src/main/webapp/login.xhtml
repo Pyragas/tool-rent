@@ -21,7 +21,7 @@
                 <div class="ui-fluid">
                     <div class="p-field">
                         <p:outputLabel for="email-field" value="El. paštas" />
-                        <p:inputText id="email-field" value="#{login.username}"
+                        <p:inputText id="email-field" value="#{login.email}"
                                      required="true" />
                     </div>
                     <div class="p-field">
@@ -35,7 +35,7 @@
                                          action="#{modalDialog.closeModal(login.checkFields())}" />
                     </div>
 
-                    <h6>Current user logged in state: #{login.loggedIn}</h6>
+                    <h6>Current user logged in state: #{login.loginState}</h6>
                 </div>
             </div>
         </h:form>
