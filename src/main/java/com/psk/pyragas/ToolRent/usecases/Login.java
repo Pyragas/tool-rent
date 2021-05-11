@@ -20,9 +20,7 @@ public class Login implements Serializable {
     @Inject
     private ProfilesDAO profilesDAO;
 
-    @Getter @Setter
     private Long loginState = null;
-
 
     private String email;
     private String password;
