@@ -26,9 +26,10 @@ public class ProfilesDAO {
         return this.em.createNamedQuery("Profile.findAll", Profile.class).getResultList();
     }
 
-    public List<Profile> findOneByUsername(String email) {
-        return this.em.createNamedQuery("Profile.findOneByEmail", Profile.class)
-                .setParameter("curEmail", email)
-                .getResultList();
+    public Profile findOneByEmailAndPassword(String email, String password) {
+        return this.em.createNamedQuery("Profile.findOneByEmailAndPassword", Profile.class)
+                .setParameter("email", email)
+                .setParameter("pass", password)
+                .getSingleResult();
     }
 }
