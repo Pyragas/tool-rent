@@ -26,13 +26,13 @@
 
                     <div>
                         <h:panelGroup rendered="#{user == null}">
-                            <p:commandButton value="Prisijungti" action="#{modalDialog.openModal('login.xhtml', modalDialog.loginOptions())}" >
-                                <p:growl id="growl" sticky="true" showDetail="true" />
-                                <p:ajax event="dialogReturn" listener="#{modalDialog.handleReturn}" update="growl"/>
+                            <p:commandButton value="Prisijungti"
+                                             action="#{modalDialog.openModal('login.xhtml', modalDialog.loginOptions())}">
+                                <p:ajax event="dialogReturn" listener="#{modalDialog.handleReturn}" update="@all" />
                             </p:commandButton>
                         </h:panelGroup>
                         <h:panelGroup rendered="#{user != null}">
-                            <p:commandButton value="Atsijungti" action="#{logout.logoutUser}" >
+                            <p:commandButton value="Atsijungti" action="#{logout.logoutUser}">
                             </p:commandButton>
                         </h:panelGroup>
                     </div>

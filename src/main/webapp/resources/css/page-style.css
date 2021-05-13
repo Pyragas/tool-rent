@@ -19,3 +19,7 @@ form.modal-form {
 body.background {
     background-color: var(--surface-b);
 }
+
+.ui-state-error {
+    color: red;
+}
