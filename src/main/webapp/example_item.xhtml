@@ -13,38 +13,12 @@
             <p:accordionPanel multiple="true">
                 <p:tab title="Informacija:">
                     <div class="container">
-                        <h3>Informacija apie įrangą:</h3>
-                        <br />
-                        <label>Produkto kodas</label>
-                        <label>1572121</label>
-                        <br />
-                        <label>Rodomas modelis</label>
-                        <label>MANITOU</label>
-                        <br /><br />
-                        <br />
-                        <label>Modelis</label>
-                        <label>MT733 EASY</label>
-                        <br /><br />
-                        <br />
-                        <label>Ilgis, mm</label>
-                        <label>5940</label>
-                        <br /><br />
-                        <br />
-                        <label>Plotis, mm</label>
-                        <label>2340</label>
-                        <br /><br />
-                        <br />
-                        <label>Galios šaltinis</label>
-                        <label>Dyzelinas</label>
-                        <br /><br />
-                        <br />
-                        <label>Kuro bako talpa, l</label>
-                        <label>120</label>
-                        <br /><br />
-                        <br />
-                        <label>Plotis, mm</label>
-                        <label>2340</label>
-                        <br /><br />
+                        <h3>Name: #{exampleItem.item.advertisement.name}</h3>
+                        <h3>Weight: #{exampleItem.item.advertisement.weight}</h3>
+                        <h3>Fuel type: #{exampleItem.item.advertisement.fuelType}</h3>
+                        <h3>Measurements: #{exampleItem.item.advertisement.measurements}</h3>
+                        <h3>Rent price: #{exampleItem.item.advertisement.rentPrice}</h3>
+                        <h3>Operator price: #{exampleItem.item.advertisement.operatorPrice}</h3>
                     </div>
                 </p:tab>
                 <p:tab title="Dokumentai">
@@ -53,7 +27,18 @@
                 <p:tab title="Saugumas">
                     <h:outputText value="Ipsum" />
                 </p:tab>
+                <p:tab title="Uzsakymo detales">
+                </p:tab>
             </p:accordionPanel>
         </h:panelGroup>
+        <h:form>
+            <br/><label>Pristatymo vieta</label>
+            <h:inputText value="#{exampleItem.orderToCreate.deliveryLocation}" />
+            <br/><label>Naudojimo pradzia</label>
+            <p:datePicker value="#{exampleItem.orderToCreate.rentTimeStart}" />
+            <br/><label>Naudojimo pabaiga</label>
+            <p:datePicker value="#{exampleItem.orderToCreate.rentTimeEnd}" />
+            <h:commandButton value="Issinomuok" action="#{exampleItem.rent}" />
+        </h:form>
     </ui:define>
 </ui:composition>
