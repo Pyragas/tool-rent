@@ -2,20 +2,15 @@ package com.psk.pyragas.ToolRent.usecases;
 
 import com.psk.pyragas.ToolRent.dao.ProfilesDAO;
 import com.psk.pyragas.ToolRent.entities.Profile;
-import com.psk.pyragas.ToolRent.utils.ModalDialog;
 import lombok.Getter;
 import lombok.Setter;
 import org.primefaces.PrimeFaces;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.context.SessionScoped;
 import javax.enterprise.inject.Model;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
-import javax.inject.Named;
 import java.io.Serializable;
-import java.util.List;
 
 @Getter
 @Setter
