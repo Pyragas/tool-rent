@@ -56,23 +56,20 @@ public class ExampleItem implements Serializable {
     @Transactional
     public String rent() {
         System.out.println("Paspaude nuomoti");
-        try{
-            Profile profile = (Profile) externalContext.getSessionMap().get("user");
+        Profile profile = (Profile) externalContext.getSessionMap().get("user");
 
-            List<Item> items = new ArrayList<>();
-            items.add(item);
+        List<Item> items = new ArrayList<>();
+        items.add(item);
 
-            orderToCreate.setItems(items);
-            orderToCreate.setProfile(profile);
-            ordersDAO.persist(orderToCreate);
+        orderToCreate.setItems(items);
+        orderToCreate.setProfile(profile);
+        ordersDAO.persist(orderToCreate);
 
-            // Update item
-            item.setStatus("Used");
-            itemsDAO.update(item);
-        }
-        catch (Exception e){
-            System.out.println("Couldn't find user");
-        }
+        // Update item
+        item.setStatus("Used");
+        itemsDAO.update(item);
+
+
 
 
 
