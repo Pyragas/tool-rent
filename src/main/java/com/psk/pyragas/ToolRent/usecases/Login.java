@@ -37,10 +37,8 @@ public class Login implements Serializable {
             PrimeFaces.current().dialog().closeDynamic("profile.xhtml?faces-redirect=true");
         }
         else {
-
+//            TODO: show error in login form
         }
-
     }
-
 }
 

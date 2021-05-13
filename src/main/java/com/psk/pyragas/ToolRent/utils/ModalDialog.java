@@ -37,10 +37,8 @@ public class ModalDialog {
 
     public void handleReturn(SelectEvent event) {
         String url = event.getObject().toString();
-        System.out.println("AAAAAAAAAAAA");
         try {
             FacesContext.getCurrentInstance().getExternalContext().redirect(url);
-//            PrimeFaces.current().executeScript("location.reload();");
         } catch (IOException e) {
             e.printStackTrace();
         }
