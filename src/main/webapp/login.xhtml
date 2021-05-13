@@ -26,16 +26,13 @@
                     </div>
                     <div class="p-field">
                         <p:outputLabel for="password-field" value="Slaptažodis" />
-                        <p:inputText id="password-field" value="#{login.password}"
+                        <p:password id="password-field" value="#{login.password}"
                                      required="true" />
                     </div>
-
                     <div>
                         <p:commandButton update="@form" value="Prisijungti"
-                                         action="#{modalDialog.closeModal(login.checkFields())}" />
+                                         action="#{login.checkFields}" />
                     </div>
-
-                    <h6>Current user logged in state: #{login.loginState}</h6>
                 </div>
             </div>
         </h:form>

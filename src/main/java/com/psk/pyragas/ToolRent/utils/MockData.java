@@ -76,7 +76,6 @@ public class MockData {
         naturalPerson.setPassword("slaptas");
         naturalPerson.setPhoneNo("867421299");
         naturalPerson.setRating((float) 8.3);
-        naturalPerson.setUsername("duobkasys");
         naturalPerson.setPersonalCode("123");
         naturalPerson.setName("Bronis");
         naturalPerson.setSurname("Burokas");
@@ -85,7 +84,6 @@ public class MockData {
         legalPerson.setPassword("slaptesnis");
         legalPerson.setPhoneNo("4455");
         legalPerson.setRating((float) 7.4);
-        legalPerson.setUsername("duobkasys");
         legalPerson.setCompanyCode("123");
 
         // Catch error of same data insertion

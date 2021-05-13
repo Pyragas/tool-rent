@@ -13,7 +13,7 @@ import java.util.List;
 @Setter
 @NamedQueries({
         @NamedQuery(name = "Profile.findAll", query = "select p from Profile as p"),
-        @NamedQuery(name="Profile.findOneByEmail", query = "select p from Profile as p where p.email = :curEmail")
+        @NamedQuery(name="Profile.findOneByEmailAndPassword", query = "select p from Profile as p where p.email = :email and p.password = :pass")
 })
 @Inheritance( strategy = InheritanceType.SINGLE_TABLE )
 @DiscriminatorColumn(name="customer_type",
@@ -23,13 +23,14 @@ public abstract class Profile implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(unique = true)
     private String phoneNo;
+
+    @Column(unique = true)
     private String email;
 
     //TODO: implement secure password
     private String password;
-
-    private String username;
 
     private Float rating;
 
