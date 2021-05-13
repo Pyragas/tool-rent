@@ -69,6 +69,6 @@ public class ExampleItem implements Serializable {
         item.setStatus("Used");
         itemsDAO.update(item);
 
-        return "index.xhtml";
+        return "index.xhtml?faces-redirect=true";
     }
 }

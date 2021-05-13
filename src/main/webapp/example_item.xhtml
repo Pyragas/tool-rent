@@ -27,18 +27,16 @@
                 <p:tab title="Saugumas">
                     <h:outputText value="Ipsum" />
                 </p:tab>
-                <p:tab title="Uzsakymo detales">
-                </p:tab>
             </p:accordionPanel>
         </h:panelGroup>
         <h:form>
             <br/><label>Pristatymo vieta</label>
             <h:inputText value="#{exampleItem.orderToCreate.deliveryLocation}" />
-            <br/><label>Naudojimo pradzia</label>
+            <br/><label>Naudojimo pradžia</label>
             <p:datePicker value="#{exampleItem.orderToCreate.rentTimeStart}" />
             <br/><label>Naudojimo pabaiga</label>
             <p:datePicker value="#{exampleItem.orderToCreate.rentTimeEnd}" />
-            <h:commandButton value="Issinomuok" action="#{exampleItem.rent}" />
+            <h:commandButton value="Išsinuomuok" action="#{exampleItem.rent}" />
         </h:form>
     </ui:define>
 </ui:composition>
