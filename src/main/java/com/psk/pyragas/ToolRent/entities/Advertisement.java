@@ -49,6 +49,8 @@ public class Advertisement implements Serializable {
     @ManyToOne
     private Profile profile;
 
+    private String image;
+
     //TODO: think over, if this is the right way to store photos
     @OneToMany(mappedBy = "advertisement")
     private List<Photo> photos;

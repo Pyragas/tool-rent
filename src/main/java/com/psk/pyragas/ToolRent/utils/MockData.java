@@ -49,6 +49,8 @@ public class MockData {
         advertisement.setText("Puikus ekskavatorius, puikiai kasa duobes");
         advertisement.setType("Ekskavatorius");
         advertisement.setWeight(4400.0);
+        advertisement.setImage("images/samsung.jpg");
+        advertisement.setProfile(naturalPerson);
 
         item.setFuelLevel("Pilnas");
         item.setLocation("Didlaukio g. 59");
@@ -71,11 +73,12 @@ public class MockData {
         naturalPerson.setAds(advertisements);
         ArrayList<Order> orders = new ArrayList<>();
         orders.add(order);
+
         naturalPerson.setOrders(orders);
         naturalPerson.setEmail("xkavatorius@one.lt");
         naturalPerson.setPassword("slaptas");
         naturalPerson.setPhoneNo("867421299");
-        naturalPerson.setRating((float) 8.3);
+        naturalPerson.setRating((float) 4.3);
         naturalPerson.setPersonalCode("123");
         naturalPerson.setName("Bronis");
         naturalPerson.setSurname("Burokas");
@@ -83,7 +86,7 @@ public class MockData {
         legalPerson.setEmail("statyknama@stroike.com");
         legalPerson.setPassword("slaptesnis");
         legalPerson.setPhoneNo("4455");
-        legalPerson.setRating((float) 7.4);
+        legalPerson.setRating((float) 3.4);
         legalPerson.setCompanyCode("123");
 
         // Catch error of same data insertion

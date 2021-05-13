@@ -15,7 +15,3 @@ form.center-form {
 form.modal-form {
     text-align: left;
 }
-
-body.background {
-    background-color: var(--surface-b);
-}
