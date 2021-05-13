@@ -22,7 +22,7 @@ public class ModalDialog {
         options.put("resizable", false);
         options.put("draggable", false);
         options.put("modal", true);
-        options.put("contentHeight", "280px");
+        options.put("contentHeight", "260px");
         options.put("contentWidth", "auto");
         return options;
     }
@@ -35,15 +35,12 @@ public class ModalDialog {
         PrimeFaces.current().dialog().closeDynamic(object);
     }
 
-    @SuppressWarnings("rawtypes")
-    public void handleReturn(SelectEvent event){
+    public void handleReturn(SelectEvent event) {
         String url = event.getObject().toString();
-        if(url != null){
-            try {
-                FacesContext.getCurrentInstance().getExternalContext().redirect(url);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        try {
+            FacesContext.getCurrentInstance().getExternalContext().redirect(url);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
