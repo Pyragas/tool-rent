@@ -26,7 +26,7 @@ public class ProfilesDAO {
         return this.em.createNamedQuery("Profile.findAll", Profile.class).getResultList();
     }
 
-    public List<Profile> findOneByUsername(String email) {
+    public List<Profile> findOneByEmail(String email) {
         return this.em.createNamedQuery("Profile.findOneByEmail", Profile.class)
                 .setParameter("curEmail", email)
                 .getResultList();

@@ -26,7 +26,7 @@ public class Login implements Serializable {
     private String password;
 
     public String checkFields() {
-        List<Profile> profileList = profilesDAO.findOneByUsername(this.email);
+        List<Profile> profileList = profilesDAO.findOneByEmail(this.email);
         if(!profileList.isEmpty()) {
             Profile profile = profileList.get(0);
             if( profile.getEmail().equals(this.getEmail()) &&
