@@ -11,7 +11,7 @@
 
 <h:body>
     <h:panelGroup styleClass="centered-panel">
-        <h:form styleClass="modal-form">
+        <h:form id="login-form" styleClass="modal-form">
             <div class="card">
                 <h6>Esate naujas klientas? <h:commandLink
                         immediate="true"
@@ -21,18 +21,19 @@
                 <div class="ui-fluid">
                     <div class="p-field">
                         <p:outputLabel for="email-field" value="El. paštas" />
-                        <p:inputText id="email-field" value="#{login.email}"
+                        <p:inputText styleClass="#{login.errorState}" id="email-field" value="#{login.email}"
                                      required="true" />
                     </div>
                     <div class="p-field">
                         <p:outputLabel for="password-field" value="Slaptažodis" />
                         <p:password id="password-field" value="#{login.password}"
-                                     required="true" />
+                                    required="true" />
                     </div>
                     <div>
-                        <p:commandButton update="@form" value="Prisijungti"
-                                         action="#{login.checkFields}" />
+                        <p:commandButton style="margin-top: 10px" update="@form" value="Prisijungti"
+                                         action="#{login.checkFields}" validateClient="true" />
                     </div>
+                    <p:growl id="growl" showDetail="true" />
                 </div>
             </div>
         </h:form>
