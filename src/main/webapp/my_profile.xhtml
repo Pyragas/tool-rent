@@ -6,13 +6,9 @@
     <ui:define name="general_content">
         <h:panelGroup styleClass="container">
             <img src="web-resources/default.jpg" alt="Traktoristas image" />
-            <br />
-            <label>Username : </label>
-            <label>Traktoristas</label>
-            <br />
-            <label>Email :</label>
-            <label>Jonas.Traktoristas@mif.vu.lt</label>
-            <br /><br />
+            <h3>Elektroninis pastas: #{myProfile.profile.email}</h3>
+            <h3>Telefono numeris: #{myProfile.profile.phoneNo}</h3>
+            <h3>Įvertinimas: #{myProfile.profile.rating}</h3>
             <button onclick="document.location='edit_profile.xhtml'" class="change button">Change settings</button>
         </h:panelGroup>
     </ui:define>
