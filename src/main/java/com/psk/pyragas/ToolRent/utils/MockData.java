@@ -60,7 +60,8 @@ public class MockData {
         order.setItems(items);
         order.setDeliveryLocation("Naugarduko g. 24");
         order.setOperator(Boolean.FALSE);
-        order.setPrice(BigDecimal.valueOf(345.12));
+        order.setRentPrice(BigDecimal.valueOf(345.12));
+        order.setOperatorPrice(BigDecimal.valueOf(345.12));
         order.setRentTimeStart(new Date(11));
         order.setRentTimeEnd(new Date(12));
         order.setStatus("Tvirinamas");

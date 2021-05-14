@@ -15,41 +15,49 @@
                         <p:toolbarGroup align="right">
                             <p:commandButton value="Export" icon="pi pi-upload" styleClass="ui-button-help"
                                              ajax="false">
-                                <p:dataExporter type="pdf" target="dt-products" fileName="products" />
+                                <p:dataExporter type="pdf" target="dt-products" fileName="orders" />
                             </p:commandButton>
                         </p:toolbarGroup>
                     </p:toolbar>
 
-                    <p:dataTable id="dt-products" widgetVar="dtProducts" var="order" value="#{crudView.products}"
+                    <p:dataTable id="dt-products" widgetVar="dtOrders" var="order" value="#{myOrders.orders}"
                                  reflow="true" styleClass="products-table"
-                                 selection="#{crudView.selectedProducts}" rowKey="#{product.id}" paginator="true"
-                                 rows="10" rowSelectMode="add" paginatorPosition="bottom">
+                                 paginator="true" rows="10" paginatorPosition="bottom">
                         <f:facet name="header">
                             <div class="products-table-header">
-                                <span style="font-weight: bold">PRODUCTS</span>
+                                <span style="font-weight: bold">ORDERS</span>
 
                                 <span class="filter-container ui-input-icon-left">
-                        <i class="pi pi-search"></i>
-                        <p:inputText id="globalFilter" onkeyup="PF('dtProducts').filter()" placeholder="Search" />
+                        <i class="pi pi-search" />
+                        <p:inputText id="globalFilter" onkeyup="PF('dtOrders').filter()" placeholder="Search" />
                     </span>
 
                             </div>
                         </f:facet>
 
-                        <p:ajax event="rowSelect" update=":form:delete-products-button" />
-                        <p:ajax event="rowUnselect" update=":form:delete-products-button" />
-                        <p:ajax event="rowSelectCheckbox" update=":form:delete-products-button" />
-                        <p:ajax event="rowUnselectCheckbox" update=":form:delete-products-button" />
-                        <p:ajax event="toggleSelect" update=":form:delete-products-button" />
-
-                        <p:column selectionMode="multiple" exportable="false"></p:column>
-
-                        <p:column headerText="Code" sortBy="#{product.code}" filterBy="#{product.code}">
-                            <h:outputText value="#{product.code}" />
+                        <p:column headerText="Kodas" sortBy="#{order.id}" filterBy="#{order.id}">
+                            <h:outputText value="#{order.id}" />
                         </p:column>
+
+                        <p:column headerText="Kaina" sortBy="#{order.fullPrice}">
+                            <h:outputText value="#{order.fullPrice}" style="font-weight: 700">
+                                <f:convertNumber currencySymbol="€" type="currency" />
+                            </h:outputText>
+                        </p:column>
+
+
+
+
                         <p:column headerText="Name" sortBy="#{product.name}" filterBy="#{product.name}">
                             <h:outputText value="#{product.name}" />
                         </p:column>
+
+                        <p:column headerText="Name" sortBy="#{order.}" filterBy="#{product.name}">
+                            <h:outputText value="#{product.name}" />
+                        </p:column>
+
+
+
                         <p:column headerText="Image" exportable="false">
                             <p:graphicImage name="images/product/#{product.image}" library="demo"
                                             styleClass="product-image" />

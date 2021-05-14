@@ -22,15 +22,8 @@ public class Order implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    private BigDecimal price;
+    private BigDecimal rentPrice;
+    private BigDecimal operatorPrice;
 
     //TODO: think over naming, make enum for status
     private String status;
@@ -41,14 +34,16 @@ public class Order implements Serializable {
 
     private Date rentTimeEnd;
 
-    private Boolean operator;
-
     @ManyToOne
     private Profile profile;
 
     @ManyToMany
     private List<Item> items;
 
-    //TODO:implement properties
-
+    public BigDecimal getFullPrice(){
+        if (operatorPrice != null) {
+            return rentPrice.add(operatorPrice);
+        }
+        else return rentPrice;
+    }
 }
