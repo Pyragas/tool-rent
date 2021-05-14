@@ -45,10 +45,15 @@
                             </h:outputText>
                         </p:column>
 
+                        <p:column headerText="Pavadinimas" sortBy="#{order.}" filterBy="#{order.id}">
+                            <h:outputText value="#{order.id}" />
+                        </p:column>
 
 
 
-                        <p:column headerText="Name" sortBy="#{product.name}" filterBy="#{product.name}">
+
+
+                        <p:column headerText="Name" sortBy="#{order.}" filterBy="#{product.name}">
                             <h:outputText value="#{product.name}" />
                         </p:column>
 
