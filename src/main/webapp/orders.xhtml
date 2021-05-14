@@ -12,23 +12,7 @@
                     <p:growl id="messages" showDetail="true" />
 
                     <p:toolbar>
-                        <p:toolbarGroup>
-                            <p:commandButton value="New" icon="pi pi-plus" actionListener="#{crudView.openNew}"
-                                             update=":form:manage-product-content"
-                                             oncomplete="PF('manageProductDialog').show()"
-                                             styleClass="ui-button-success" style="margin-right: .5rem">
-                                <p:resetInput target=":form:manage-product-content" />
-                            </p:commandButton>
-                            <p:commandButton id="delete-products-button" value="#{crudView.deleteButtonMessage}"
-                                             icon="pi pi-trash" actionListener="#{crudView.deleteSelectedProducts}"
-                                             styleClass="ui-button-danger" disabled="#{!crudView.hasSelectedProducts()}"
-                                             update="@this">
-                                <p:confirm header="Confirmation" message="Delete the selected products?"
-                                           icon="pi pi-exclamation-triangle" />
-                            </p:commandButton>
-                        </p:toolbarGroup>
                         <p:toolbarGroup align="right">
-                            <p:fileUpload mode="simple" skinSimple="true" label="Import" chooseIcon="pi pi-download" />
                             <p:commandButton value="Export" icon="pi pi-upload" styleClass="ui-button-help"
                                              ajax="false">
                                 <p:dataExporter type="pdf" target="dt-products" fileName="products" />
@@ -36,7 +20,7 @@
                         </p:toolbarGroup>
                     </p:toolbar>
 
-                    <p:dataTable id="dt-products" widgetVar="dtProducts" var="product" value="#{crudView.products}"
+                    <p:dataTable id="dt-products" widgetVar="dtProducts" var="order" value="#{crudView.products}"
                                  reflow="true" styleClass="products-table"
                                  selection="#{crudView.selectedProducts}" rowKey="#{product.id}" paginator="true"
                                  rows="10" rowSelectMode="add" paginatorPosition="bottom">
