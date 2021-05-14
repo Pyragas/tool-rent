@@ -2,14 +2,17 @@ package com.psk.pyragas.ToolRent.usecases;
 
 import com.psk.pyragas.ToolRent.dao.ProfilesDAO;
 import com.psk.pyragas.ToolRent.entities.Profile;
+import com.psk.pyragas.ToolRent.utils.ModalDialog;
 import lombok.Getter;
 import lombok.Setter;
 import org.primefaces.PrimeFaces;
 
 import javax.enterprise.inject.Model;
+import javax.faces.application.FacesMessage;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
+import javax.persistence.NoResultException;
 import java.io.Serializable;
 
 @Getter
@@ -25,14 +28,15 @@ public class Login implements Serializable {
 
     ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
 
+    private String errorState;
+
     public void checkFields() {
-        Profile profile = profilesDAO.findOneByEmailAndPassword(this.email, this.password);
-        if (profile != null) {
+        try {
+            Profile profile = profilesDAO.findOneByEmailAndPassword(this.email, this.password);
             externalContext.getSessionMap().put("user", profile);
-            PrimeFaces.current().dialog().closeDynamic("profile.xhtml?faces-redirect=true");
-        }
-        else {
-//            TODO: show error in login form
+            PrimeFaces.current().dialog().closeDynamic(null);
+        } catch (NoResultException e) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Klaida", "Naudotojas nerastas."));
         }
     }
 }
