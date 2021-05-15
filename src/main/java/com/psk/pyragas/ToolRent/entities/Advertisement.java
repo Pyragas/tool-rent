@@ -29,10 +29,6 @@ public class Advertisement implements Serializable {
 
     private String text;
 
-    private String location;
-
-    private String fuelLevel;
-
     //TODO: make statuses enum
     private String status;
 
