@@ -55,6 +55,8 @@ public class Advertisement implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     private Profile profile;
 
+    private String image;
+
     @OneToMany(mappedBy = "advertisement", cascade = CascadeType.ALL)
     private List<Order> orders;
 

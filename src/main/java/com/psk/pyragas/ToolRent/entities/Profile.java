@@ -34,6 +34,10 @@ public abstract class Profile implements Serializable {
 
     private Float rating;
 
+    public Integer getRating(){
+        return rating.intValue();
+    }
+
     @OneToMany(mappedBy = "profile", cascade = CascadeType.ALL)
     private List<Order> orders = new ArrayList<>();
 
