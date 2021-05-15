@@ -30,7 +30,6 @@ public class Chat implements Serializable {
     @ManyToMany
     private List<Profile> profiles = new ArrayList<>();
 
-
-    @OneToMany(mappedBy = "chat")
+    @OneToMany(mappedBy = "chat", cascade = CascadeType.ALL)
     private List<Message> messages = new ArrayList<>();
 }
