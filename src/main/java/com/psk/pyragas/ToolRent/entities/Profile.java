@@ -34,13 +34,23 @@ public abstract class Profile implements Serializable {
 
     private Float rating;
 
-    @OneToMany(mappedBy = "profile")
+    @OneToMany(mappedBy = "profile", cascade = CascadeType.ALL)
     private List<Order> orders = new ArrayList<>();
 
-    @ManyToMany(mappedBy = "profiles")
+    public void addOrder(Order order){
+        orders.add(order);
+        order.setProfile(this);
+    }
+
+    @ManyToMany(mappedBy = "profiles", cascade = CascadeType.ALL)
     private List<Chat> chats = new ArrayList<>();
 
-    @OneToMany(mappedBy = "profile")
-    private List<Advertisement> ads = new ArrayList<>();
+    @OneToMany(mappedBy = "profile", cascade = CascadeType.ALL)
+    private List<Advertisement> advertisements = new ArrayList<>();
+
+    public void addAdvertisement(Advertisement advertisement){
+        advertisements.add(advertisement);
+        advertisement.setProfile(this);
+    }
 
 }

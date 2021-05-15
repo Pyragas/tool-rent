@@ -6,7 +6,10 @@ import com.psk.pyragas.ToolRent.entities.NaturalPerson;
 import com.psk.pyragas.ToolRent.entities.Profile;
 import lombok.Getter;
 import lombok.Setter;
+import org.primefaces.PrimeFaces;
 
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -18,6 +21,8 @@ import java.io.Serializable;
 @Setter
 @Named
 public class Registration implements Serializable {
+
+    ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
     @Inject
     private ProfilesDAO profilesDAO;
 
@@ -41,6 +46,7 @@ public class Registration implements Serializable {
     @Transactional
     public String createProfile() {
         profilesDAO.persist(profileToCreate);
+        externalContext.getSessionMap().put("user", profileToCreate);
         return "index.xhtml?faces-redirect=true";
     }
 

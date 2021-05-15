@@ -44,19 +44,26 @@ public class Advertisement implements Serializable {
     //TODO: think over property name, and enum
     private String fuelType;
 
+    // FROM ITEM
+    private String location;
+
+    // FROM ITEM
+    private String fuelLevel;
+
     private String measurements;
 
     private Double weight;
     private BigDecimal rentPrice;
     private BigDecimal operatorPrice;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Profile profile;
 
-    //TODO: think over, if this is the right way to store photos
-    @OneToMany(mappedBy = "advertisement")
-    private List<Photo> photos;
+    @OneToMany(mappedBy = "advertisement", cascade = CascadeType.ALL)
+    private List<Order> orders;
 
-    @OneToMany(mappedBy = "advertisement")
-    private List<Item> items;
+    public void addOrder(Order order){
+        orders.add(order);
+        order.setAdvertisement(this);
+    }
 }
