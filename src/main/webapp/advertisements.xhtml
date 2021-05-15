@@ -32,8 +32,8 @@
                                     <f:convertNumber currencySymbol="$" type="currency" />
                                 </h:outputText>
                                 <p:commandButton update=":form:productDetail" oncomplete="PF('productDialog').show()"
-                                                 value="Add To Cart"
-                                                 icon="pi pi-shopping-cart"
+                                                 value="Daugiau informacijos"
+                                                 icon="pi pi-info-circle"
                                                  disabled="#{advertisement.status == 'OUTOFSTOCK'}">
                                     <f:setPropertyActionListener value="#{advertisement}"
                                                                  target="#{advertisements.selectedAd}" />
@@ -43,7 +43,7 @@
 
                     </p:dataGrid>
 
-                    <p:dialog header="Product Info" widgetVar="productDialog" modal="true" showEffect="fade"
+                    <p:dialog header="Produkto informacija" widgetVar="productDialog" modal="true" showEffect="fade"
                               hideEffect="fade"
                               resizable="false">
                         <p:outputPanel id="productDetail" style="text-align:center;">
@@ -69,7 +69,7 @@
                                                           styleClass="product-price">
                                                 <f:convertNumber currencySymbol="$" type="currency" />
                                             </h:outputText>
-                                            <p:commandButton value="Add To Cart" icon="pi pi-shopping-cart"
+                                            <p:commandButton value="Nuomotis" icon="pi pi-shopping-cart"
                                                              disabled="#{advertisements.selectedAd.status == 'OUTOFSTOCK'}">
                                             </p:commandButton>
                                         </div>
