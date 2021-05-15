@@ -1,10 +1,8 @@
 package com.psk.pyragas.ToolRent.usecases;
 
 import com.psk.pyragas.ToolRent.dao.AdvertisementsDAO;
-import com.psk.pyragas.ToolRent.dao.ItemsDAO;
 import com.psk.pyragas.ToolRent.dao.ProfilesDAO;
 import com.psk.pyragas.ToolRent.entities.Advertisement;
-import com.psk.pyragas.ToolRent.entities.Item;
 import com.psk.pyragas.ToolRent.entities.Profile;
 import lombok.Getter;
 import lombok.Setter;

@@ -1,9 +1,7 @@
 package com.psk.pyragas.ToolRent.usecases;
 
-import com.psk.pyragas.ToolRent.dao.ItemsDAO;
 import com.psk.pyragas.ToolRent.dao.OrdersDAO;
 import com.psk.pyragas.ToolRent.entities.Advertisement;
-import com.psk.pyragas.ToolRent.entities.Item;
 import com.psk.pyragas.ToolRent.entities.Order;
 import com.psk.pyragas.ToolRent.entities.Profile;
 import lombok.Getter;
@@ -31,44 +29,45 @@ public class ExampleItem implements Serializable {
 
     ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
 
-    @Inject
-    private ItemsDAO itemsDAO;
+//    TODO: fix this use case
+//    @Inject
+//    private ItemsDAO itemsDAO;
 
-    @Inject
-    private OrdersDAO ordersDAO;
-
-    @Getter @Setter
-    private Order orderToCreate = new Order();
-
-    @Getter
-    @Setter
-    private Item item;
-
-    @PostConstruct
-    public void init() {
-        Map<String, String> requestParameters =
-                FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
-        Long itemId = Long.parseLong(requestParameters.get("itemId"));
-        this.item = itemsDAO.findOne(itemId);
-    }
-
-
-    @Transactional
-    public String rent() {
-        System.out.println("Paspaude nuomoti");
-        Profile profile = (Profile) externalContext.getSessionMap().get("user");
-
-        List<Item> items = new ArrayList<>();
-        items.add(item);
-
-        orderToCreate.setItems(items);
-        orderToCreate.setProfile(profile);
-        ordersDAO.persist(orderToCreate);
-
-        // Update item
-        item.setStatus("Used");
-        itemsDAO.update(item);
-
-        return "index.xhtml?faces-redirect=true";
-    }
+//    @Inject
+//    private OrdersDAO ordersDAO;
+//
+//    @Getter @Setter
+//    private Order orderToCreate = new Order();
+//
+//    @Getter
+//    @Setter
+//    private Item item;
+//
+//    @PostConstruct
+//    public void init() {
+//        Map<String, String> requestParameters =
+//                FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
+//        Long itemId = Long.parseLong(requestParameters.get("itemId"));
+//        this.item = itemsDAO.findOne(itemId);
+//    }
+//
+//
+//    @Transactional
+//    public String rent() {
+//        System.out.println("Paspaude nuomoti");
+//        Profile profile = (Profile) externalContext.getSessionMap().get("user");
+//
+//        List<Item> items = new ArrayList<>();
+//        items.add(item);
+//
+//        orderToCreate.setItems(items);
+//        orderToCreate.setProfile(profile);
+//        ordersDAO.persist(orderToCreate);
+//
+//        // Update item
+//        item.setStatus("Used");
+//        itemsDAO.update(item);
+//
+//        return "index.xhtml?faces-redirect=true";
+//    }
 }

@@ -26,6 +26,6 @@ public class Photo {
 
     private String url;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Advertisement advertisement;
 }
