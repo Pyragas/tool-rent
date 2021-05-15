@@ -40,6 +40,12 @@ public class Advertisement implements Serializable {
     //TODO: think over property name, and enum
     private String fuelType;
 
+    // FROM ITEM
+    private String location;
+
+    // FROM ITEM
+    private String fuelLevel;
+
     private String measurements;
 
     private Double weight;
@@ -49,10 +55,6 @@ public class Advertisement implements Serializable {
     @ManyToOne
     private Profile profile;
 
-    //TODO: think over, if this is the right way to store photos
     @OneToMany(mappedBy = "advertisement")
-    private List<Photo> photos;
-
-    @OneToMany(mappedBy = "advertisement")
-    private List<Item> items;
+    private List<Order> orders;
 }

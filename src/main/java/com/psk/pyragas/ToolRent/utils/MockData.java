@@ -19,9 +19,6 @@ public class MockData {
     private AdvertisementsDAO advertisementsDAO;
 
     @Inject
-    private ItemsDAO itemsDAO;
-
-    @Inject
     private OrdersDAO ordersDAO;
 
     @Inject
@@ -34,7 +31,6 @@ public class MockData {
 
         // Create object
         Advertisement advertisement = new Advertisement();
-        Item item = new Item();
         Order order = new Order();
         NaturalPerson naturalPerson = new NaturalPerson();
         LegalPerson legalPerson = new LegalPerson();
@@ -45,19 +41,14 @@ public class MockData {
         advertisement.setName("Ekskavatorius Samsung 3310");
         advertisement.setOperatorPrice(BigDecimal.valueOf(99.99));
         advertisement.setRentPrice(BigDecimal.valueOf(39.99));
-        advertisement.setStatus("Aktyvus");
+        advertisement.setStatus("Laisvas");
         advertisement.setText("Puikus ekskavatorius, puikiai kasa duobes");
         advertisement.setType("Ekskavatorius");
         advertisement.setWeight(4400.0);
+        advertisement.setFuelLevel("Pilnas");
+        advertisement.setLocation("Didlaukio g. 59");
+        advertisement.setStatus("Laisvas");
 
-        item.setFuelLevel("Pilnas");
-        item.setLocation("Didlaukio g. 59");
-        item.setStatus("Laisvas");
-        item.setAdvertisement(advertisement);
-
-        ArrayList<Item> items = new ArrayList<>();
-        items.add(item);
-        order.setItems(items);
         order.setDeliveryLocation("Naugarduko g. 24");
         order.setOperator(Boolean.FALSE);
         order.setPrice(BigDecimal.valueOf(345.12));
@@ -65,6 +56,7 @@ public class MockData {
         order.setRentTimeEnd(new Date(12));
         order.setStatus("Tvirinamas");
         order.setProfile(naturalPerson);
+        order.setAdvertisement(advertisement);
 
         ArrayList<Advertisement> advertisements = new ArrayList<>();
         advertisements.add(advertisement);
@@ -90,7 +82,6 @@ public class MockData {
         // Persist data, order is important!
         try{
             advertisementsDAO.persist(advertisement);
-            itemsDAO.persist(item);
             ordersDAO.persist(order);
             profilesDAO.persist(naturalPerson);
             profilesDAO.persist(legalPerson);
