@@ -34,10 +34,10 @@ public class Order implements Serializable {
 
     private Boolean operator;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Profile profile;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Advertisement advertisement;
 
 }

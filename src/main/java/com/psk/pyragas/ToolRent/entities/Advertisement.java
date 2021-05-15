@@ -52,9 +52,14 @@ public class Advertisement implements Serializable {
     private BigDecimal rentPrice;
     private BigDecimal operatorPrice;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Profile profile;
 
-    @OneToMany(mappedBy = "advertisement")
+    @OneToMany(mappedBy = "advertisement", cascade = CascadeType.ALL)
     private List<Order> orders;
+
+    public void addOrder(Order order){
+        orders.add(order);
+        order.setAdvertisement(this);
+    }
 }
