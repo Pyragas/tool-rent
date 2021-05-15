@@ -29,7 +29,7 @@
                             </div>
                             <div class="product-grid-item-bottom">
                                 <h:outputText value="#{advertisement.rentPrice}" styleClass="product-price">
-                                    <f:convertNumber currencySymbol="$" type="currency" />
+                                    <f:convertNumber currencySymbol="€" type="currency" />
                                 </h:outputText>
                                 <p:commandButton update=":form:productDetail" oncomplete="PF('productDialog').show()"
                                                  value="Daugiau informacijos"
@@ -67,7 +67,7 @@
                                         <div class="product-grid-item-bottom">
                                             <h:outputText value="#{advertisements.selectedAd.rentPrice}"
                                                           styleClass="product-price">
-                                                <f:convertNumber currencySymbol="$" type="currency" />
+                                                <f:convertNumber currencySymbol="€" type="currency" />
                                             </h:outputText>
                                             <p:commandButton value="Nuomotis" icon="pi pi-shopping-cart"
                                                              disabled="#{advertisements.selectedAd.status == 'OUTOFSTOCK'}">
