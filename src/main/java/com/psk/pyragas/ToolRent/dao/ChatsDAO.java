@@ -1,12 +1,14 @@
 package com.psk.pyragas.ToolRent.dao;
 
 import com.psk.pyragas.ToolRent.entities.Chat;
+import com.psk.pyragas.ToolRent.interceptors.WillBeLogged;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import java.util.List;
 
+@WillBeLogged
 @ApplicationScoped
 public class ChatsDAO {
     @Inject

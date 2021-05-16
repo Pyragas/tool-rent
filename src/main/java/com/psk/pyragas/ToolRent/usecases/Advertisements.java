@@ -2,6 +2,7 @@ package com.psk.pyragas.ToolRent.usecases;
 
 import com.psk.pyragas.ToolRent.dao.AdvertisementsDAO;
 import com.psk.pyragas.ToolRent.entities.Advertisement;
+import com.psk.pyragas.ToolRent.interceptors.WillBeLogged;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,6 +11,7 @@ import javax.enterprise.inject.Model;
 import javax.inject.Inject;
 import java.util.List;
 
+@WillBeLogged
 @Model
 @Getter
 @Setter
