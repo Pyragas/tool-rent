@@ -22,9 +22,6 @@ public class CreateAdvertisement {
     @Inject
     private AdvertisementsDAO advertisementsDAO;
 
-    @Inject
-    private ProfilesDAO profilesDAO;
-
     @Getter @Setter
     private Advertisement advertisementToCreate = new Advertisement();
 
@@ -40,7 +37,7 @@ public class CreateAdvertisement {
         this.advertisementToCreate.setProfile(profile);
         this.advertisementsDAO.persist(this.advertisementToCreate);
 
-        return "add_item.xhtml?faces-redirect=true&advertisementId=" + this.advertisementToCreate.getId();
+        return "index.xhtml?faces-redirect=true";
     }
 
 
