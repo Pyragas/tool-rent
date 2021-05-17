@@ -32,7 +32,7 @@
                                 <h:outputText value="#{advertisement.rentPrice}" styleClass="product-price">
                                     <f:convertNumber currencySymbol="€" type="currency" />
                                 </h:outputText>
-                                <p:commandButton update=":adForm:productDetail" oncomplete="PF('productDialog').show()"
+                                <p:commandButton update=":dialog-form:productDetail" oncomplete="PF('productDialog').show()"
                                                  value="Daugiau informacijos"
                                                  icon="pi pi-info-circle"
                                                  disabled="#{advertisement.status == 'OUTOFSTOCK'}">
@@ -44,7 +44,7 @@
                     </p:dataGrid>
                 </h:form>
 
-                <h:form id="adForm">
+                <h:form id="dialog-form">
                     <p:dialog header="Produkto informacija" widgetVar="productDialog" modal="true" showEffect="fade"
                               hideEffect="fade"
                               resizable="false">
