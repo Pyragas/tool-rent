@@ -8,18 +8,26 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.annotation.PostConstruct;
-import javax.enterprise.inject.Model;
+import javax.faces.context.FacesContext;
+import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
+import javax.inject.Named;
 import javax.transaction.Transactional;
+import java.io.Serializable;
 import java.util.List;
+import java.util.Map;
 
-@Model
 @Getter
 @Setter
-public class Advertisements {
+@Named
+@ViewScoped
+public class Advertisements implements Serializable {
     private List<Advertisement> ads;
 
     private Advertisement selectedAd;
+
+    FacesContext context = FacesContext.getCurrentInstance();
+    Map<String, String> map = context.getExternalContext().getRequestParameterMap();
 
     @Inject
     AdvertisementsDAO adsDao;
@@ -42,10 +50,7 @@ public class Advertisements {
         ordersDAO.persist(order);
         adsDao.update(selectedAd);
 
-        return "index.xhtml";
+        return "index.xhtml?faces-redirect=true";
     }
-
-
-
 
 }

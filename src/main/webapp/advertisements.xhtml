@@ -8,7 +8,7 @@
         <h:panelGroup styleClass="layout-content">
             <div class="product">
                 <h:form id="form">
-                    <p:remoteCommand name="rentItem" action="#{advertisements.rentItem}"/>
+                    <p:remoteCommand name="rentItem" action="#{advertisements.rentItem}" />
                     <p:dataGrid var="advertisement" value="#{advertisements.ads}" columns="3" layout="grid"
                                 rows="12" paginator="true" id="cars"
                                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
@@ -32,7 +32,8 @@
                                 <h:outputText value="#{advertisement.rentPrice}" styleClass="product-price">
                                     <f:convertNumber currencySymbol="€" type="currency" />
                                 </h:outputText>
-                                <p:commandButton update=":dialog-form:productDetail" oncomplete="PF('productDialog').show()"
+                                <p:commandButton update=":dialog-form:productDetail"
+                                                 oncomplete="PF('productDialog').show()"
                                                  value="Daugiau informacijos"
                                                  icon="pi pi-info-circle"
                                                  disabled="#{advertisement.status == 'OUTOFSTOCK'}">
@@ -64,14 +65,16 @@
                                                     name="#{advertisements.selectedAd.image}" />
                                             <div class="product-name">#{advertisements.selectedAd.name}</div>
                                             <div class="product-description">#{advertisements.selectedAd.text}</div>
-                                            <p:rating readonly="true" value="#{advertisements.selectedAd.profile.rating}" />
+                                            <p:rating readonly="true"
+                                                      value="#{advertisements.selectedAd.profile.rating}" />
                                         </div>
                                         <div class="product-grid-item-bottom">
                                             <h:outputText value="#{advertisements.selectedAd.rentPrice}"
                                                           styleClass="product-price">
                                                 <f:convertNumber currencySymbol="€" type="currency" />
                                             </h:outputText>
-                                            <p:commandButton value="Nuomotis" icon="pi pi-shopping-cart" onclick="rentItem()"
+                                            <p:commandButton value="Nuomotis" icon="pi pi-shopping-cart"
+                                                             onclick="rentItem()"
                                                              disabled="#{advertisements.selectedAd.status == 'OUTOFSTOCK'}">
                                             </p:commandButton>
                                         </div>
