@@ -14,6 +14,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.transaction.Transactional;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 
@@ -44,11 +45,10 @@ public class Advertisements implements Serializable {
     public String rentItem() {
         System.out.println("Rent was called");
 
-        //TODO:Code throws exception: attempt to create merge event with null entity.
         Order order = new Order();
+        order.setPrice(new BigDecimal(66));
         order.setAdvertisement(selectedAd);
         ordersDAO.persist(order);
-        adsDao.update(selectedAd);
 
         return "index.xhtml?faces-redirect=true";
     }
