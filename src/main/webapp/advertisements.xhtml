@@ -69,7 +69,7 @@
                                                           styleClass="product-price">
                                                 <f:convertNumber currencySymbol="€" type="currency" />
                                             </h:outputText>
-                                            <p:commandButton value="Nuomotis" icon="pi pi-shopping-cart"
+                                            <p:commandButton value="Nuomotis" icon="pi pi-shopping-cart" action="#{advertisements.rentItem}"
                                                              disabled="#{advertisements.selectedAd.status == 'OUTOFSTOCK'}">
                                             </p:commandButton>
                                         </div>

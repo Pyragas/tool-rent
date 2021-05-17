@@ -35,6 +35,9 @@ public class CreateAdvertisement {
 
         Profile profile = (Profile) externalContext.getSessionMap().get("user");
         this.advertisementToCreate.setProfile(profile);
+        if(this.advertisementToCreate.getImage() == null) {
+            this.advertisementToCreate.setImage("images/default.jpg");
+        }
         this.advertisementsDAO.persist(this.advertisementToCreate);
 
         return "index.xhtml?faces-redirect=true";
