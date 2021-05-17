@@ -36,6 +36,7 @@ public class Advertisements {
     public String rentItem() {
         System.out.println("Rent was called");
 
+        //TODO:Code throws exception: attempt to create merge event with null entity.
         Order order = new Order();
         order.setAdvertisement(selectedAd);
         ordersDAO.persist(order);
