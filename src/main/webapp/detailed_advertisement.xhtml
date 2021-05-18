@@ -6,6 +6,7 @@
 
     <ui:define name="general_content">
         <h:panelGroup styleClass="centered-panel">
+            <script type="text/javascript" src="web-resources/primeFacesLocales.js"></script>
             <h:form styleClass="center-form">
                 <div class="card">
                     <h2>Detali informacija</h2>
@@ -37,12 +38,14 @@
                                          required="true" />
                         </div>
                         <div>
-                            <p:outputLabel value="Naudojimo pradžia"/>
-                            <p:datePicker value="#{detailedAdvertisement.orderToCreate.rentTimeStart}" />
+                            <p:outputLabel for="orderStartDate" value="Naudojimo pradžia" />
+                            <p:datePicker id="orderStartDate" value="#{detailedAdvertisement.orderToCreate.rentTimeStart}"
+                                          showIcon="true" locale="lt" />
                         </div>
                         <div>
-                            <p:outputLabel value="Naudojimo pabaiga"/>
-                            <p:datePicker value="#{detailedAdvertisement.orderToCreate.rentTimeEnd}" />
+                            <p:outputLabel for="orderEndDate" value="Naudojimo pabaiga"/>
+                            <p:datePicker id="orderEndDate" value="#{detailedAdvertisement.orderToCreate.rentTimeEnd}"
+                                          showIcon="true" locale="lt" />
                         </div>
 
 
