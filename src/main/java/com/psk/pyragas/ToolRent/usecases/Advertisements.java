@@ -43,14 +43,13 @@ public class Advertisements implements Serializable {
 
     @Transactional
     public String rentItem() {
-        System.out.println("Rent was called");
 
         Order order = new Order();
         order.setPrice(new BigDecimal(66));
         order.setAdvertisement(selectedAd);
         ordersDAO.persist(order);
 
-        return "index.xhtml?faces-redirect=true";
+        return "detailed_advertisement.xhtml?faces-redirect=true&advertisementId=" + selectedAd.getId();
     }
 
 }

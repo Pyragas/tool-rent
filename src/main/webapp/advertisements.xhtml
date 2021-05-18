@@ -23,9 +23,8 @@
                                 <span class="product-badge status-INVENTORYSTATUS">#{advertisement.status}</span>
                             </div>
                             <div class="product-grid-item-content">
-                                <h:commandLink action="index.xhtml">
-                                    <p:graphicImage name="#{advertisement.image}"/>
-                                </h:commandLink>
+
+                                <p:graphicImage name="#{advertisement.image}"/>
                                 <div class="product-name">#{advertisement.name}</div>
                                 <div class="product-description">#{advertisement.text}</div>
                                 <p:rating readonly="true" value="#{advertisement.profile.rating}" />
@@ -34,8 +33,8 @@
                                 <h:outputText value="#{advertisement.rentPrice}" styleClass="product-price">
                                     <f:convertNumber currencySymbol="€" type="currency" />
                                 </h:outputText>
-                                <p:commandButton update=":dialog-form:productDetail"
-                                                 oncomplete="PF('productDialog').show()"
+                                <p:commandButton
+                                                 action="#{advertisements.rentItem}"
                                                  value="Daugiau informacijos"
                                                  icon="pi pi-info-circle"
                                                  disabled="#{advertisement.status == 'OUTOFSTOCK'}">
@@ -63,10 +62,9 @@
                                             <span class="product-badge status-INVENTORYSTATUS">#{advertisements.selectedAd.status}</span>
                                         </div>
                                         <div class="product-grid-item-content">
-                                            <h:commandLink action="index.xhtml">
-                                                <p:graphicImage
-                                                        name="#{advertisements.selectedAd.image}" />
-                                            </h:commandLink>
+
+                                            <p:graphicImage
+                                                    name="#{advertisements.selectedAd.image}" />
                                             <div class="product-name">#{advertisements.selectedAd.name}</div>
                                             <div class="product-description">#{advertisements.selectedAd.text}</div>
                                             <p:rating readonly="true"
@@ -78,7 +76,7 @@
                                                 <f:convertNumber currencySymbol="€" type="currency" />
                                             </h:outputText>
                                             <p:commandButton value="Nuomotis" icon="pi pi-shopping-cart"
-                                                             onclick="rentItem()"
+                                                             action="#{advertisements.rentItem}"
                                                              disabled="#{advertisements.selectedAd.status == 'OUTOFSTOCK'}">
                                             </p:commandButton>
                                         </div>
