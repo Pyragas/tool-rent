@@ -1,0 +1,46 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://java.sun.com/jsf/html"
+                template="/templates/page_view.xhtml">
+
+    <ui:define name="general_content">
+        <h:panelGroup class="container">
+            <img src="web-resources/default.jpg" alt="Traktoristas image" />
+            <button class="change image">Change image</button>
+
+            <h:form styleClass="center-form">
+                <div class="card">
+                    <h5>Įrašykite naujus profilio duomenis</h5>
+                    <div class="ui-fluid">
+
+                        <div class="p-field">
+                            <p:outputLabel for="name-field" value="Elektroninis paštas" />
+                            <p:inputText id="name-field" value="#{editProfile.profile.email}"
+                                         required="false" />
+                        </div>
+
+                        <div class="p-field">
+                            <p:outputLabel for="type-field" value="Telefono numeris" />
+                            <p:inputText id="type-field" value="#{editProfile.profile.phoneNo}"
+                                         required="false" />
+                        </div>
+
+                        <div class="p-field">
+                            <p:outputLabel for="password-field" value="Naujas slaptažodis" />
+                            <p:password id="password-field" value="#{editProfile.profile.password}"
+                                         required="false" />
+                        </div>
+
+                        <div class="p-d-flex p-jc-between p-pt-4">
+                            <p:commandButton update="@form" value="Atnaujinti duomenis"
+                                             action="#{editProfile.updateProfile}" />
+                        </div>
+
+                        <p:messages id="messages" showDetail="true" autoUpdate="true"> </p:messages>
+                    </div>
+                </div>
+            </h:form>
+        </h:panelGroup>
+    </ui:define>
+</ui:composition>

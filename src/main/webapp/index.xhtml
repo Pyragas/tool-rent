@@ -1,11 +1,12 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title>ToolRent</title>
-</head>
-<body>
-<h2>"Hello World!</h2>
-<h3>Would you like to rent something? :)))</h3>
-<!--<a href="hello-servlet">Hello Servlet</a>-->
-</body>
-</html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                template="/templates/page_view.xhtml">
+
+<ui:define name="general_content">
+    <h:panelGroup styleClass="centered-panel">
+        <h2>"Hello World!</h2>
+        <h3>Would you like to rent something? :)))</h3>
+    </h:panelGroup>
+</ui:define>
+</ui:composition>

@@ -1,0 +1,14 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                template="/templates/page_view.xhtml">
+
+    <ui:define name="general_content">
+        <h:panelGroup styleClass="centered-panel">
+            <h2>Profile</h2>
+                <h3>Elektroninis paštas: #{otherProfile.profile.email}</h3>
+                <h3>Telefono numeris: #{otherProfile.profile.phoneNo}</h3>
+                <h3>Įvertinimas: #{otherProfile.profile.rating}</h3>
+        </h:panelGroup>
+    </ui:define>
+</ui:composition>

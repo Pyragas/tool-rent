@@ -1,0 +1,43 @@
+<!--            TODO: fix all pages to match style-->
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xml:lang="en"
+                lang="en"
+                xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:form>
+        <p:growl id="messages" />
+        <p:menubar>
+            <p:menuitem value="[HOME ikona]" action="index.xhtml?faces-redirect=true" />
+            <p:menuitem value="Kurti skelbimą" action="create_advertisement.xhtml?faces-redirect=true" />
+            <p:menuitem value="DUK" />
+            <p:menuitem value="Mano profilis" action="my_profile.xhtml?faces-redirect=true" />
+            <f:facet name="options">
+                <div class="p-d-flex" style="margin-top: 0.25rem">
+                    <div class="p-d-flex p-mr-6">
+                        <div class="ui-input-icon-left p-mr-2">
+                            <i class="pi pi-fw pi-search" />
+                            <p:inputText placeholder="Ieškoti skelbimų" />
+                        </div>
+                        <p:commandButton value="Ieškoti" styleClass="ui-button-secondary"
+                                         action="advertisements.xhtml?faces-redirect=true" />
+                    </div>
+
+                    <div>
+                        <h:panelGroup rendered="#{user == null}">
+                            <p:commandButton value="Prisijungti"
+                                             action="#{modalDialog.openModal('login.xhtml', modalDialog.loginOptions())}">
+                                <p:ajax event="dialogReturn" listener="#{modalDialog.handleReturn}" update="@all" />
+                            </p:commandButton>
+                        </h:panelGroup>
+                        <h:panelGroup rendered="#{user != null}">
+                            <p:commandButton value="Atsijungti" action="#{logout.logoutUser}">
+                            </p:commandButton>
+                        </h:panelGroup>
+                    </div>
+                </div>
+            </f:facet>
+        </p:menubar>
+    </h:form>
+</ui:composition>
