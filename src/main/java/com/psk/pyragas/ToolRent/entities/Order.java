@@ -7,14 +7,12 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
-import java.util.List;
 
 @Entity
 @Getter
 @Setter
 @NamedQueries({
-        @NamedQuery(name = "Order.findAll", query = "select o from Order as o"),
-        @NamedQuery(name="Order.findAllByProfile", query = "select o from Order as o where o.profile.id=:profileId")
+        @NamedQuery(name = "Message.findAll", query = "select m from Message as m")
 })
 @Table(name = "order_table")
 public class Order implements Serializable {
@@ -34,11 +32,13 @@ public class Order implements Serializable {
 
     private Date rentTimeEnd;
 
-    @ManyToOne
+    private Boolean operator;
+
+    @ManyToOne(fetch = FetchType.LAZY)
     private Profile profile;
 
-    @ManyToMany
-    private List<Item> items;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Advertisement advertisement;
 
     public BigDecimal getFullPrice(){
         if (operatorPrice != null) {

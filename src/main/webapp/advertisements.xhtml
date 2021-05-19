@@ -1,0 +1,92 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html"
+                template="/templates/page_view.xhtml">
+
+    <ui:define name="general_content">
+        <h:panelGroup styleClass="layout-content">
+            <div class="product">
+                <h:form id="form">
+                    <p:remoteCommand name="rentItem" action="#{advertisements.rentItem}" />
+                    <p:dataGrid var="advertisement" value="#{advertisements.ads}" columns="3" layout="grid"
+                                rows="12" paginator="true" id="cars"
+                                paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                rowsPerPageTemplate="6,12,16">
+
+                        <div class="product-grid-item card" style="margin-bottom: 0">
+                            <div class="product-grid-item-top">
+                                <div>
+                                    <i class="pi pi-tag product-category-icon" />
+                                    <span class="product-category">#{advertisement.type}</span>
+                                </div>
+                                <span class="product-badge status-INVENTORYSTATUS">#{advertisement.status}</span>
+                            </div>
+                            <div class="product-grid-item-content">
+
+                                <p:graphicImage name="#{advertisement.image}"/>
+                                <div class="product-name">#{advertisement.name}</div>
+                                <div class="product-description">#{advertisement.text}</div>
+                                <p:rating readonly="true" value="#{advertisement.profile.rating}" />
+                            </div>
+                            <div class="product-grid-item-bottom">
+                                <h:outputText value="#{advertisement.rentPrice}" styleClass="product-price">
+                                    <f:convertNumber currencySymbol="€" type="currency" />
+                                </h:outputText>
+                                <p:commandButton
+                                                 action="#{advertisements.rentItem}"
+                                                 value="Daugiau informacijos"
+                                                 icon="pi pi-info-circle"
+                                                 disabled="#{advertisement.status == 'OUTOFSTOCK'}">
+                                    <f:setPropertyActionListener value="#{advertisement}"
+                                                                 target="#{advertisements.selectedAd}" />
+                                </p:commandButton>
+                            </div>
+                        </div>
+                    </p:dataGrid>
+                </h:form>
+
+                <h:form id="dialog-form">
+                    <p:dialog header="Produkto informacija" widgetVar="productDialog" modal="true" showEffect="fade"
+                              hideEffect="fade"
+                              resizable="false">
+                        <p:outputPanel id="productDetail" style="text-align:center;">
+                            <p:column rendered="#{not empty advertisements.selectedAd}">
+                                <div class="product">
+                                    <div class="product-grid-item card" style="margin-bottom: 0">
+                                        <div class="product-grid-item-top">
+                                            <div>
+                                                <i class="pi pi-tag product-category-icon" />
+                                                <span class="product-category">#{advertisements.selectedAd.type}</span>
+                                            </div>
+                                            <span class="product-badge status-INVENTORYSTATUS">#{advertisements.selectedAd.status}</span>
+                                        </div>
+                                        <div class="product-grid-item-content">
+
+                                            <p:graphicImage
+                                                    name="#{advertisements.selectedAd.image}" />
+                                            <div class="product-name">#{advertisements.selectedAd.name}</div>
+                                            <div class="product-description">#{advertisements.selectedAd.text}</div>
+                                            <p:rating readonly="true"
+                                                      value="#{advertisements.selectedAd.profile.rating}" />
+                                        </div>
+                                        <div class="product-grid-item-bottom">
+                                            <h:outputText value="#{advertisements.selectedAd.rentPrice}"
+                                                          styleClass="product-price">
+                                                <f:convertNumber currencySymbol="€" type="currency" />
+                                            </h:outputText>
+                                            <p:commandButton value="Nuomotis" icon="pi pi-shopping-cart"
+                                                             action="#{advertisements.rentItem}"
+                                                             disabled="#{advertisements.selectedAd.status == 'OUTOFSTOCK'}">
+                                            </p:commandButton>
+                                        </div>
+                                    </div>
+                                </div>
+                            </p:column>
+                        </p:outputPanel>
+                    </p:dialog>
+                </h:form>
+            </div>
+        </h:panelGroup>
+    </ui:define>
+</ui:composition>

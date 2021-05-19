@@ -26,4 +26,8 @@ public class AdvertisementsDAO {
     public List<Advertisement> loadAll() {
         return em.createNamedQuery("Advertisement.findAll", Advertisement.class).getResultList();
     }
+
+    public List<Advertisement> loadNumber(int number) {
+        return em.createNamedQuery("Advertisement.findAll", Advertisement.class).setMaxResults(number).getResultList();
+    }
 }

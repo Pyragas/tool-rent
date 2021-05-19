@@ -35,6 +35,6 @@ public class Message implements Serializable {
     //TODO: decide, if it is the correct way to store image
     private String photoUrl;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Chat chat;
 }
