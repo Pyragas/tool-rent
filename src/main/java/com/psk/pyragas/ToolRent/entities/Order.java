@@ -31,6 +31,7 @@ public class Order implements Serializable {
     private String deliveryLocation;
 
     private LocalDateTime rentTimeStart;
+    private LocalDateTime rentTimeEnd;
 
     private LocalDateTime rentTimeEnd;
 
