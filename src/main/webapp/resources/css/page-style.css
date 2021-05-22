@@ -10,6 +10,7 @@ form.center-form {
     margin: 2em;
     background-color: white;
     padding: 4em;
+    width: 500px;
 }
 
 form.modal-form {

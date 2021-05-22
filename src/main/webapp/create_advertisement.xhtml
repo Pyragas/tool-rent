@@ -14,20 +14,34 @@
                         <div class="p-field">
                             <p:outputLabel for="name-field" value="Pavadinimas" />
                             <p:inputText id="name-field" value="#{createAdvertisement.advertisementToCreate.name}"
-                                           required="true" />
+                                         required="true" />
                         </div>
 
                         <div class="p-field">
                             <p:outputLabel for="type-field" value="Tipas" />
                             <p:inputText id="type-field" value="#{createAdvertisement.advertisementToCreate.type}"
-                                           required="true" />
+                                         required="true" />
+                        </div>
+
+                        <div class="p-field">
+                            <p:outputLabel for="photo-field" value="Nuotrauka" />
+                            <p:fileUpload mode="simple"
+                                          dragDropSupport="true" id="photo-field"
+                                          update="messages" sizeLimit="100000"
+                                          allowTypes="/(\.|\/)(gif|jpe?g|png)$/"
+                                          required="true" fileLimit="1"
+                                          fileLimitMessage="Galima pridėti tik vieną nuotrauką"
+                                          invalidFileMessage="Netinkamo formato failas."
+                                          value="#{fileUpload.file}"
+                                          style="width: 100%"
+                                          skinSimple="true" />
                         </div>
 
                         <div class="p-field">
                             <p:outputLabel for="measurements-field" value="Matmenys" />
                             <p:inputTextarea id="measurements-field"
-                                           value="#{createAdvertisement.advertisementToCreate.measurements}"
-                                           required="true" />
+                                             value="#{createAdvertisement.advertisementToCreate.measurements}"
+                                             required="true" />
                         </div>
 
                         <div class="ui-fluid p-formgrid p-grid">
@@ -74,7 +88,9 @@
                             <p:commandButton type="button" value="Atšaukti" styleClass="ui-button-danger p-mr-6"
                                              onclick="history.back(); return false;" />
                             <p:commandButton update="@form" value="Sukurti skelbimą"
-                                             action="#{createAdvertisement.submitAdvertisement}" />
+                                             action="#{createAdvertisement.submitAdvertisement }">
+                                <f:actionListener binding="#{fileUpload.upload()}" />
+                            </p:commandButton>
                         </div>
 
                         <p:messages id="messages" showDetail="true" autoUpdate="true"> </p:messages>
