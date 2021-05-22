@@ -30,6 +30,7 @@ public class Advertisement implements Serializable {
     private String text;
 
     //TODO: make statuses enum
+    // Laisvas, užimtas etc
     private String status;
 
     private String name;

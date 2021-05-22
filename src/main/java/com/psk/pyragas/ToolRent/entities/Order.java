@@ -6,7 +6,7 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Entity
 @Getter
@@ -25,13 +25,14 @@ public class Order implements Serializable {
     private BigDecimal operatorPrice;
 
     //TODO: think over naming, make enum for status
+    // Vykdomas, įvykdytas
     private String status;
 
     private String deliveryLocation;
 
-    private Date rentTimeStart;
+    private Long durationInHours;
 
-    private Date rentTimeEnd;
+    private LocalDateTime rentTimeStart;
 
     private Boolean operator;
 

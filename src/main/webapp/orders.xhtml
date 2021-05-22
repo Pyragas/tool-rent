@@ -8,35 +8,46 @@
         <h:panelGroup styleClass="layout-content">
 
             <h:form id="form">
-                <div class="card crud-demo">
+                <div class="crud-demo" style="margin: 30px">
                     <p:growl id="messages" showDetail="true" />
-
-                    <p:toolbar>
-                        <p:toolbarGroup align="right">
-                            <p:commandButton value="Export" icon="pi pi-upload" styleClass="ui-button-help"
-                                             ajax="false">
-                                <p:dataExporter type="pdf" target="dt-products" fileName="orders" />
-                            </p:commandButton>
-                        </p:toolbarGroup>
-                    </p:toolbar>
 
                     <p:dataTable id="dt-products" widgetVar="dtOrders" var="order" value="#{myOrders.orders}"
                                  reflow="true" styleClass="products-table"
                                  paginator="true" rows="10" paginatorPosition="bottom">
                         <f:facet name="header">
                             <div class="products-table-header">
-                                <span style="font-weight: bold">ORDERS</span>
-
+                                <span style="font-weight: bold">Mano užsakymai</span>
                                 <span class="filter-container ui-input-icon-left">
-                        <i class="pi pi-search" />
-                        <p:inputText id="globalFilter" onkeyup="PF('dtOrders').filter()" placeholder="Search" />
-                    </span>
-
+                                    <i class="pi pi-search" />
+                                    <p:inputText id="globalFilter" onkeyup="PF('dtOrders').filter()"
+                                                 placeholder="Ieškoti užsakymų" />
+                                </span>
                             </div>
                         </f:facet>
 
-                        <p:column headerText="Kodas" sortBy="#{order.id}" filterBy="#{order.id}">
-                            <h:outputText value="#{order.id}" />
+                        <p:column style="width: auto" headerText="Kategorija" sortBy="#{order.advertisement.type}"
+                                  filterBy="#{order.advertisement.type}">
+                            <h:outputText value="#{order.advertisement.type}" />
+                        </p:column>
+
+                        <p:column headerText="Nuotrauka" exportable="false">
+                            <p:graphicImage name="#{order.advertisement.image}"
+                                            styleClass="product-image" />
+                        </p:column>
+
+                        <p:column headerText="Pavadinimas" sortBy="#{order.advertisement.name}"
+                                  filterBy="#{order.advertisement.name}">
+                            <h:outputText value="#{order.advertisement.name}" />
+                        </p:column>
+
+                        <p:column headerText="Pristatymo vieta" sortBy="#{order.deliveryLocation}"
+                                  filterBy="#{order.deliveryLocation}">
+                            <h:outputText value="#{order.deliveryLocation}" />
+                        </p:column>
+
+                        <p:column headerText="Nuomos trukmė" sortBy="#{order.durationInHours}"
+                                  filterBy="#{order.durationInHours}">
+                            <h:outputText value="#{order.durationInHours}" />
                         </p:column>
 
                         <p:column headerText="Kaina" sortBy="#{order.fullPrice}">
@@ -45,47 +56,20 @@
                             </h:outputText>
                         </p:column>
 
-                        <p:column headerText="Pavadinimas" sortBy="#{order.advertisement.name}" filterBy="#{order.advertisement.name}">
+                        <p:column headerText="Užsakymo nr." sortBy="#{order.id}" filterBy="#{order.id}">
                             <h:outputText value="#{order.id}" />
                         </p:column>
 
-
-                        <p:column headerText="Image" exportable="false">
-                            <p:graphicImage name="#{order.advertisement.image}"
-                                            styleClass="product-image" />
-                        </p:column>
-
-                        <p:column headerText="Kategorija" sortBy="#{order.advertisement.type}" filterBy="#{order.advertisement.type}">
-                            <h:outputText value="#{order.advertisement.type}" />
-                        </p:column>
-                        <p:column headerText="Įvertinimai" sortBy="#{order.advertisement.profile.rating}">
-                            <p:rating value="#{order.advertisement.profile.rating}" readonly="true" />
-                        </p:column>
-                        <p:column headerText="Status" sortBy="#{order.status}"
+                        <p:column headerText="Būsena" sortBy="#{order.status}"
                                   filterBy="#{order.status}">
                             <h:outputText
                                     styleClass="product-badge status-#{order.status.toLowerCase()}"
                                     value="#{order.status}" />
                         </p:column>
+
                     </p:dataTable>
-
-                    <p:confirmDialog widgetVar="deleteProductDialog" showEffect="fade" width="300"
-                                     message="Delete the product?" header="Confirm" severity="warn">
-                        <p:commandButton value="Yes" icon="pi pi-check" 
-                                         process="@this" oncomplete="PF('deleteProductDialog').hide()" />
-                        <p:commandButton value="No" type="button" styleClass="ui-button-secondary" icon="pi pi-times"
-                                         onclick="PF('deleteProductDialog').hide()" />
-                    </p:confirmDialog>
-
-                    <p:confirmDialog global="true" showEffect="fade" width="300">
-                        <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes"
-                                         icon="pi pi-check" />
-                        <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no ui-button-secondary"
-                                         icon="pi pi-times" />
-                    </p:confirmDialog>
                 </div>
             </h:form>
-
 
         </h:panelGroup>
     </ui:define>
