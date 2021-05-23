@@ -58,7 +58,7 @@ public class MockData {
         order.setRentPrice(BigDecimal.valueOf(345.12));
         order.setOperatorPrice(BigDecimal.valueOf(345.12));
         order.setRentTimeStart(LocalDateTime.now());
-        order.setDurationInHours(3L);
+        order.setRentTimeEnd(LocalDateTime.now().plusDays(1));
         order.setStatus("IN_PROGRESS");
 
 //        Maps everything in person and these tables so we don't need to persist everything one by one

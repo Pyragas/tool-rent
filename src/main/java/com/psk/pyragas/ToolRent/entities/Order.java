@@ -30,8 +30,6 @@ public class Order implements Serializable {
 
     private String deliveryLocation;
 
-    private Long durationInHours;
-
     private LocalDateTime rentTimeStart;
 
     private LocalDateTime rentTimeEnd;

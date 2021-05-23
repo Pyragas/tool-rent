@@ -45,9 +45,9 @@
                             <h:outputText value="#{order.deliveryLocation}" />
                         </p:column>
 
-                        <p:column headerText="Nuomos trukmė" sortBy="#{order.durationInHours}"
-                                  filterBy="#{order.durationInHours}">
-                            <h:outputText value="#{order.durationInHours}" />
+                        <p:column headerText="Nuomos trukmė" sortBy="#{myOrders.calculateRentDuration(order)}"
+                                  filterBy="#{myOrders.calculateRentDuration(order)}">
+                            <h:outputText value="#{myOrders.calculateRentDuration(order)} val." />
                         </p:column>
 
                         <p:column headerText="Kaina" sortBy="#{order.fullPrice}">

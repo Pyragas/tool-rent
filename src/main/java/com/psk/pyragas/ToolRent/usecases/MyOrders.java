@@ -11,6 +11,7 @@ import javax.enterprise.inject.Model;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 @Model
@@ -32,4 +33,8 @@ public class MyOrders {
         orders = ordersDAO.loadCustomerOrders(user.getId());
     }
 
+//    In hours
+    public Long calculateRentDuration(Order order){
+        return ChronoUnit.HOURS.between(order.getRentTimeStart(), order.getRentTimeEnd());
+    }
 }
