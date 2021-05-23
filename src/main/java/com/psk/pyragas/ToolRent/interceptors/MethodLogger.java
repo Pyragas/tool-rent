@@ -1,5 +1,8 @@
 package com.psk.pyragas.ToolRent.interceptors;
 
+import com.psk.pyragas.ToolRent.utils.FileIO;
+
+import javax.inject.Inject;
 import javax.interceptor.AroundInvoke;
 import javax.interceptor.Interceptor;
 import javax.interceptor.InvocationContext;
@@ -9,20 +12,28 @@ import java.sql.Timestamp;
 @Interceptor
 @WillBeLogged
 public class MethodLogger implements Serializable {
+
+    @Inject
+    private FileIO fileWriter;
+
+    private final String logFileLocation = "/methodLogs.txt";
+
     @AroundInvoke
     public Object logMethodInfo(InvocationContext context) throws Exception {
-        System.out.println("--METHOD LOGGER START--");
-        System.out.println("Time before method call: " + new Timestamp(System.currentTimeMillis()));
-        System.out.println("Entering method: " + context.getMethod().getName());
-        System.out.println("Entering class: " + context.getTarget().getClass());
-        //injectedComponentMethod();
+        String logMessage = "";
+        logMessage += "--METHOD LOGGER START--" + "\n";
+        logMessage += "Time before method call: " + new Timestamp(System.currentTimeMillis()) + "\n";
+        logMessage += "Entering method: " + context.getMethod().getName() + "\n";
+        logMessage += "Entering class: " + context.getTarget().getClass() + "\n";
+        fileWriter.writeToTextFile(logFileLocation, logMessage);
         Object methodResult = context.proceed();
-        System.out.println("Time after method call: " + new Timestamp(System.currentTimeMillis()));
-        System.out.println("Called method: " + context.getMethod().getName());
-        System.out.println("Caller class: " + context.getTarget().getClass());
-        System.out.println("Method result: " + (methodResult == null ? "No Result (void)" : methodResult.toString()));
-        System.out.println("--METHOD LOGGER END--");
-        //injectedComponentMethod();
+        logMessage = "";
+        logMessage += "Time after method call: " + new Timestamp(System.currentTimeMillis()) + "\n";
+        logMessage += "Called method: " + context.getMethod().getName() + "\n";
+        logMessage += "Caller class: " + context.getTarget().getClass() + "\n";
+        logMessage += "Method result: " + (methodResult == null ? "No Result (void)" : methodResult.toString()) + "\n";
+        logMessage += "--METHOD LOGGER END--" + "\n";
+        fileWriter.writeToTextFile(logFileLocation, logMessage);
         return methodResult;
     }
 }
