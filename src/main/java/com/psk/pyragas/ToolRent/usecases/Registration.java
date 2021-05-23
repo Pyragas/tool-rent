@@ -4,6 +4,7 @@ import com.psk.pyragas.ToolRent.dao.ProfilesDAO;
 import com.psk.pyragas.ToolRent.entities.LegalPerson;
 import com.psk.pyragas.ToolRent.entities.NaturalPerson;
 import com.psk.pyragas.ToolRent.entities.Profile;
+import com.psk.pyragas.ToolRent.interceptors.WillBeLogged;
 import lombok.Getter;
 import lombok.Setter;
 import org.primefaces.PrimeFaces;
@@ -16,6 +17,7 @@ import javax.inject.Named;
 import javax.transaction.Transactional;
 import java.io.Serializable;
 
+@WillBeLogged
 @ViewScoped
 @Getter
 @Setter
