@@ -7,7 +7,6 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
-import java.util.List;
 
 @Entity
 @Getter
@@ -39,5 +38,4 @@ public class Order implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Advertisement advertisement;
-
 }

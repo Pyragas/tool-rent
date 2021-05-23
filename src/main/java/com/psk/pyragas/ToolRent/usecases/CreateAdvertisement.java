@@ -24,9 +24,6 @@ public class CreateAdvertisement {
     @Inject
     private AdvertisementsDAO advertisementsDAO;
 
-    @Inject
-    private ProfilesDAO profilesDAO;
-
     @Getter @Setter
     private Advertisement advertisementToCreate = new Advertisement();
 
@@ -40,9 +37,12 @@ public class CreateAdvertisement {
 
         Profile profile = (Profile) externalContext.getSessionMap().get("user");
         this.advertisementToCreate.setProfile(profile);
+        if(this.advertisementToCreate.getImage() == null) {
+            this.advertisementToCreate.setImage("images/default.jpg");
+        }
         this.advertisementsDAO.persist(this.advertisementToCreate);
 
-        return "add_item.xhtml?faces-redirect=true&advertisementId=" + this.advertisementToCreate.getId();
+        return "index.xhtml?faces-redirect=true";
     }
 
 

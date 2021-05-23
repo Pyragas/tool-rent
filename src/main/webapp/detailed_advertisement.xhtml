@@ -1,0 +1,65 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://java.sun.com/jsf/html"
+                template="/templates/page_view.xhtml">
+
+    <ui:define name="general_content">
+        <h:panelGroup styleClass="centered-panel">
+            <script type="text/javascript" src="web-resources/primeFacesLocales.js"></script>
+            <h:form styleClass="center-form">
+                <div class="card">
+                    <h2>Detali informacija</h2>
+                    <ui:define name="general_content">
+                        <h:panelGroup styleClass="container">
+                            <img src="web-resources/default.jpg" alt="Traktoristas image" />
+                            <h3>Elektroninis pastas: #{myProfile.profile.email}</h3>
+                            <h3>Telefono numeris: #{myProfile.profile.phoneNo}</h3>
+                            <h3>Įvertinimas: #{myProfile.profile.rating}</h3>
+                            <button onclick="document.location='edit_profile.xhtml'" class="change button">Change settings</button>
+                        </h:panelGroup>
+                    </ui:define>
+                        <div class="general_content">
+                            <p:graphicImage name="#{detailedAdvertisement.currentAdvertisement.image}"/>
+                            <h4>Pavadinimas: #{detailedAdvertisement.currentAdvertisement.name}</h4>
+                            <h4>Aprašymas: #{detailedAdvertisement.currentAdvertisement.text}</h4>
+                            <h4>Statusas: #{detailedAdvertisement.currentAdvertisement.status}</h4>
+                            <h4>Kuro kiekis: #{detailedAdvertisement.currentAdvertisement.fuelLevel}</h4>
+                            <h4>Dabartinė vieta: #{detailedAdvertisement.currentAdvertisement.location}</h4>
+                            <p:rating readonly="true" value="#{detailedAdvertisement.currentAdvertisement.profile.rating}" />
+                        </div>
+
+                    <h2>Nuomojimo detalės</h2>
+                    <div class="ui-fluid">
+
+                        <div class="p-field">
+                            <p:outputLabel for="location-field" value="Pristatymo vieta" />
+                            <p:inputText id="location-field" value="#{detailedAdvertisement.orderToCreate.deliveryLocation}"
+                                         required="true" />
+                        </div>
+                        <div>
+                            <p:outputLabel for="orderStartDate" value="Naudojimo pradžia" />
+                            <p:datePicker id="orderStartDate" value="#{detailedAdvertisement.orderToCreate.rentTimeStart}"
+                                          showIcon="true" locale="lt" />
+                        </div>
+                        <div>
+                            <p:outputLabel for="orderEndDate" value="Naudojimo pabaiga"/>
+                            <p:datePicker id="orderEndDate" value="#{detailedAdvertisement.orderToCreate.rentTimeEnd}"
+                                          showIcon="true" locale="lt" />
+                        </div>
+
+
+                        <div class="p-d-flex p-jc-between p-pt-4">
+                            <p:commandButton type="button" value="Atšaukti" styleClass="ui-button-danger p-mr-6"
+                                             onclick="history.back(); return false;" />
+                            <p:commandButton update="@form" value="Išsinuomoti"
+                                             action="#{detailedAdvertisement.createOrder}" />
+                        </div>
+
+                        <p:messages id="messages" showDetail="true" autoUpdate="true"> </p:messages>
+                    </div>
+                </div>
+            </h:form>
+        </h:panelGroup>
+    </ui:define>
+</ui:composition>
