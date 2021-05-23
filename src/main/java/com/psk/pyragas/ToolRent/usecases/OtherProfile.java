@@ -2,6 +2,7 @@ package com.psk.pyragas.ToolRent.usecases;
 
 import com.psk.pyragas.ToolRent.dao.ProfilesDAO;
 import com.psk.pyragas.ToolRent.entities.Profile;
+import com.psk.pyragas.ToolRent.interceptors.WillBeLogged;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,6 +13,7 @@ import javax.inject.Inject;
 import java.io.Serializable;
 import java.util.Map;
 
+@WillBeLogged
 @Model
 public class OtherProfile implements Serializable {
 

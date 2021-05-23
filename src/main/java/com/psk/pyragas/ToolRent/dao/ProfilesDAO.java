@@ -2,6 +2,7 @@ package com.psk.pyragas.ToolRent.dao;
 
 import com.psk.pyragas.ToolRent.entities.Profile;
 import lombok.SneakyThrows;
+import com.psk.pyragas.ToolRent.interceptors.WillBeLogged;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.faces.context.ExternalContext;
@@ -11,6 +12,7 @@ import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 import java.util.List;
 
+@WillBeLogged
 @ApplicationScoped
 public class ProfilesDAO {
 
