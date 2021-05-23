@@ -1,15 +1,4 @@
-/*.centered-panel {*/
-/*    display: block;*/
-/*    text-align: center;*/
-/*    width: fit-content;*/
-/*    margin: auto !important;*/
-/*}*/
-
-form.register-form {
-    padding: 4em;
-}
-
-form.center-form {
+.center-panel {
     display: block;
     text-align: left;
     width: fit-content;
@@ -17,7 +6,36 @@ form.center-form {
     margin: auto;
 }
 
+form.fill-in-form{
+    padding: 2em;
+    width: 460px;
+}
+
 .layout-content {
     margin: 0 !important;
     padding: 0 !important;
+}
+
+.advertisement-details img {
+    width: 500px;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 20px -16px;
+}
+
+.advertisement-details h6 {
+    color: var(--text-color);
+}
+
+.advertisement-details {
+    padding: 2em;
+}
+
+.rent-div {
+    width: 300px;
+    padding-top: 2em;
+    margin: auto;
 }

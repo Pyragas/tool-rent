@@ -49,7 +49,7 @@ public class Advertisements implements Serializable {
         order.setAdvertisement(selectedAd);
         ordersDAO.persist(order);
 
-        return "detailed_advertisement.xhtml?faces-redirect=true&advertisementId=" + selectedAd.getId();
+        return "advertisement_details.xhtml?faces-redirect=true&advertisementId=" + selectedAd.getId();
     }
 
 }

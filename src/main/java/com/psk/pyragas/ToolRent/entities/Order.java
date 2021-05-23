@@ -34,6 +34,8 @@ public class Order implements Serializable {
 
     private LocalDateTime rentTimeStart;
 
+    private LocalDateTime rentTimeEnd;
+
     private Boolean operator;
 
     @ManyToOne(fetch = FetchType.LAZY)
