@@ -12,7 +12,7 @@ import java.util.Date;
 
 @Singleton
 @Startup
-public class MockData {
+public class    MockData {
 
     @Inject
     private ProfilesDAO profilesDAO;

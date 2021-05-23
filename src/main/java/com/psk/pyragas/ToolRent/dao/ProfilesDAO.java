@@ -8,6 +8,7 @@ import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.transaction.Transactional;
 import java.util.List;
 
 @ApplicationScoped
@@ -23,11 +24,11 @@ public class ProfilesDAO {
     }
 
 
+    @Transactional
     public Profile update(Profile profile) {
         ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
         Profile profile1 = em.merge(profile);
         System.out.println("after merge");
-        externalContext.getSessionMap().put("user", profile);
         System.out.println("after context update");
         return profile1;
     }

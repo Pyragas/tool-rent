@@ -40,12 +40,14 @@ public class EditProfile implements Serializable {
 
     @PostConstruct
     public void init() {
-        profile = ((Profile) externalContext.getSessionMap().get("user"));
+        profile = profilesDAO.findOne(((Profile) externalContext.getSessionMap().get("user")).getId());
     }
 
     public void updateProfile() {
         try {
             profilesDAO.update(profile);
+            System.out.println("putting user");
+            externalContext.getSessionMap().put("user", profile);
             FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml?faces-redirect=true");
         }
         catch (OptimisticLockException | IOException e) {
@@ -79,4 +81,6 @@ public class EditProfile implements Serializable {
             addMessage(FacesMessage.SEVERITY_INFO, "Sorry, unable to overwrite.", "Please edit again.");
         }
     }
+
+
 }
