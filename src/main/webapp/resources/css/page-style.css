@@ -1,17 +1,23 @@
-.centered-panel {
-    display: block;
-    text-align: center;
-    width: fit-content;
-    margin: auto;
-}
+/*.centered-panel {*/
+/*    display: block;*/
+/*    text-align: center;*/
+/*    width: fit-content;*/
+/*    margin: auto !important;*/
+/*}*/
 
-form.center-form {
-    text-align: left;
-    margin: 2em;
-    background-color: white;
+form.register-form {
     padding: 4em;
 }
 
-form.modal-form {
+form.center-form {
+    display: block;
     text-align: left;
+    width: fit-content;
+    background-color: white;
+    margin: auto;
+}
+
+.layout-content {
+    margin: 0 !important;
+    padding: 0 !important;
 }
