@@ -16,7 +16,7 @@ public class MethodLogger implements Serializable {
     @Inject
     private FileIO fileWriter;
 
-    private final String logFileLocation = "/methodLogs.txt";
+    private final String logFileLocation = "methodLogs.txt";
 
     @AroundInvoke
     public Object logMethodInfo(InvocationContext context) throws Exception {
