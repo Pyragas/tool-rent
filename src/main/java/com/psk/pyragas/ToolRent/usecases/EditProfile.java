@@ -2,6 +2,7 @@ package com.psk.pyragas.ToolRent.usecases;
 
 import com.psk.pyragas.ToolRent.dao.ProfilesDAO;
 import com.psk.pyragas.ToolRent.entities.Profile;
+import com.psk.pyragas.ToolRent.interceptors.WillBeLogged;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.SneakyThrows;
@@ -22,13 +23,13 @@ import javax.transaction.Transactional;
 import java.io.IOException;
 import java.io.Serializable;
 
+@WillBeLogged
 @ViewScoped
 @Named
 @Getter
 @Setter
 @Transactional
 public class EditProfile implements Serializable {
-
     ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
 
     @Getter
