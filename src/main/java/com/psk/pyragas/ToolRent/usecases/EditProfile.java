@@ -2,16 +2,14 @@ package com.psk.pyragas.ToolRent.usecases;
 
 import com.psk.pyragas.ToolRent.dao.ProfilesDAO;
 import com.psk.pyragas.ToolRent.entities.Profile;
-import com.psk.pyragas.ToolRent.interceptors.WillBeLogged;
+import com.psk.pyragas.ToolRent.utils.interceptors.WillBeLogged;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.SneakyThrows;
 import org.apache.commons.beanutils.BeanUtils;
 import org.primefaces.PrimeFaces;
 
 
 import javax.annotation.PostConstruct;
-import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
