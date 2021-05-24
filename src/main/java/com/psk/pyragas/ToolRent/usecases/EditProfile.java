@@ -5,13 +5,11 @@ import com.psk.pyragas.ToolRent.entities.Profile;
 import com.psk.pyragas.ToolRent.interceptors.WillBeLogged;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.SneakyThrows;
 import org.apache.commons.beanutils.BeanUtils;
 import org.primefaces.PrimeFaces;
 
 
 import javax.annotation.PostConstruct;
-import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
@@ -32,8 +30,6 @@ import java.io.Serializable;
 public class EditProfile implements Serializable {
     ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
 
-    @Getter
-    @Setter
     private Profile profile;
 
     @Inject
@@ -55,7 +51,6 @@ public class EditProfile implements Serializable {
             System.out.println("exception");
             PrimeFaces.current().executeScript("PF('optimisticButton').jq.click()");
         }
-
     }
 
     public void addMessage(FacesMessage.Severity messageType, String summary, String detail) {

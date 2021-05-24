@@ -23,8 +23,6 @@ public class MethodLogger implements Serializable {
         String logMessage = "";
         logMessage += "--METHOD LOGGER START--" + "\n";
         logMessage += "Time before method call: " + new Timestamp(System.currentTimeMillis()) + "\n";
-        logMessage += "Entering method: " + context.getMethod().getName() + "\n";
-        logMessage += "Entering class: " + context.getTarget().getClass() + "\n";
         fileWriter.writeToTextFile(logFileLocation, logMessage);
         Object methodResult = context.proceed();
         logMessage = "";
