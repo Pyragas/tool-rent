@@ -67,6 +67,7 @@ public class FileUpload {
             }
 
             in.close();
+            // Possible problem: flush might not be needed.
             out.flush();
             out.close();
 
