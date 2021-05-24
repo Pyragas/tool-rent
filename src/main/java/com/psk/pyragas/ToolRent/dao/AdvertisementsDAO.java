@@ -10,7 +10,7 @@ import java.util.List;
 
 @WillBeLogged
 @ApplicationScoped
-public class AdvertisementsDAO {
+public class AdvertisementsDAO implements IAdvertisementsDAO {
     @Inject
     private EntityManager em;
 
