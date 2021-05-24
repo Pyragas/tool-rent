@@ -1,0 +1,76 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html"
+                template="/templates/page_view.xhtml">
+
+    <ui:define name="general_content">
+        <h:panelGroup styleClass="layout-content">
+
+            <h:form id="form">
+                <div class="crud-demo" style="margin: 30px">
+                    <p:growl id="messages" showDetail="true" />
+
+                    <p:dataTable id="dt-products" widgetVar="dtOrders" var="order" value="#{myOrders.orders}"
+                                 reflow="true" styleClass="products-table"
+                                 paginator="true" rows="10" paginatorPosition="bottom">
+                        <f:facet name="header">
+                            <div class="products-table-header">
+                                <span style="font-weight: bold">Mano užsakymai</span>
+                                <span class="filter-container ui-input-icon-left">
+                                    <i class="pi pi-search" />
+                                    <p:inputText id="globalFilter" onkeyup="PF('dtOrders').filter()"
+                                                 placeholder="Ieškoti užsakymų" />
+                                </span>
+                            </div>
+                        </f:facet>
+
+                        <p:column style="width: auto" headerText="Kategorija" sortBy="#{order.advertisement.type}"
+                                  filterBy="#{order.advertisement.type}">
+                            <h:outputText value="#{order.advertisement.type}" />
+                        </p:column>
+
+                        <p:column headerText="Nuotrauka" exportable="false">
+                            <p:graphicImage name="#{order.advertisement.image}"
+                                            styleClass="product-image" />
+                        </p:column>
+
+                        <p:column headerText="Pavadinimas" sortBy="#{order.advertisement.name}"
+                                  filterBy="#{order.advertisement.name}">
+                            <h:outputText value="#{order.advertisement.name}" />
+                        </p:column>
+
+                        <p:column headerText="Pristatymo vieta" sortBy="#{order.deliveryLocation}"
+                                  filterBy="#{order.deliveryLocation}">
+                            <h:outputText value="#{order.deliveryLocation}" />
+                        </p:column>
+
+                        <p:column headerText="Nuomos trukmė" sortBy="#{myOrders.calculateRentDuration(order)}"
+                                  filterBy="#{myOrders.calculateRentDuration(order)}">
+                            <h:outputText value="#{myOrders.calculateRentDuration(order)} val." />
+                        </p:column>
+
+                        <p:column headerText="Kaina" sortBy="#{order.fullPrice}">
+                            <h:outputText value="#{order.fullPrice}" style="font-weight: 700">
+                                <f:convertNumber currencySymbol="€" type="currency" />
+                            </h:outputText>
+                        </p:column>
+
+                        <p:column headerText="Užsakymo nr." sortBy="#{order.id}" filterBy="#{order.id}">
+                            <h:outputText value="#{order.id}" />
+                        </p:column>
+
+                        <p:column headerText="Būsena" sortBy="#{order.status}"
+                                  filterBy="#{order.status}">
+                            <h:outputText
+                                    styleClass="product-badge status-#{order.status.toLowerCase()}"
+                                    value="#{order.status}" />
+                        </p:column>
+
+                    </p:dataTable>
+                </div>
+            </h:form>
+
+        </h:panelGroup>
+    </ui:define>
+</ui:composition>

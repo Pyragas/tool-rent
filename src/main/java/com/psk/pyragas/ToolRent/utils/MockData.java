@@ -8,7 +8,7 @@ import javax.ejb.Singleton;
 import javax.ejb.Startup;
 import javax.inject.Inject;
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Singleton
 @Startup
@@ -55,9 +55,10 @@ public class MockData {
         order.setAdvertisement(advertisement);
         order.setDeliveryLocation("Naugarduko g. 24");
         order.setOperator(Boolean.FALSE);
-        order.setPrice(BigDecimal.valueOf(345.12));
-        order.setRentTimeStart(new Date(11));
-        order.setRentTimeEnd(new Date(12));
+        order.setRentPrice(BigDecimal.valueOf(345.12));
+        order.setOperatorPrice(BigDecimal.valueOf(345.12));
+        order.setRentTimeStart(LocalDateTime.now());
+        order.setRentTimeEnd(LocalDateTime.now().plusDays(1));
         order.setStatus("IN_PROGRESS");
 
 //        Maps everything in person and these tables so we don't need to persist everything one by one

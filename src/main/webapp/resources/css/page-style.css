@@ -1,18 +1,41 @@
-.centered-panel {
+.center-panel {
     display: block;
-    text-align: center;
+    text-align: left;
     width: fit-content;
+    background-color: white;
     margin: auto;
 }
 
-form.center-form {
-    text-align: left;
-    margin: 2em;
-    background-color: white;
-    padding: 4em;
+form.fill-in-form{
+    padding: 2em;
+    width: 460px;
+}
+
+.layout-content {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.advertisement-details img {
     width: 500px;
 }
 
-form.modal-form {
-    text-align: left;
+hr {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 20px -16px;
+}
+
+.advertisement-details h6 {
+    color: var(--text-color);
+}
+
+.advertisement-details {
+    padding: 2em;
+}
+
+.rent-div {
+    width: 300px;
+    padding-top: 2em;
+    margin: auto;
 }
