@@ -1,6 +1,6 @@
 package com.psk.pyragas.ToolRent.utils.interceptors;
 
-import com.psk.pyragas.ToolRent.utils.LoggerFile;
+import com.psk.pyragas.ToolRent.utils.LoggerToFile;
 
 import javax.inject.Inject;
 import javax.interceptor.AroundInvoke;
@@ -14,7 +14,7 @@ import java.sql.Timestamp;
 public class MethodLogger implements Serializable {
 
     @Inject
-    private LoggerFile logger;
+    private LoggerToFile logger;
 
     @AroundInvoke
     public Object logMethodInfo(InvocationContext context) throws Exception {
