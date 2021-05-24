@@ -21,13 +21,14 @@ public abstract class SummerSaleAdvertisementsDAO implements IAdvertisementsDAO 
 
     @Override
     public void persist(Advertisement ad) {
-
+        advertisementsDAO.persist(ad);
     }
 
     @Override
     public Advertisement findOne(Long id) {
         Advertisement advertisement = advertisementsDAO.findOne(id);
-        advertisement.setRentPrice(advertisement.getRentPrice().multiply(BigDecimal.valueOf(.9)));
+        advertisement.setRentPrice(advertisement.getRentPrice().multiply(BigDecimal.valueOf(.5)));
+        advertisement.setName(advertisement.getName() + " (Vasaros akcija)" );
         return advertisement;
     }
 
@@ -38,12 +39,26 @@ public abstract class SummerSaleAdvertisementsDAO implements IAdvertisementsDAO 
 
     @Override
     public List<Advertisement> loadAll() {
-        return null;
+        List<Advertisement> advertisements = advertisementsDAO.loadAll();
+        for(Advertisement advertisement : advertisements) {
+            advertisement.setRentPrice(
+                    advertisement.getRentPrice().multiply(BigDecimal.valueOf(.5))
+            );
+            advertisement.setName(advertisement.getName() + " (Vasaros akcija)" );
+        }
+        return advertisements;
     }
 
     @Override
     public List<Advertisement> loadNumber(int number) {
-        return advertisementsDAO.loadNumber(number);
 
+        List<Advertisement> advertisements =  advertisementsDAO.loadNumber(number);
+        for(Advertisement advertisement : advertisements) {
+            advertisement.setRentPrice(
+                    advertisement.getRentPrice().multiply(BigDecimal.valueOf(.5))
+            );
+            advertisement.setName(advertisement.getName() + " (Vasaros akcija)" );
+        }
+        return advertisements;
     }
 }
