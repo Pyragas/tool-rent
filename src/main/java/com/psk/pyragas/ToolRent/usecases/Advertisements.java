@@ -49,11 +49,11 @@ public class Advertisements implements Serializable {
     public String rentItem() {
 
         Order order = new Order();
-        order.setPrice(new BigDecimal(66));
+        order.setRentPrice(new BigDecimal(66));
         order.setAdvertisement(selectedAd);
         ordersDAO.persist(order);
 
-        return "detailed_advertisement.xhtml?faces-redirect=true&advertisementId=" + selectedAd.getId();
+        return "advertisement_details.xhtml?faces-redirect=true&advertisementId=" + selectedAd.getId();
     }
 
 }

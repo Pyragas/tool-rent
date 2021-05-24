@@ -17,15 +17,14 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.transaction.Transactional;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Map;
-
-
 
 @Getter
 @Setter
 @Named
 @ViewScoped
-public class DetailedAdvertisement implements Serializable {
+public class AdvertisementDetails implements Serializable {
 
     ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
 
@@ -58,5 +57,4 @@ public class DetailedAdvertisement implements Serializable {
 
         return "index.xhtml";
     }
-
 }
