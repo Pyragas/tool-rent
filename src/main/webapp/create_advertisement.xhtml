@@ -5,8 +5,8 @@
                 template="/templates/page_view.xhtml">
 
     <ui:define name="general_content">
-        <h:panelGroup styleClass="layout-content">
-            <h:form styleClass="center-panel fill-in-form">
+        <h:panelGroup styleClass="centered-panel layout-content">
+            <h:form styleClass="center-panel fill-in-form" enctype="multipart/form-data">
                 <div class="card">
                     <h5>Įrašykite nuomojamos technikos duomenis</h5>
                     <div class="ui-fluid">
@@ -14,20 +14,43 @@
                         <div class="p-field">
                             <p:outputLabel for="name-field" value="Pavadinimas" />
                             <p:inputText id="name-field" value="#{createAdvertisement.advertisementToCreate.name}"
-                                           required="true" />
+                                         required="true" />
                         </div>
 
                         <div class="p-field">
                             <p:outputLabel for="type-field" value="Tipas" />
                             <p:inputText id="type-field" value="#{createAdvertisement.advertisementToCreate.type}"
-                                           required="true" />
+                                         required="true" />
+                        </div>
+                        <!--For some reason clears values of form on photo select-->
+                        <div class="p-field">
+                            <p:outputLabel for="photo-field" value="Nuotrauka" />
+                            <p:fileUpload mode="simple"
+                                          dragDropSupport="true" id="photo-field"
+                                          sizeLimit="#{imageUpload.maxFileSize}"
+                                          listener="#{imageUpload.handlePhotoUpload}"
+                                          auto="true"
+                                          process="@this"
+                                          update="tool-img-div"
+                                          accept="image/png, image/jpeg, image/gif"
+                                          required="true" fileLimit="1"
+                                          fileLimitMessage="Galima pridėti tik vieną nuotrauką"
+                                          invalidFileMessage="Netinkamo formato failas."
+                                          style="width: 100%"
+                                          skinSimple="true" />
+                            <h:panelGroup id="tool-img-div" styleClass="tool-img-panel">
+                                <ui:fragment rendered="#{not empty imageUpload.file}">
+                                    <img src="data:image/png;base64,#{imageUpload.imageContentsAsBase64}"
+                                         alt="item-photo" />
+                                </ui:fragment>
+                            </h:panelGroup>
                         </div>
 
                         <div class="p-field">
                             <p:outputLabel for="measurements-field" value="Matmenys" />
                             <p:inputTextarea id="measurements-field"
-                                           value="#{createAdvertisement.advertisementToCreate.measurements}"
-                                           required="true" />
+                                             value="#{createAdvertisement.advertisementToCreate.measurements}"
+                                             required="true" />
                         </div>
 
                         <div class="ui-fluid p-formgrid p-grid">
@@ -74,7 +97,9 @@
                             <p:commandButton type="button" value="Atšaukti" styleClass="ui-button-danger p-mr-6"
                                              onclick="history.back(); return false;" />
                             <p:commandButton update="@form" value="Sukurti skelbimą"
-                                             action="#{createAdvertisement.submitAdvertisement}" />
+                                             action="#{createAdvertisement.submitAdvertisement(imageUpload.url) }">
+                                <f:actionListener binding="#{imageUpload.upload()}" />
+                            </p:commandButton>
                         </div>
 
                         <p:messages id="messages" showDetail="true" autoUpdate="true"> </p:messages>

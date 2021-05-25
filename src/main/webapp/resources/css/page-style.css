@@ -39,3 +39,13 @@ hr {
     padding-top: 2em;
     margin: auto;
 }
+
+.tool-img-panel img {
+    width: 150px;
+    margin: 20px;
+}
+
+.tool-img-panel {
+    display: block;
+    text-align: center;
+}

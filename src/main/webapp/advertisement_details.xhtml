@@ -19,7 +19,8 @@
                     <hr />
                     <div class="p-field">
                         <h6>Nuotrauka</h6>
-                        <p:graphicImage name="#{advertisementDetails.currentAdvertisement.image}" />
+                        <img src="data:image/png;base64,#{imageViewer.getImage(advertisementDetails.currentAdvertisement.image)}"
+                             alt="item-photo" />
                     </div>
                     <hr />
                     <div class="p-field">

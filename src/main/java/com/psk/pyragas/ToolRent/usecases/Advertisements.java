@@ -3,7 +3,7 @@ package com.psk.pyragas.ToolRent.usecases;
 import com.psk.pyragas.ToolRent.dao.AdvertisementsDAO;
 import com.psk.pyragas.ToolRent.dao.OrdersDAO;
 import com.psk.pyragas.ToolRent.entities.Advertisement;
-import com.psk.pyragas.ToolRent.interceptors.WillBeLogged;
+import com.psk.pyragas.ToolRent.utils.interceptors.WillBeLogged;
 import com.psk.pyragas.ToolRent.entities.Order;
 import lombok.Getter;
 import lombok.Setter;

@@ -7,7 +7,9 @@ import javax.annotation.PostConstruct;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
 import javax.inject.Inject;
+import java.io.File;
 import java.math.BigDecimal;
+import java.net.URL;
 import java.time.LocalDateTime;
 
 @Singleton
@@ -46,7 +48,12 @@ public class MockData {
         advertisement.setText("Puikus ekskavatorius, puikiai kasa duobes");
         advertisement.setType("Ekskavatorius");
         advertisement.setWeight(4400.0);
-        advertisement.setImage("images/samsung.jpg");
+
+        URL url = getClass().getClassLoader().getResource("images/samsung.jpg");
+        if (url != null) {
+            advertisement.setImage((new File(url.getPath())).getAbsolutePath());
+        }
+
         advertisement.setFuelLevel("Pilnas");
         advertisement.setLocation("Didlaukio g. 59");
         advertisement.setStatus("Laisvas");
@@ -68,14 +75,13 @@ public class MockData {
 
         // Catch error of same data insertion
         // Persist data, order is important!
-        try{
+        try {
             profilesDAO.persist(legalPerson);
             profilesDAO.persist(naturalPerson);
             System.out.println("CREATED MOCK DATA");
-        } catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Couldn't add data");
             e.printStackTrace();
         }
-
     }
 }
