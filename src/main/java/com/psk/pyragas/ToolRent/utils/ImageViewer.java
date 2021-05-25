@@ -13,7 +13,7 @@ import java.util.Base64;
 @SessionScoped
 public class ImageViewer implements Serializable {
     public String getImage(String imageUrl) throws IOException {
-        if(imageUrl == null) return null;
+        if(imageUrl == null) return "";
         try {
             byte[] content = Files.readAllBytes(Paths.get(imageUrl));
             return Base64.getEncoder().encodeToString(content);
