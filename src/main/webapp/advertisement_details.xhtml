@@ -51,9 +51,11 @@
                     <hr />
 
                     <div class="rent-div">
-                        <h2>Nuomotis</h2>
-                        <div class="ui-fluid">
-
+                        <h:panelGroup styleClass="ui-fluid" rendered="#{user == null}">
+                            <h2>Norėdami išsinuomoti, prisijunkite</h2>
+                        </h:panelGroup>
+                        <h:panelGroup styleClass="ui-fluid" rendered="#{user != null}">
+                            <h2>Nuomotis</h2>
                             <div class="p-field">
                                 <p:outputLabel for="location-field" value="Pristatymo vieta" />
                                 <p:inputText id="location-field"
@@ -84,7 +86,7 @@
                             </div>
 
                             <p:messages id="messages" showDetail="true" autoUpdate="true"> </p:messages>
-                        </div>
+                        </h:panelGroup>
                     </div>
                 </div>
             </h:form>

@@ -1,6 +1,5 @@
 package com.psk.pyragas.ToolRent.decorators;
 
-import com.psk.pyragas.ToolRent.dao.AdvertisementsDAO;
 import com.psk.pyragas.ToolRent.dao.IAdvertisementsDAO;
 import com.psk.pyragas.ToolRent.entities.Advertisement;
 
@@ -17,7 +16,6 @@ public abstract class SummerSaleAdvertisementsDAO implements IAdvertisementsDAO 
     @Inject
     @Delegate @Any
     private IAdvertisementsDAO advertisementsDAO;
-
 
     @Override
     public void persist(Advertisement ad) {

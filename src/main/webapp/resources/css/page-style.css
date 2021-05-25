@@ -49,3 +49,7 @@ hr {
     display: block;
     text-align: center;
 }
+
+.active-menu-button {
+    background-color: var(--surface-d);
+}
