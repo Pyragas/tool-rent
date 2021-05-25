@@ -30,22 +30,21 @@
                                           sizeLimit="#{imageUpload.maxFileSize}"
                                           listener="#{imageUpload.handlePhotoUpload}"
                                           auto="true"
-                                          update="@parent"
-                                          allowTypes="/(\.|\/)(gif|jpe?g|png)$/"
+                                          process="@this"
+                                          update="tool-img-div"
                                           accept="image/png, image/jpeg, image/gif"
                                           required="true" fileLimit="1"
                                           fileLimitMessage="Galima pridėti tik vieną nuotrauką"
                                           invalidFileMessage="Netinkamo formato failas."
                                           style="width: 100%"
                                           skinSimple="true" />
+                            <h:panelGroup id="tool-img-div" styleClass="tool-img-panel">
+                                <ui:fragment rendered="#{not empty imageUpload.file}">
+                                    <img src="data:image/png;base64,#{imageUpload.imageContentsAsBase64}"
+                                         alt="item-photo" />
+                                </ui:fragment>
+                            </h:panelGroup>
                         </div>
-
-                        <ui:fragment rendered="#{not empty imageUpload.file}">
-                            <div id="tool-img-div">
-                                <img src="data:image/png;base64,#{imageUpload.imageContentsAsBase64}"
-                                     alt="item-photo" />
-                            </div>
-                        </ui:fragment>
 
                         <div class="p-field">
                             <p:outputLabel for="measurements-field" value="Matmenys" />

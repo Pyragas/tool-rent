@@ -40,11 +40,12 @@ hr {
     margin: auto;
 }
 
-#tool-img-div img {
+.tool-img-panel img {
     width: 150px;
     margin: 20px;
 }
 
-#tool-img-div {
+.tool-img-panel {
+    display: block;
     text-align: center;
 }

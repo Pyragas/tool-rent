@@ -20,8 +20,6 @@ import java.util.concurrent.CompletableFuture;
 @Getter
 @Setter
 public class ImageUpload implements Serializable {
-    private UploadedFile file;
-
     @Inject
     @ProjectDir
     private String projectFilesDir;
@@ -31,6 +29,8 @@ public class ImageUpload implements Serializable {
     private String fileName;
 
     private byte[] fileContents;
+
+    private UploadedFile file;
 
     @PostConstruct
     public void init() {
@@ -50,7 +50,7 @@ public class ImageUpload implements Serializable {
 
     private String url;
 
-    public String handlePhotoUpload(FileUploadEvent event) {
+    public void handlePhotoUpload(FileUploadEvent event) {
         try {
             Thread.sleep(3000);
         } catch (InterruptedException e) {
@@ -60,7 +60,6 @@ public class ImageUpload implements Serializable {
         fileName = file.getFileName();
         fileContents = file.getContent();
         url = destination + fileName;
-        return url;
     }
 
     public void upload() {
