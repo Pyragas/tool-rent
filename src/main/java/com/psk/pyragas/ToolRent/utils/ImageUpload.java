@@ -51,6 +51,11 @@ public class ImageUpload implements Serializable {
     private String url;
 
     public String handlePhotoUpload(FileUploadEvent event) {
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         file = event.getFile();
         fileName = file.getFileName();
         fileContents = file.getContent();
