@@ -46,7 +46,7 @@ public class MockData {
         advertisement.setText("Puikus ekskavatorius, puikiai kasa duobes");
         advertisement.setType("Ekskavatorius");
         advertisement.setWeight(4400.0);
-        advertisement.setImage("images/samsung.jpg");
+//        advertisement.setImage("images/samsung.jpg");
         advertisement.setFuelLevel("Pilnas");
         advertisement.setLocation("Didlaukio g. 59");
         advertisement.setStatus("Laisvas");

@@ -24,7 +24,8 @@
                             </div>
                             <div class="product-grid-item-content">
 
-                                <p:graphicImage name="#{advertisement.image}"/>
+                                <img src="data:image/png;base64,#{imageViewer.getImage(advertisement.image)}"
+                                     alt="item-photo" />
                                 <div class="product-name">#{advertisement.name}</div>
                                 <div class="product-description">#{advertisement.text}</div>
                                 <p:rating readonly="true" value="#{advertisement.profile.rating}" />
@@ -62,9 +63,8 @@
                                             <span class="product-badge status-INVENTORYSTATUS">#{advertisements.selectedAd.status}</span>
                                         </div>
                                         <div class="product-grid-item-content">
-
-                                            <p:graphicImage
-                                                    name="#{advertisements.selectedAd.image}" />
+                                            <img src="data:image/png;base64,#{imageViewer.getImage(advertisement.image)}"
+                                                 alt="item-photo" />
                                             <div class="product-name">#{advertisements.selectedAd.name}</div>
                                             <div class="product-description">#{advertisements.selectedAd.text}</div>
                                             <p:rating readonly="true"

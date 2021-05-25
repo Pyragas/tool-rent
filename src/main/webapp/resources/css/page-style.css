@@ -39,3 +39,12 @@ hr {
     padding-top: 2em;
     margin: auto;
 }
+
+#tool-img-div img {
+    width: 150px;
+    margin: 20px;
+}
+
+#tool-img-div {
+    text-align: center;
+}

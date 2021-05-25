@@ -22,20 +22,30 @@
                             <p:inputText id="type-field" value="#{createAdvertisement.advertisementToCreate.type}"
                                          required="true" />
                         </div>
-
+                        <!--For some reason clears values of form on photo select-->
                         <div class="p-field">
                             <p:outputLabel for="photo-field" value="Nuotrauka" />
                             <p:fileUpload mode="simple"
                                           dragDropSupport="true" id="photo-field"
-                                          update="messages" sizeLimit="100000"
+                                          sizeLimit="#{imageUpload.maxFileSize}"
+                                          listener="#{imageUpload.handlePhotoUpload}"
+                                          auto="true"
+                                          update="@parent"
                                           allowTypes="/(\.|\/)(gif|jpe?g|png)$/"
+                                          accept="image/png, image/jpeg, image/gif"
                                           required="true" fileLimit="1"
                                           fileLimitMessage="Galima pridėti tik vieną nuotrauką"
                                           invalidFileMessage="Netinkamo formato failas."
-                                          value="#{fileUpload.file}"
                                           style="width: 100%"
                                           skinSimple="true" />
                         </div>
+
+                        <ui:fragment rendered="#{not empty imageUpload.file}">
+                            <div id="tool-img-div">
+                                <img src="data:image/png;base64,#{imageUpload.imageContentsAsBase64}"
+                                     alt="item-photo" />
+                            </div>
+                        </ui:fragment>
 
                         <div class="p-field">
                             <p:outputLabel for="measurements-field" value="Matmenys" />
@@ -88,8 +98,8 @@
                             <p:commandButton type="button" value="Atšaukti" styleClass="ui-button-danger p-mr-6"
                                              onclick="history.back(); return false;" />
                             <p:commandButton update="@form" value="Sukurti skelbimą"
-                                             action="#{createAdvertisement.submitAdvertisement }">
-                                <f:actionListener binding="#{fileUpload.upload()}" />
+                                             action="#{createAdvertisement.submitAdvertisement(imageUpload.url) }">
+                                <f:actionListener binding="#{imageUpload.upload()}" />
                             </p:commandButton>
                         </div>
 

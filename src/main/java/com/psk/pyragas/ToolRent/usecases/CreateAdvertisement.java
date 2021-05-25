@@ -7,42 +7,38 @@ import com.psk.pyragas.ToolRent.utils.interceptors.WillBeLogged;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.annotation.PostConstruct;
-import javax.enterprise.inject.Model;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
+import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
+import javax.inject.Named;
 import javax.transaction.Transactional;
+import java.io.Serializable;
 
 @WillBeLogged
-@Model
-public class CreateAdvertisement {
+@ViewScoped
+@Named
+@Getter
+public class CreateAdvertisement implements Serializable {
 
     ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
 
     @Inject
     private AdvertisementsDAO advertisementsDAO;
 
-    @Getter @Setter
+    @Setter
     private Advertisement advertisementToCreate = new Advertisement();
 
-    @PostConstruct
-    public void init() {
-
-    }
-
     @Transactional
-    public String submitAdvertisement() {
-
+    public String submitAdvertisement(String photoUrl) {
         Profile profile = (Profile) externalContext.getSessionMap().get("user");
         this.advertisementToCreate.setProfile(profile);
-        if(this.advertisementToCreate.getImage() == null) {
-            this.advertisementToCreate.setImage("images/default.jpg");
+        if(photoUrl == null) {
+            advertisementToCreate.setImage("images/default.jpg");
         }
-        this.advertisementsDAO.persist(this.advertisementToCreate);
+        else advertisementToCreate.setImage(photoUrl);
+        this.advertisementsDAO.persist(advertisementToCreate);
 
         return "index.xhtml?faces-redirect=true";
     }
-
-
 }
