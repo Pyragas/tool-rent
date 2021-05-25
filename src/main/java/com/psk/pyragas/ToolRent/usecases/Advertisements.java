@@ -3,11 +3,13 @@ package com.psk.pyragas.ToolRent.usecases;
 import com.psk.pyragas.ToolRent.dao.AdvertisementsDAO;
 import com.psk.pyragas.ToolRent.dao.OrdersDAO;
 import com.psk.pyragas.ToolRent.entities.Advertisement;
+import com.psk.pyragas.ToolRent.interceptors.WillBeLogged;
 import com.psk.pyragas.ToolRent.entities.Order;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.inject.Model;
 import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
@@ -18,6 +20,8 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 
+@WillBeLogged
+@Model
 @Getter
 @Setter
 @Named
@@ -43,14 +47,13 @@ public class Advertisements implements Serializable {
 
     @Transactional
     public String rentItem() {
-        System.out.println("Rent was called");
 
         Order order = new Order();
-        order.setPrice(new BigDecimal(66));
+        order.setRentPrice(new BigDecimal(66));
         order.setAdvertisement(selectedAd);
         ordersDAO.persist(order);
 
-        return "index.xhtml?faces-redirect=true";
+        return "advertisement_details.xhtml?faces-redirect=true&advertisementId=" + selectedAd.getId();
     }
 
 }

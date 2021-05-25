@@ -39,5 +39,16 @@
                 </div>
             </f:facet>
         </p:menubar>
+
+        <p:confirmDialog global="true" showEffect="fade" hideEffect="fade" responsive="true" width="350">
+            <p:commandButton value="Perrašyti pakeitimus savais" action="#{editProfile.overwrite}" styleClass="ui-button-danger" />
+            <p:commandButton value="Atnaujinti langą" action="#{editProfile.refreshAndContinue}"
+                             styleClass="ui-confirmdialog-no ui-button-flat" />
+        </p:confirmDialog>
+        <p:growl id="message" showDetail="true" globalOnly="true" />
+        <p:commandButton widgetVar="optimisticButton" value="Confirm" update="message" style="display: none">
+            <p:confirm header="Perspėjimas" message="Jūsų paskyros duomenys jau buvo pakeisti kitame lange." icon="pi pi-exclamation-triangle" />
+        </p:commandButton>
+
     </h:form>
 </ui:composition>

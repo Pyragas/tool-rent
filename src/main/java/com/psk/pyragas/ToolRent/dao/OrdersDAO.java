@@ -1,12 +1,15 @@
 package com.psk.pyragas.ToolRent.dao;
 
 import com.psk.pyragas.ToolRent.entities.Order;
+import com.psk.pyragas.ToolRent.entities.Profile;
+import com.psk.pyragas.ToolRent.interceptors.WillBeLogged;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import java.util.List;
 
+@WillBeLogged
 @ApplicationScoped
 public class OrdersDAO {
     @Inject
@@ -26,5 +29,11 @@ public class OrdersDAO {
 
     public List<Order> loadAll() {
         return em.createNamedQuery("Order.findAll", Order.class).getResultList();
+    }
+
+    public List<Order> loadCustomerOrders(Long profileId) {
+        return em.createNamedQuery("Order.findAllByProfile", Order.class)
+                .setParameter("profileId", profileId)
+                .getResultList();
     }
 }

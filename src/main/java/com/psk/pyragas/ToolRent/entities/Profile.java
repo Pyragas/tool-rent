@@ -23,6 +23,10 @@ public abstract class Profile implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Version
+    @Column(name="OPT_LOCK_VERSION")
+    private Integer version;
+
     @Column(unique = true)
     private String phoneNo;
 
