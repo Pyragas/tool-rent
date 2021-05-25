@@ -30,8 +30,6 @@ import java.io.Serializable;
 public class EditProfile implements Serializable {
     ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
 
-    @Getter
-    @Setter
     private Profile profile;
 
     @Inject
@@ -53,7 +51,6 @@ public class EditProfile implements Serializable {
             System.out.println("exception");
             PrimeFaces.current().executeScript("PF('optimisticButton').jq.click()");
         }
-
     }
 
     public void addMessage(FacesMessage.Severity messageType, String summary, String detail) {
