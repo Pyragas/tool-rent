@@ -18,21 +18,11 @@ public abstract class SummerSaleAdvertisementsDAO implements IAdvertisementsDAO 
     private IAdvertisementsDAO advertisementsDAO;
 
     @Override
-    public void persist(Advertisement ad) {
-        advertisementsDAO.persist(ad);
-    }
-
-    @Override
     public Advertisement findOne(Long id) {
         Advertisement advertisement = advertisementsDAO.findOne(id);
         advertisement.setRentPrice(advertisement.getRentPrice().multiply(BigDecimal.valueOf(.5)));
         advertisement.setName(advertisement.getName() + " (Vasaros akcija)" );
         return advertisement;
-    }
-
-    @Override
-    public Advertisement update(Advertisement ad) {
-        return advertisementsDAO.update(ad);
     }
 
     @Override

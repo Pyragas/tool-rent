@@ -41,9 +41,9 @@
             </f:facet>
         </p:menubar>
 
-        <p:confirmDialog global="true" showEffect="fade" hideEffect="fade" responsive="true" width="350">
+        <p:confirmDialog global="true" showEffect="fade" hideEffect="fade" responsive="true" width="380">
             <p:commandButton value="Perrašyti pakeitimus" action="#{editProfile.overwrite}" styleClass="ui-button-danger" />
-            <p:commandButton value="Atnaujinti langą" action="#{editProfile.refreshAndContinue}"
+            <p:commandButton value="Atnaujinti duomenis" action="#{editProfile.refreshAndContinue}"
                              styleClass="ui-confirmdialog-no ui-button-flat" />
         </p:confirmDialog>
         <p:growl id="message" showDetail="true" globalOnly="true" />
