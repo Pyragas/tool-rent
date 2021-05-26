@@ -20,9 +20,14 @@ import java.util.concurrent.CompletableFuture;
 @Getter
 @Setter
 public class ImageUpload implements Serializable {
+
     @Inject
     @ProjectDir
     private String projectFilesDir;
+
+    private final int maxFileSize = 10000000;
+
+    private String url;
 
     private String destination;
 
@@ -45,10 +50,6 @@ public class ImageUpload implements Serializable {
     public String getImageContentsAsBase64() {
         return Base64.getEncoder().encodeToString(file.getContent());
     }
-
-    private int maxFileSize = 100000;
-
-    private String url;
 
     public void handlePhotoUpload(FileUploadEvent event) {
         try {
