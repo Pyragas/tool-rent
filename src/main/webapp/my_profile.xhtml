@@ -1,15 +1,64 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
                 xmlns:h="http://java.sun.com/jsf/html"
                 template="/templates/page_view.xhtml">
 
     <ui:define name="general_content">
-        <h:panelGroup styleClass="container">
-            <img src="web-resources/default.jpg" alt="Traktoristas image" />
-            <h3>Elektroninis pastas: #{myProfile.profile.email}</h3>
-            <h3>Telefono numeris: #{myProfile.profile.phoneNo}</h3>
-            <h3>Įvertinimas: #{myProfile.profile.rating}</h3>
-            <button onclick="document.location='edit_profile.xhtml'" class="change button">Change settings</button>
+        <h:panelGroup class="container">
+
+            <h:form styleClass="center-panel">
+                <div class="card">
+                    <div class="ui-fluid">
+
+                        <div class="profile-div">
+                            <h2>Mano profilio duomenys</h2>
+                        </div>
+
+                        <div class="p-field profile-image-div">
+                            <p:outputLabel value="Profilio nuotrauka" />
+                            <img src="web-resources/default.jpg" alt="tractor-image" id="profile-image"/>
+                        </div>
+
+                        <div class="p-field">
+                            <p:outputLabel for="name-field" value="Elektroninis paštas" />
+                            <p:inputText readonly="#{editProfile.isReadOnly}" id="name-field"
+                                         value="#{editProfile.profile.email}"
+                                         required="false" />
+                        </div>
+
+                        <div class="p-field">
+                            <p:outputLabel for="type-field" value="Telefono numeris" />
+                            <p:inputText readonly="#{editProfile.isReadOnly}" id="type-field"
+                                         value="#{editProfile.profile.phoneNo}"
+                                         required="false" />
+                        </div>
+
+                        <div class="p-field">
+                            <p:outputLabel for="password-field" value="Naujas slaptažodis" />
+                            <p:password readonly="#{editProfile.isReadOnly}" id="password-field"
+                                        value="#{editProfile.profile.password}"
+                                        required="false" />
+                        </div>
+
+                        <h:panelGroup styleClass="p-d-flex p-jc-between p-pt-4">
+                            <h:panelGroup rendered="#{!(editProfile.isReadOnly)}">
+                                <p:commandButton type="button" value="Atšaukti" styleClass="ui-button-danger p-mr-6"
+                                                 onclick="location.reload()" />
+                                <p:commandButton update="@form" value="Išsaugoti"
+                                                 action="#{editProfile.updateProfile}" />
+                            </h:panelGroup>
+                            <h:panelGroup rendered="#{editProfile.isReadOnly}">
+                                <p:commandButton update="@form" value="Redaguoti profilio duomenis"
+                                                 action="#{editProfile.setIsReadOnly(false)}" />
+                            </h:panelGroup>
+                        </h:panelGroup>
+
+                        <p:messages id="messages" showDetail="true" autoUpdate="true"> </p:messages>
+                    </div>
+                </div>
+            </h:form>
         </h:panelGroup>
     </ui:define>
+
 </ui:composition>
