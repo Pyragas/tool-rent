@@ -2,14 +2,14 @@ package com.psk.pyragas.ToolRent.utils;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
-import javax.ejb.Stateful;
+import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-@Stateful
-public class LoggerToFile {
+@SessionScoped
+public class LoggerToFile implements Serializable {
     @Inject
     @ProjectDir
     private String projectFilesDir;
