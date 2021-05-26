@@ -45,14 +45,7 @@ public class Advertisements implements Serializable {
         ads = adsDao.loadNumber(48);
     }
 
-    @Transactional
-    public String rentItem() {
-
-        Order order = new Order();
-        order.setRentPrice(new BigDecimal(66));
-        order.setAdvertisement(selectedAd);
-        ordersDAO.persist(order);
-
+    public String showMoreInfo() {
         return "advertisement_details.xhtml?faces-redirect=true&advertisementId=" + selectedAd.getId();
     }
 
