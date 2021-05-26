@@ -1,4 +1,4 @@
-package com.psk.pyragas.ToolRent.interceptors;
+package com.psk.pyragas.ToolRent.utils.interceptors;
 
 import javax.interceptor.InterceptorBinding;
 import java.lang.annotation.*;

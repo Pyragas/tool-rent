@@ -3,7 +3,7 @@ package com.psk.pyragas.ToolRent.usecases;
 import com.psk.pyragas.ToolRent.dao.AdvertisementsDAO;
 import com.psk.pyragas.ToolRent.dao.OrdersDAO;
 import com.psk.pyragas.ToolRent.entities.Advertisement;
-import com.psk.pyragas.ToolRent.interceptors.WillBeLogged;
+import com.psk.pyragas.ToolRent.utils.interceptors.WillBeLogged;
 import com.psk.pyragas.ToolRent.entities.Order;
 import lombok.Getter;
 import lombok.Setter;
@@ -45,14 +45,7 @@ public class Advertisements implements Serializable {
         ads = adsDao.loadNumber(48);
     }
 
-    @Transactional
-    public String rentItem() {
-
-        Order order = new Order();
-        order.setRentPrice(new BigDecimal(66));
-        order.setAdvertisement(selectedAd);
-        ordersDAO.persist(order);
-
+    public String showMoreInfo() {
         return "advertisement_details.xhtml?faces-redirect=true&advertisementId=" + selectedAd.getId();
     }
 

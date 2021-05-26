@@ -1,8 +1,7 @@
 package com.psk.pyragas.ToolRent.dao;
 
 import com.psk.pyragas.ToolRent.entities.Profile;
-import lombok.SneakyThrows;
-import com.psk.pyragas.ToolRent.interceptors.WillBeLogged;
+import com.psk.pyragas.ToolRent.utils.interceptors.WillBeLogged;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.faces.context.ExternalContext;
@@ -25,14 +24,9 @@ public class ProfilesDAO {
         return em.find(Profile.class, id);
     }
 
-
     @Transactional
     public Profile update(Profile profile) {
-        ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
-        Profile profile1 = em.merge(profile);
-        System.out.println("after merge");
-        System.out.println("after context update");
-        return profile1;
+        return em.merge(profile);
     }
 
     public List<Profile> loadAll() {

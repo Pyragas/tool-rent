@@ -1,6 +1,6 @@
 package com.psk.pyragas.ToolRent.usecases;
 
-import com.psk.pyragas.ToolRent.interceptors.WillBeLogged;
+import com.psk.pyragas.ToolRent.utils.interceptors.WillBeLogged;
 
 import javax.enterprise.inject.Model;
 import javax.faces.context.ExternalContext;

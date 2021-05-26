@@ -31,8 +31,8 @@
                         </p:column>
 
                         <p:column headerText="Nuotrauka" exportable="false">
-                            <p:graphicImage name="#{order.advertisement.image}"
-                                            styleClass="product-image" />
+                            <img src="data:image/png;base64,#{imageViewer.getImage(order.advertisement.image)}"
+                                 alt="item-photo" class="product-image" />
                         </p:column>
 
                         <p:column headerText="Pavadinimas" sortBy="#{order.advertisement.name}"

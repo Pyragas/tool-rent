@@ -1,8 +1,7 @@
 package com.psk.pyragas.ToolRent.dao;
 
 import com.psk.pyragas.ToolRent.entities.Order;
-import com.psk.pyragas.ToolRent.entities.Profile;
-import com.psk.pyragas.ToolRent.interceptors.WillBeLogged;
+import com.psk.pyragas.ToolRent.utils.interceptors.WillBeLogged;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
