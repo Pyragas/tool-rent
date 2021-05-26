@@ -3,91 +3,96 @@
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:h="http://java.sun.com/jsf/html"
                 template="/templates/page_view.xhtml">
-    <script type="text/javascript" src="web-resources/primeFacesLocales.js"></script>
+    <script type="text/javascript" src="resources/locales/primeFacesLocales.js"></script>
 
 
     <ui:define name="general_content">
         <h:panelGroup styleClass="layout-content">
             <h:form styleClass="center-panel advertisement-details">
                 <div class="card" style="padding: 4em">
-                    <h2 style="margin-bottom: 20px">Detali informacija</h2>
-                    <hr />
-                    <div class="p-field">
-                        <h6>Pavadinimas:</h6>
-                        <h4>#{advertisementDetails.currentAdvertisement.name}</h4>
-                    </div>
-                    <hr />
-                    <div class="p-field">
-                        <h6>Nuotrauka</h6>
-                        <img src="data:image/png;base64,#{imageViewer.getImage(advertisementDetails.currentAdvertisement.image)}"
-                             alt="item-photo" />
-                    </div>
-                    <hr />
-                    <div class="p-field">
-                        <h6>Aprašymas:</h6>
-                        <h4>#{advertisementDetails.currentAdvertisement.text}</h4>
-                    </div>
-                    <hr />
-                    <div class="p-field">
-                        <h6>Nuomotojo įvertinimas:</h6>
-                        <p:rating readonly="true"
-                                  value="#{advertisementDetails.currentAdvertisement.profile.rating}" />
-                    </div>
-                    <hr />
-                    <div class="p-field">
-                        <h6>Būsena:</h6>
-                        <h4>#{advertisementDetails.currentAdvertisement.status}</h4>
-                    </div>
-                    <hr />
-                    <div class="p-field">
-                        <h6>Kuro tipas:</h6>
-                        <h4>#{advertisementDetails.currentAdvertisement.fuelType}</h4>
-                    </div>
-                    <hr />
-                    <div class="p-field">
-                        <h6>Dabartinė vieta:</h6>
-                        <h4>#{advertisementDetails.currentAdvertisement.location}</h4>
-                    </div>
-                    <hr />
+                    <h:panelGroup rendered="#{advertisementDetails.currentAdvertisement != null}">
+                        <h2 style="margin-bottom: 20px">Detali informacija</h2>
+                        <hr />
+                        <div class="p-field">
+                            <h6>Pavadinimas:</h6>
+                            <h4>#{advertisementDetails.currentAdvertisement.name}</h4>
+                        </div>
+                        <hr />
+                        <div class="p-field">
+                            <h6>Nuotrauka</h6>
+                            <img src="data:image/png;base64,#{imageViewer.getImage(advertisementDetails.currentAdvertisement.image)}"
+                                 alt="item-photo" />
+                        </div>
+                        <hr />
+                        <div class="p-field">
+                            <h6>Aprašymas:</h6>
+                            <h4>#{advertisementDetails.currentAdvertisement.text}</h4>
+                        </div>
+                        <hr />
+                        <div class="p-field">
+                            <h6>Nuomotojo įvertinimas:</h6>
+                            <p:rating readonly="true"
+                                      value="#{advertisementDetails.currentAdvertisement.profile.rating}" />
+                        </div>
+                        <hr />
+                        <div class="p-field">
+                            <h6>Būsena:</h6>
+                            <h4>#{advertisementDetails.currentAdvertisement.status}</h4>
+                        </div>
+                        <hr />
+                        <div class="p-field">
+                            <h6>Kuro tipas:</h6>
+                            <h4>#{advertisementDetails.currentAdvertisement.fuelType}</h4>
+                        </div>
+                        <hr />
+                        <div class="p-field">
+                            <h6>Dabartinė vieta:</h6>
+                            <h4>#{advertisementDetails.currentAdvertisement.location}</h4>
+                        </div>
+                        <hr />
 
-                    <div class="rent-div">
-                        <h:panelGroup styleClass="ui-fluid" rendered="#{user == null}">
-                            <h2>Norėdami išsinuomoti, prisijunkite</h2>
-                        </h:panelGroup>
-                        <h:panelGroup styleClass="ui-fluid" rendered="#{user != null}">
-                            <h2>Nuomotis</h2>
-                            <div class="p-field">
-                                <p:outputLabel for="location-field" value="Pristatymo vieta" />
-                                <p:inputText id="location-field"
-                                             value="#{advertisementDetails.orderToCreate.deliveryLocation}"
-                                             required="true" />
-                            </div>
-                            <div class="p-field">
-                                <p:outputLabel for="orderStartDate" value="Naudojimo pradžia" />
-                                <p:datePicker id="orderStartDate"
-                                              value="#{advertisementDetails.orderToCreate.rentTimeStart}"
-                                              showIcon="true" locale="lt" pattern="yyyy-MM-dd hh"
-                                              mindate="#{currentDate}" />
-                            </div>
-                            <div class="p-field">
-                                <p:outputLabel for="orderEndDate" value="Naudojimo pabaiga" />
-                                <p:datePicker id="orderEndDate"
-                                              value="#{advertisementDetails.orderToCreate.rentTimeEnd}"
-                                              showIcon="true" locale="lt" pattern="yyyy-MM-dd hh"
-                                              mindate="#{currentDate}" />
-                            </div>
+                        <div class="rent-div">
+                            <h:panelGroup styleClass="ui-fluid" rendered="#{user == null}">
+                                <h2>Norėdami išsinuomoti, prisijunkite</h2>
+                            </h:panelGroup>
+                            <h:panelGroup styleClass="ui-fluid" rendered="#{user != null}">
+                                <h2>Nuomotis</h2>
+                                <div class="p-field">
+                                    <p:outputLabel for="location-field" value="Pristatymo vieta" />
+                                    <p:inputText id="location-field"
+                                                 value="#{advertisementDetails.orderToCreate.deliveryLocation}"
+                                                 required="true" />
+                                </div>
+                                <div class="p-field">
+                                    <p:outputLabel for="orderStartDate" value="Naudojimo pradžia" />
+                                    <p:datePicker id="orderStartDate"
+                                                  value="#{advertisementDetails.orderToCreate.rentTimeStart}"
+                                                  showIcon="true" locale="lt" pattern="yyyy-MM-dd hh"
+                                                  mindate="#{currentDate}" />
+                                </div>
+                                <div class="p-field">
+                                    <p:outputLabel for="orderEndDate" value="Naudojimo pabaiga" />
+                                    <p:datePicker id="orderEndDate"
+                                                  value="#{advertisementDetails.orderToCreate.rentTimeEnd}"
+                                                  showIcon="true" locale="lt" pattern="yyyy-MM-dd hh"
+                                                  mindate="#{currentDate}" />
+                                </div>
 
 
-                            <div class="p-d-flex p-jc-between p-pt-5">
-                                <p:commandButton type="button" value="Atšaukti" styleClass="ui-button-danger p-mr-6"
-                                                 onclick="history.back(); return false;" />
-                                <p:commandButton update="@form" value="Išsinuomoti"
-                                                 action="#{advertisementDetails.createOrder}" />
-                            </div>
+                                <div class="p-d-flex p-jc-between p-pt-5">
+                                    <p:commandButton type="button" value="Atšaukti" styleClass="ui-button-danger p-mr-6"
+                                                     onclick="history.back(); return false;" />
+                                    <p:commandButton update="@form" value="Išsinuomoti"
+                                                     action="#{advertisementDetails.createOrder}" />
+                                </div>
 
-                            <p:messages id="messages" showDetail="true" autoUpdate="true"> </p:messages>
-                        </h:panelGroup>
-                    </div>
+                                <p:messages id="messages" showDetail="true" autoUpdate="true"> </p:messages>
+                            </h:panelGroup>
+                        </div>
+                    </h:panelGroup>
+                    <h:panelGroup rendered="#{advertisementDetails.currentAdvertisement == null}">
+                        <h2 style="margin-bottom: 20px">Skelbimas nerastas</h2>
+                    </h:panelGroup>
                 </div>
             </h:form>
         </h:panelGroup>

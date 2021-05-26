@@ -17,13 +17,12 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.transaction.Transactional;
 import java.io.Serializable;
-import java.time.LocalDateTime;
 import java.util.Map;
 
-@Getter
-@Setter
 @Named
 @ViewScoped
+@Getter
+@Setter
 public class AdvertisementDetails implements Serializable {
 
     ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
@@ -34,27 +33,29 @@ public class AdvertisementDetails implements Serializable {
     @Inject
     private OrdersDAO ordersDAO;
 
-    @Getter @Setter
     private Advertisement currentAdvertisement;
 
-    @Getter @Setter
     private Order orderToCreate = new Order();
 
     @PostConstruct
     public void init() {
         Map<String, String> requestParameters =
                 FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
-        Long advertisementId = Long.parseLong(requestParameters.get("advertisementId"));
+        String adIdParameter = requestParameters.get("advertisementId");
+        System.out.println("HHHHHHHHHHHHH");
+        System.out.println(adIdParameter);
+        if(adIdParameter == null) return;
+        Long advertisementId = Long.parseLong(adIdParameter);
         currentAdvertisement = advertisementsDAO.findOne(advertisementId);
     }
 
     @Transactional
     public String createOrder() {
         Profile profile = (Profile) externalContext.getSessionMap().get("user");
-        orderToCreate.setAdvertisement(currentAdvertisement);
         orderToCreate.setProfile(profile);
+        orderToCreate.setAdvertisement(currentAdvertisement);
         ordersDAO.persist(orderToCreate);
 
-        return "index.xhtml";
+        return "index.xhtml?faces-redirect=true";
     }
 }

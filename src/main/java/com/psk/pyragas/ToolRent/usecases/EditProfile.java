@@ -32,23 +32,24 @@ public class EditProfile implements Serializable {
 
     private Profile profile;
 
+    private Boolean isReadOnly;
+
     @Inject
     private ProfilesDAO profilesDAO;
 
     @PostConstruct
     public void init() {
         profile = profilesDAO.findOne(((Profile) externalContext.getSessionMap().get("user")).getId());
+        isReadOnly = true;
     }
 
     public void updateProfile() {
         try {
             profilesDAO.update(profile);
-            System.out.println("putting user");
             externalContext.getSessionMap().put("user", profile);
             FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml?faces-redirect=true");
         }
         catch (OptimisticLockException | IOException e) {
-            System.out.println("exception");
             PrimeFaces.current().executeScript("PF('optimisticButton').jq.click()");
         }
     }
@@ -59,13 +60,12 @@ public class EditProfile implements Serializable {
     }
 
     public void refreshAndContinue() throws IOException {
-        FacesContext.getCurrentInstance().getExternalContext().redirect("edit_profile.xhtml?id=" + profile.getId() );
+        FacesContext.getCurrentInstance().getExternalContext().redirect("my_profile.xhtml?id=" + profile.getId() );
         addMessage(FacesMessage.SEVERITY_INFO, "Data has been successfully updated.", "Refresh and update.");
     }
 
     @Transactional(Transactional.TxType.REQUIRES_NEW)
     public void overwrite() throws IOException {
-        System.out.println("overwritten");
         Profile profileInDB = profilesDAO.findOne(profile.getId());
         try {
             BeanUtils.copyProperties(profileInDB, profile);
@@ -73,7 +73,7 @@ public class EditProfile implements Serializable {
             FacesContext.getCurrentInstance().getExternalContext().redirect("my_profile.xhtml");
             addMessage(FacesMessage.SEVERITY_INFO, "Data has been overwritten.", "Overwritten.");
         } catch (Exception e) {
-            FacesContext.getCurrentInstance().getExternalContext().redirect("edit_profile.xhtml?id=" + profile.getId());
+            FacesContext.getCurrentInstance().getExternalContext().redirect("my_profile.xhtml?id=" + profile.getId());
             addMessage(FacesMessage.SEVERITY_INFO, "Sorry, unable to overwrite.", "Please edit again.");
         }
     }
