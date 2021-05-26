@@ -17,7 +17,7 @@
 
                         <div class="p-field profile-image-div">
                             <p:outputLabel value="Profilio nuotrauka" />
-                            <img src="web-resources/default.jpg" alt="tractor-image" id="profile-image"/>
+                            <img src="resources/images/default.jpg" alt="tractor-image" id="profile-image"/>
                         </div>
 
                         <div class="p-field">
@@ -32,13 +32,6 @@
                             <p:inputText readonly="#{editProfile.isReadOnly}" id="type-field"
                                          value="#{editProfile.profile.phoneNo}"
                                          required="false" />
-                        </div>
-
-                        <div class="p-field">
-                            <p:outputLabel for="password-field" value="Naujas slaptažodis" />
-                            <p:password readonly="#{editProfile.isReadOnly}" id="password-field"
-                                        value="#{editProfile.profile.password}"
-                                        required="false" />
                         </div>
 
                         <h:panelGroup styleClass="p-d-flex p-jc-between p-pt-4">
