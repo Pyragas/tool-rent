@@ -93,6 +93,13 @@
                                              required="true" />
                         </div>
 
+                        <div class="p-field">
+                            <p:outputLabel for="location-field" value="Dabartinė vieta" />
+                            <p:inputTextarea id="location-field"
+                                             value="#{createAdvertisement.advertisementToCreate.location}"
+                                             required="true" />
+                        </div>
+
                         <div class="p-d-flex p-jc-between p-pt-4">
                             <p:commandButton type="button" value="Atšaukti" styleClass="ui-button-danger p-mr-6"
                                              onclick="history.back(); return false;" />

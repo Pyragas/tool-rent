@@ -61,7 +61,10 @@ public class AdvertisementDetails implements Serializable {
         orderToCreate.setAdvertisement(currentAdvertisement);
         orderToCreate.setRentPrice(currentAdvertisement.getRentPrice().multiply(BigDecimal.valueOf(myOrders.calculateRentDuration(orderToCreate))));
         orderToCreate.setStatus("Vykdomas");
+
+
         ordersDAO.persist(orderToCreate);
+        advertisementsDAO.update(currentAdvertisement);
 
         return "index.xhtml?faces-redirect=true";
     }
