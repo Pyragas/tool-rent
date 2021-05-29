@@ -34,6 +34,7 @@ public class CreateAdvertisement implements Serializable {
         Profile profile = (Profile) externalContext.getSessionMap().get("user");
         this.advertisementToCreate.setProfile(profile);
         advertisementToCreate.setImage(photoUrl);
+        advertisementToCreate.setStatus("Laisvas");
         this.advertisementsDAO.persist(advertisementToCreate);
 
         return "index.xhtml?faces-redirect=true";

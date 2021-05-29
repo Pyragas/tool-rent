@@ -46,6 +46,7 @@ public class Registration implements Serializable {
 
     @Transactional
     public String createProfile() {
+        profileToCreate.setRating(0.0f);
         profilesDAO.persist(profileToCreate);
         externalContext.getSessionMap().put("user", profileToCreate);
         return "index.xhtml?faces-redirect=true";
