@@ -71,10 +71,10 @@ public class EditProfile implements Serializable {
             BeanUtils.copyProperties(profileInDB, profile);
             profilesDAO.update(profileInDB);
             FacesContext.getCurrentInstance().getExternalContext().redirect("my_profile.xhtml");
-            addMessage(FacesMessage.SEVERITY_INFO, "Data has been overwritten.", "Overwritten.");
+            addMessage(FacesMessage.SEVERITY_INFO, "Duomenys buvo perrašyti.", "Perrašyti.");
         } catch (Exception e) {
             FacesContext.getCurrentInstance().getExternalContext().redirect("my_profile.xhtml?id=" + profile.getId());
-            addMessage(FacesMessage.SEVERITY_INFO, "Sorry, unable to overwrite.", "Please edit again.");
+            addMessage(FacesMessage.SEVERITY_INFO, "Atsiprašome, negalima perrašyti.", "Keiskite iš naujo.");
         }
     }
 

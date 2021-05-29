@@ -56,11 +56,11 @@ public class AdvertisementDetails implements Serializable {
     @Transactional
     public String createOrder() {
         Profile profile = (Profile) externalContext.getSessionMap().get("user");
-        currentAdvertisement.setStatus("Ordered");
+        currentAdvertisement.setStatus("Užsakytas");
         orderToCreate.setProfile(profile);
         orderToCreate.setAdvertisement(currentAdvertisement);
         orderToCreate.setRentPrice(currentAdvertisement.getRentPrice().multiply(BigDecimal.valueOf(myOrders.calculateRentDuration(orderToCreate))));
-        orderToCreate.setStatus("IN_PROGRESS");
+        orderToCreate.setStatus("Vykdomas");
         ordersDAO.persist(orderToCreate);
 
         return "index.xhtml?faces-redirect=true";
