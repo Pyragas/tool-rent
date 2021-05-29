@@ -17,6 +17,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.transaction.Transactional;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Map;
 
 @Named
@@ -26,6 +27,9 @@ import java.util.Map;
 public class AdvertisementDetails implements Serializable {
 
     ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+
+    @Inject
+    private MyOrders myOrders;
 
     @Inject
     private AdvertisementsDAO advertisementsDAO;
@@ -54,6 +58,7 @@ public class AdvertisementDetails implements Serializable {
         Profile profile = (Profile) externalContext.getSessionMap().get("user");
         orderToCreate.setProfile(profile);
         orderToCreate.setAdvertisement(currentAdvertisement);
+        orderToCreate.setRentPrice(currentAdvertisement.getRentPrice().multiply(BigDecimal.valueOf(myOrders.calculateRentDuration(orderToCreate))));
         ordersDAO.persist(orderToCreate);
 
         return "index.xhtml?faces-redirect=true";
