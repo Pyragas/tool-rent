@@ -21,17 +21,15 @@
                         </div>
 
                         <div class="p-field">
-                            <p:outputLabel for="name-field" value="Elektroninis paštas" />
-                            <p:inputText readonly="#{editProfile.isReadOnly}" id="name-field"
-                                         value="#{editProfile.profile.email}"
-                                         required="false" />
+                            <p:outputLabel for="email-field" value="Elektroninis paštas" />
+                            <p:inputText readonly="#{editProfile.isReadOnly}" id="email-field"
+                                         value="#{editProfile.profile.email}" />
                         </div>
 
                         <div class="p-field">
                             <p:outputLabel for="type-field" value="Telefono numeris" />
                             <p:inputText readonly="#{editProfile.isReadOnly}" id="type-field"
-                                         value="#{editProfile.profile.phoneNo}"
-                                         required="false" />
+                                         value="#{editProfile.profile.phoneNo}" />
                         </div>
 
                         <h:panelGroup styleClass="p-d-flex p-jc-between p-pt-4">

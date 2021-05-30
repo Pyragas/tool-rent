@@ -53,7 +53,7 @@ public class Advertisement implements Serializable {
     private BigDecimal rentPrice;
     private BigDecimal operatorPrice;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private Profile profile;
 
     private String image;

@@ -46,9 +46,6 @@ public class AdvertisementDetails implements Serializable {
         Map<String, String> requestParameters =
                 FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
         String adIdParameter = requestParameters.get("advertisementId");
-        System.out.println("HHHHHHHHHHHHH");
-        System.out.println(adIdParameter);
-        if(adIdParameter == null) return;
         Long advertisementId = Long.parseLong(adIdParameter);
         currentAdvertisement = advertisementsDAO.findOne(advertisementId);
     }
