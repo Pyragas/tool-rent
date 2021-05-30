@@ -1,12 +1,13 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
                 template="/templates/page_view.xhtml">
 
 <ui:define name="general_content">
-    <h:panelGroup styleClass="centered-panel">
-        <h2>"Hello World!</h2>
-        <h3>Would you like to rent something? :)))</h3>
+    <h:panelGroup styleClass="center-panel" style="text-align: center; margin-top: 50px">
+        <p:graphicImage name="images/logo.png" styleClass="logo-image"/>
+        <h1 style="margin-top: 40px">Sveiki atvykę!</h1>
     </h:panelGroup>
 </ui:define>
 </ui:composition>

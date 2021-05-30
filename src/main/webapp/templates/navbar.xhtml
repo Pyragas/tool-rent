@@ -9,7 +9,7 @@
     <h:form prependId="false">
         <p:growl id="messages" />
         <p:menubar id="menubar">
-            <p:menuitem onclick="setCurrentPage(this)" value="ToolRent™" action="index.xhtml?faces-redirect=true" />
+            <p:menuitem onclick="setCurrentPage(this)" value="StatNuoma" action="index.xhtml?faces-redirect=true" style="font-weight: bold"/>
             <p:menuitem value="DUK" />
             <p:menuitem onclick="setCurrentPage(this)" id="create-ad" rendered="#{user != null}" value="Kurti skelbimą" action="create_advertisement.xhtml?faces-redirect=true" />
             <p:menuitem onclick="setCurrentPage(this)" id="my-profile" rendered="#{user != null}" value="Mano profilis" action="my_profile.xhtml?faces-redirect=true" />

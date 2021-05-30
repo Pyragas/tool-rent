@@ -1871,8 +1871,8 @@ pre[class*="language-"].line-numbers > code {
 }
 
 .product .product-grid-item img {
-    /*width: 75%;*/
-    height: 25%;
+    max-width: 75%;
+    max-height: 200px;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
     margin: 2rem 0;
 }
@@ -1935,7 +1935,7 @@ pre[class*="language-"].line-numbers > code {
 }
 
 .crud-demo .product-image {
-    width: 100px;
+    max-width: 100px;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
