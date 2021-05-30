@@ -6,6 +6,11 @@
     margin: auto;
 }
 
+.logo-image {
+    width: 50%;
+    padding-left: 4%;
+}
+
 form.fill-in-form {
     padding: 2em;
     width: 460px;
