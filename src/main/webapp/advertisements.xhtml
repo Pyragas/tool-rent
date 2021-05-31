@@ -37,7 +37,7 @@
                                                  action="#{advertisements.showMoreInfo}"
                                                  value="Daugiau informacijos"
                                                  icon="pi pi-info-circle"
-                                                 disabled="#{advertisement.status == 'OUTOFSTOCK'}">
+                                                 disabled="#{advertisement.status == 'Užsakytas'}">
                                     <f:setPropertyActionListener value="#{advertisement}"
                                                                  target="#{advertisements.selectedAd}" />
                                 </p:commandButton>
