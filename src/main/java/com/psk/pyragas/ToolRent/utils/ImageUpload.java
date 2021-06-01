@@ -52,11 +52,6 @@ public class ImageUpload implements Serializable {
     }
 
     public void handlePhotoUpload(FileUploadEvent event) {
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         file = event.getFile();
         fileName = file.getFileName();
         fileContents = file.getContent();
@@ -69,11 +64,6 @@ public class ImageUpload implements Serializable {
 
     public void copyFile(String fileName, byte[] content) {
         CompletableFuture.runAsync(() -> {
-                    try {
-                        Thread.sleep(3000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
                     try {
                         OutputStream out = new FileOutputStream(url);
                         out.write(content);
